@@ -1,0 +1,39 @@
+.grids{
+  padding: 20rpx 0 0 20rpx;
+}
+.grids::after{
+  display: block;
+  content: " ";
+  clear: both;
+}
+.grids-item{
+  float: left;
+  width: 345rpx;
+  background-color: #FFF;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.grids-pic{
+  width: 345rpx;
+  height: 345rpx;
+  background-color: yellow;
+}
+.grids-pic image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.grids-name{
+  color: #000;
+}
+.grids-price{
+  color: #FF6589;
+  font-size: 32rpx;
+}
+.grids-info{
+  border-left: 3px solid #FF6589;
+  padding-left: 20rpx;
+}
+.grids-content{
+  padding: 20rpx 0;
+}

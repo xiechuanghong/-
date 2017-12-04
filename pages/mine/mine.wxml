@@ -1,0 +1,88 @@
+<view class='header'>
+  <image src='../img/index_icon_book.png'></image>
+  <view class='name'>
+    <text>小可哎</text>
+  </view>
+</view>
+<view class='list'>
+  <view class='list-item'>
+    <view class='list-icon'>
+      <text class='iconfont icon-sync'></text>
+    </view>
+    <view class='list-content text-between'>
+      <view class='list-title'>
+        <text>同步会员信息</text>
+      </view>
+      <view class='list-right'>
+        <text class='iconfont icon-right'></text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='list'>
+  <view class='list-item'>
+    <view class='list-icon'>
+      <text class='iconfont icon-vip'></text>
+    </view>
+    <view class='list-content text-between'>
+      <view class='list-title'>
+        <text>会员注册</text>
+      </view>
+      <view class='list-right'>
+        <text class='iconfont icon-right'></text>
+      </view>
+    </view>
+  </view>
+  <view class='list-item'>
+    <view class='list-icon'>
+      <text class='iconfont icon-lucky'></text>
+    </view>
+    <view class='list-content text-between'>
+      <view class='list-title'>
+        <text>我的优惠券</text>
+      </view>
+      <view class='list-right'>
+        <text class='iconfont icon-right'></text>
+      </view>
+    </view>
+  </view>
+  <view class='list-item'>
+    <view class='list-icon'>
+      <text class='iconfont icon-record'></text>
+    </view>
+    <view class='list-content text-between'>
+      <view class='list-title'>
+        <text>买单记录</text>
+      </view>
+      <view class='list-right'>
+        <text class='iconfont icon-right'></text>
+      </view>
+    </view>
+  </view>
+  <view class='list-item'>
+    <view class='list-icon'>
+      <text class='iconfont icon-extend'></text>
+    </view>
+    <view class='list-content text-between'>
+      <view class='list-title'>
+        <text>推广</text>
+      </view>
+      <view class='list-right'>
+        <text class='iconfont icon-right'></text>
+      </view>
+    </view>
+  </view>
+  <view class='list-item'>
+    <view class='list-icon'>
+      <text class='iconfont icon-clean'></text>
+    </view>
+    <view class='list-content text-between'>
+      <view class='list-title'>
+        <text>清楚缓存</text>
+      </view>
+      <view class='list-right'>
+        <text class='iconfont icon-right'></text>
+      </view>
+    </view>
+  </view>
+</view>

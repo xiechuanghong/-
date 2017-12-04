@@ -1,0 +1,30 @@
+<!--pages/ordered/ordered.wxml-->
+<view class="body">
+  <view class="topInfo box">
+    <image class="shopImg" src="../img/01.png"></image>
+    <view class="shopInfo">
+      <view>
+        <image class="topIcon" src="../img/book_icon_shop.png" ></image>
+        哇哈哈美容</view>
+      <view>
+        <image class="topIcon" src="../img/book_icon_position.png" ></image>
+        广州市番禺区骏盈大厦B栋501</view>
+      <view>
+        <image class="topIcon" src="../img/book_icon_businesshours.png" ></image>
+        营业时间：9:00-22:00</view>
+    </view>
+  </view>
+
+  <view class="list ">
+    <view class="manInfo box">
+      <image class="manImg" src="../img/02.png"></image>
+      <view class="manDetail">
+        <view class="manRow name">小白兔</view>
+        <view class="manRow titles">助理美导师</view>
+        <view class="manRow or">已被约：100</view>
+      </view>
+      <button class="btn">马上预约</button>
+    </view>
+  </view>
+</view>
+

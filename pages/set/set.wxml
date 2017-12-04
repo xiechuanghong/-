@@ -1,0 +1,32 @@
+<view class='grids'>
+  <view class='grids-item' bindtap='toSet'>
+    <view class='grids-pic'>
+      <image></image>
+    </view>
+    <view class='grids-content'>
+      <view class='grids-info'>
+        <view class='grids-name'>
+          <text>意大利玻尿酸原液</text>
+        </view>
+        <view class='grids-price'>
+          <text>￥158.00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='grids-item' bindtap='toSet'>
+    <view class='grids-pic'>
+      <image></image>
+    </view>
+    <view class='grids-content'>
+      <view class='grids-info'>
+        <view class='grids-name'>
+          <text>意大利玻尿酸原液</text>
+        </view>
+        <view class='grids-price'>
+          <text>￥158.00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

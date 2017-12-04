@@ -1,0 +1,42 @@
+page{
+  min-height: 100%;
+  background-color: #F8F8F8;
+  font-size: 30rpx;
+  color: #333;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 495205 */
+  src: url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.eot');
+  src: url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.woff') format('woff'),
+  url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size: inherit;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-sync::before{ /*同步*/
+  content: '\e634';
+}
+.icon-right::before{ /*向右*/
+  content: '\e637';
+}
+.icon-extend::before{ /*推广*/
+  content: '\e67b';
+}
+.icon-record::before{ /*记录*/
+  content: '\e616';
+}
+.icon-vip::before{ /*vip*/
+  content: '\e6e1';
+}
+.icon-lucky::before{ /*红包*/
+  content: '\e617';
+}
+.icon-clean::before{ /*清除*/
+  content: '\e617';
+}
