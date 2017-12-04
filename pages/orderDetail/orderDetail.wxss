@@ -1,0 +1,86 @@
+.text-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-box{
+  background-color: #FFF;
+  padding: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.order-box view{
+  margin-bottom: 20rpx;
+}
+.order-box view:last-child{
+  margin-bottom: 0;
+}
+.order-guest{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000;
+}
+.order-guest text{
+  margin-left: 20rpx;
+}
+.order-info{
+  background-color: #FFF;
+  margin-top: 20rpx;
+}
+.order-header{
+  line-height: 80rpx;
+  color: #000;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 0 30rpx;
+}
+.order-body{
+  border-top: 1rpx solid #EEE;
+  border-bottom: 1rpx solid #EEE;
+  padding: 30rpx 0;
+}
+.set-box{
+  background-color: #F7F7F7;
+  padding: 0 30rpx;
+  height: 150rpx;
+}
+.set-pic{
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+}
+.set-pic image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.set-info{
+  line-height: 150rpx;
+  margin-left: 200rpx;
+}
+.order-price{
+  padding: 17rpx 30rpx;
+  color: #666;
+}
+.order-price>view{
+  margin-bottom: 20rpx;
+}
+.order-footer{
+  padding: 20rpx 30rpx;
+  border-top: 1rpx solid #EEE;
+}
+.list{
+  margin-top: 20rpx;
+}
+.list-item{
+  background-color: #FFF;
+  border-bottom: 1rpx solid #EEE;
+  line-height: 100rpx;
+  padding: 0 30rpx;
+}
+.list-item:last-child{
+  border-bottom: 0;
+}
+.item-content{
+  color: #999;
+}

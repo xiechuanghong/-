@@ -1,0 +1,53 @@
+<view class='order-box'>
+  <view class='order-guest'>李晓玲<text>13883838838</text></view>
+  <view>服务人数： 2人</view>
+  <view>服务时间： 2017 09:00</view>
+  <view>技师： 樱桃小丸子</view>
+</view>
+<view class='order-info'>
+  <view class='order-header'>服务项目</view>
+  <view class='order-body'>
+    <view class='set-box'>
+      <view class='set-pic'>
+        <image src='../img/01.png'></image>
+      </view>
+      <view class='set-info text-between'>
+        <view class='set-name'>进口玻尿酸原液</view>
+        <view class='set-price'>￥120.00</view>
+      </view>
+    </view>
+  </view>
+  <view class='order-price'>
+    <view class='text-between'>
+      <view>商品总额</view>
+      <view>￥120.00</view>
+    </view>
+    <view class='text-between'>
+      <view>优惠券</view>
+      <view>￥0.00</view>
+    </view>
+    <view class='text-between'>
+      <view>商品优惠</view>
+      <view>￥0.00</view>
+    </view>
+  </view>
+  <view class='order-footer text-between'>
+    <view>实付款</view>
+    <view>￥120.00</view>
+  </view>
+</view>
+<view class='list'>
+  <view class='list-item text-between'>
+    <view class='item-name'>订单号</view>
+    <view class='item-content'>1233455468756</view>
+  </view>
+  <view class='list-item text-between'>
+    <view class='item-name'>支付方式</view>
+    <view class='item-content'>微信支付</view>
+  </view>
+</view>
+<view class='list'>
+  <view class='list-item text-between'>
+    <view class='item-name'>客服联系电话：123555555</view>
+  </view>
+</view>

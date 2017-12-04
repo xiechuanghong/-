@@ -1,11 +1,11 @@
-// pages/book/book.js
+// pages/getCoupon/getCoupon.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    coupon: [1]
   },
 
   /**
@@ -62,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  toBookInof: function () {
-    wx.navigateTo({
-      url: '../bookInfo/bookInfo',
-    })
   }
 })

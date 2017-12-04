@@ -1,4 +1,4 @@
-// pages/book/book.js
+// pages/setDetail/setDetail.js
 Page({
 
   /**
@@ -63,9 +63,9 @@ Page({
   onShareAppMessage: function () {
   
   },
-  toBookInof: function () {
+  toBookSet: function() {
     wx.navigateTo({
-      url: '../bookInfo/bookInfo',
+      url: '../bookSet/bookSet',
     })
   }
 })

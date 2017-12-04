@@ -23,7 +23,7 @@
         <view class="manRow titles">助理美导师</view>
         <view class="manRow or">已被约：100</view>
       </view>
-      <button class="btn">马上预约</button>
+      <button class="btn" bindtap='toBookInof'>马上预约</button>
     </view>
   </view>
 </view>

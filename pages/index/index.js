@@ -67,5 +67,30 @@ Page({
     wx.navigateTo({
       url: '../set/set',
     })
-  }
+  },
+  toBookInof: function() {
+    wx.navigateTo({
+      url: '../bookInfo/bookInfo',
+    })
+  },
+  toPay: function() {
+    wx.navigateTo({
+      url: '../pay/pay',
+    })
+  },
+  toGetCoupon: function() {
+    wx.navigateTo({
+      url: '../getCoupon/getCoupon',
+    })
+  },
+  toBookSet: function() {
+    wx.navigateTo({
+      url: '../bookSet/bookSet',
+    })
+  },
+  toSetDetail: function() {
+    wx.navigateTo({
+      url: '../setDetail/setDetail',
+    })
+  },
 })

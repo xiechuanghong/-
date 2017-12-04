@@ -6,11 +6,11 @@ page{
 }
 @font-face {
   font-family: 'iconfont';  /* project id 495205 */
-  src: url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.eot');
-  src: url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.woff') format('woff'),
-  url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_495205_3xc6dwb2m3gqr529.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.eot');
+  src: url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.woff') format('woff'),
+  url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -39,4 +39,22 @@ page{
 }
 .icon-clean::before{ /*清除*/
   content: '\e617';
+}
+.icon-no-data::before{ /*清除*/
+  content: '\e624';
+}
+.icon-recharge::before{ /*充值*/
+  content: '\e692';
+}
+.icon-sigh::before{ /*感叹号*/
+  content: '\e610';
+}
+.icon-selected-true::before{ /*选中*/
+  content: '\e62a';
+}
+.icon-selected-false::before{ /*未选中*/
+  content: '\e61f';
+}
+.icon-star::before{ /*星星*/
+  content: '\e644';
 }

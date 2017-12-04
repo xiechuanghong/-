@@ -1,0 +1,99 @@
+.text-theme{
+  color: #FF6589;
+}
+.text-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.prompt-bar{
+  background-color: rgba(0, 0, 0, .6);
+  color: #FFF;
+  font-size: 28rpx;
+  line-height: 84rpx;
+  padding: 0 30rpx;
+}
+.prompt-bar .icon-sigh{
+  margin-right: 10rpx;
+}
+.set-box{
+  padding: 30rpx;
+  background-color: #FFF;
+}
+.set-pic{
+  width: 180rpx;
+  height: 180rpx;
+  float: left;
+}
+.set-pic image{
+  display: block;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.set-info{
+  height: 180rpx;
+  margin-left: 200rpx;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+.set-name{
+  color: #000;
+  font-size: 32rpx;
+  margin-bottom: 25rpx;
+}
+.set-intro{
+  color: #666;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.list{
+  margin-top: 20rpx;
+  background-color: #FFF;
+}
+.list-item{
+  border-bottom: 1rpx solid #EEE;
+  line-height: 100rpx;
+  padding: 0 30rpx;
+}
+.list-item:last-child{
+  border-bottom: 0;
+}
+.item-content{
+  text-align: right;
+  color: #999;
+}
+.discount{
+  padding: 30rpx;
+  background-color: #FFF;
+  height: 157rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.discount-select{
+  color: #FF4B4B;
+}
+
+.discount-num{
+  margin-left: 42rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.discount-result{
+  font-size: 32rpx;
+}
+.discount .text-between{
+  margin-bottom: 20rpx;
+}
+.confirm{
+  line-height: 100rpx;
+  background-color: #FF6589;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #FFF;
+  text-align: center;
+  font-size: 36rpx;
+}

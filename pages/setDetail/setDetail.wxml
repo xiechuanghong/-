@@ -1,0 +1,87 @@
+<view class='set-pic'>
+  <image src='../img/01.png'></image>
+</view>
+<view class='set-info'>
+  <view class='set-name'>进口玻尿酸原液</view>
+  <view class='set-intro'>嫩肤、去皱、锁住水分</view>
+  <view class='set-price'>￥399.00</view>
+  <view class='set-explain'>
+    <text>各个专科领域均享有良好的信誉并得到了社会各界的广泛认可。用成熟专业的技术，先进的设备，安全贴心的保证，优质的个性化服务，全方位地服务于广大爱美"各个专科领域均享有良好的信誉并得到了社会各界的广泛认可。用成熟专业的技术，先进的设备，安全贴心的保证，优质的个性化服务，全方位地服务于广大爱美"</text>
+  </view>
+</view>
+<view class='title-bar'>
+  <text class='line'></text>
+  <text class='txt'>评价</text>
+  <text class='line'></text>
+</view>
+<view class='score-box'>
+  <view class='score-total'>
+    <view class='score-num'><text>4.0</text>分</view>
+    <view>综合评分</view>
+  </view>
+  <view class='score-line'></view>
+  <view class='score-btn'>
+    <text class='active'>全部</text>
+    <text>好评</text>
+    <text>中评</text>
+    <text>差评</text>
+    <text>有图</text>
+  </view>
+</view>
+<view class='list'>
+  <view class='list-item'>
+    <view class='evaluate-box'>
+      <view class='evaluate-header'>
+        <image src='../img/02.png'></image>
+      </view>
+      <view class='evaluate-info'>
+        <view class='text-between'>
+          <view class='evaluate-name'>小可爱</view> 
+          <view class='evaluate-time'>2017.09.12</view> 
+        </view>
+        <view class='evaluate-star'>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star'></text>
+          <text>4.0分</text>
+        </view>
+        <view class='evaluate-content'>店铺的牛排很新鲜，朋友都说味道特别好，并且牛排的分量非常足，一块牛排加上配菜，对于饭量不大的我来说，一个人吃得饱饱的。</view>
+        <view class='evaluate-img'>
+          <image src='../img/01.png'></image>
+          <image src='../img/01.png'></image>
+          <image src='../img/01.png'></image>
+          <image src='../img/01.png'></image>
+          <image src='../img/01.png'></image>
+          <image src='../img/01.png'></image>
+        </view>
+        <view class='evaluate-type'>店内点餐</view>
+      </view>
+    </view>
+  </view>
+  <view class='list-item'>
+    <view class='evaluate-box'>
+      <view class='evaluate-header'>
+        <image src='../img/02.png'></image>
+      </view>
+      <view class='evaluate-info'>
+        <view class='text-between'>
+          <view class='evaluate-name'>小可爱</view> 
+          <view class='evaluate-time'>2017.09.12</view> 
+        </view>
+        <view class='evaluate-star'>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star active'></text>
+          <text class='iconfont icon-star'></text>
+          <text>4.0分</text>
+        </view>
+        <view class='evaluate-content'>店铺的牛排很新鲜，朋友都说味道特别好，并且牛排的分量非常足，一块牛排加上配菜，对于饭量不大的我来说，一个人吃得饱饱的。</view>
+        <view class='evaluate-type'>店内点餐</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='confirm' bindtap='toBookSet'>立即预约</view>

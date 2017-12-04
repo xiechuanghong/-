@@ -1,0 +1,38 @@
+<view class='prompt-bar'>
+  <text class='iconfont icon-sigh'></text>
+  <text>相应套餐不参加优惠活动！</text>
+</view>
+<view class='price-bar text-between'>
+  <view class='item-name'>消费总额（元）</view>
+  <view class='item-content'>
+    <input type='text' placeholder='询问服务员后输入'></input>
+  </view>
+</view>
+<view class='list'>
+  <view class='list-item text-between'>
+    <view class='item-name'>优惠券</view>
+    <view class='item-content'>未选择 <text class='iconfont icon-right'></text></view>
+  </view>
+  <view class='list-item text-between'>
+    <view class='item-name'>实付金额</view>
+    <view class='item-content'>
+      <text class='text-theme'>￥0.00</text>
+    </view>
+  </view>
+</view>
+<view class='title-bar'>请选择支付方式</view>
+<view class='list'>
+  <view class='list-item text-between'>
+    <view class='item-name'>微信支付</view>
+    <view class='item-content'>
+      <text class='iconfont icon-selected-true'></text>
+    </view>
+  </view>
+  <view class='list-item text-between'>
+    <view class='item-name'>余额支付</view>
+    <view class='item-content'>
+      <text class='iconfont icon-selected-false'></text>
+    </view>
+  </view>
+</view>
+<view class='pay-btn'>立即买单</view>

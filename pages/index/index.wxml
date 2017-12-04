@@ -23,7 +23,7 @@
       <text>店铺简介</text>
     </view>
   </view>
-  <view class='navbar-item'>
+  <view class='navbar-item' bindtap='toSet'>
     <view class='navbar-icon'>
       <image src='../img/index_icon_book.png'></image>
     </view>
@@ -31,7 +31,7 @@
       <text>套餐预约</text>
     </view>
   </view>
-  <view class='navbar-item'>
+  <view class='navbar-item' bindtap='toGetCoupon'>
     <view class='navbar-icon'>
       <image src='../img/index_icon_discount.png'></image>
     </view>
@@ -39,7 +39,7 @@
       <text>领取优惠</text>
     </view>
   </view>
-  <view class='navbar-item'>
+  <view class='navbar-item' bindtap='toPay'>
     <view class='navbar-icon'>
       <image src='../img/index_icon_check.png'></image>
     </view>
@@ -67,7 +67,7 @@
         <text>已被约：54</text>
       </view>
     </view>
-    <view class='list-btn'>
+    <view class='list-btn' bindtap='toBookInof'>
       <text>预约TA</text>
     </view>
   </view>
@@ -86,7 +86,7 @@
         <text>已被约：54</text>
       </view>
     </view>
-    <view class='list-btn'>
+    <view class='list-btn' bindtap='toBookInof'>
       <text>预约TA</text>
     </view>
   </view>
@@ -95,7 +95,7 @@
   <text>推荐精品</text>
 </view>
 <view class='grids'>
-  <view class='grids-item' bindtap='toSet'>
+  <view class='grids-item' bindtap='toSetDetail'>
     <view class='grids-pic'>
       <image></image>
     </view>
@@ -110,7 +110,7 @@
       </view>
     </view>
   </view>
-  <view class='grids-item' bindtap='toSet'>
+  <view class='grids-item' bindtap='toSetDetail'>
     <view class='grids-pic'>
       <image></image>
     </view>

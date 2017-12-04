@@ -1,5 +1,5 @@
 <view class='grids'>
-  <view class='grids-item' bindtap='toSet'>
+  <view class='grids-item' bindtap='toSetDetail'>
     <view class='grids-pic'>
       <image></image>
     </view>
@@ -14,7 +14,7 @@
       </view>
     </view>
   </view>
-  <view class='grids-item' bindtap='toSet'>
+  <view class='grids-item' bindtap='toSetDetail'>
     <view class='grids-pic'>
       <image></image>
     </view>

@@ -1,3 +1,14 @@
+.no-order{
+  color: #CCC;
+  font-size: 28rpx;
+  text-align: center;
+  padding-top: 430rpx;
+}
+.no-order .icon-no-data{
+  font-size: 160rpx;
+  
+  margin-bottom: 28rpx;
+}
 .list-item{
   background-color: #FFF;
   margin-top: 20rpx;

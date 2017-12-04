@@ -1,0 +1,72 @@
+.text-theme{
+  color: #FF6589;
+}
+.text-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.prompt-bar{
+  background-color: rgba(0, 0, 0, .6);
+  color: #FFF;
+  font-size: 28rpx;
+  line-height: 84rpx;
+  padding: 0 30rpx;
+}
+.prompt-bar .iconfont{
+  margin-right: 10rpx;
+}
+.price-bar{
+  line-height: 120rpx;
+  border-bottom: 1rpx solid #EEE;
+  border-top: 1rpx solid #EEE;
+  margin-top: 20rpx;
+  background-color: #FFF;
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.item-content{
+  text-align: right;
+}
+.list{
+  background-color: #FFF;
+}
+.list-item{
+  padding: 0 40rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #EEE;
+}
+.list-item:last-child{
+  border-bottom: 0;
+}
+.item-content{
+  color: #CCC;
+}
+.item-content .icon-right{
+  font-size: 22rpx;
+}
+.item-content .icon-selected-true,
+.item-content .icon-selected-false{
+  font-size: 40rpx;
+}
+.item-content .icon-selected-true{
+  color: #FF6589;
+}
+.title-bar{
+  color: #999;
+  font-size: 26rpx;
+  line-height: 84rpx;
+  padding: 0 40rpx;
+}
+.pay-btn{
+  width: 690rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  line-height: 88rpx;
+  text-align: center;
+  background-color: #FF6589;
+  margin-top: 100rpx;
+  font-size: 36rpx;
+  color: #FFF;
+}

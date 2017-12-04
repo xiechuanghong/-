@@ -4,7 +4,13 @@
     "pages/book/book",
     "pages/order/order",
     "pages/mine/mine",
-    "pages/set/set"
+    "pages/set/set",
+    "pages/bookInfo/bookInfo",
+    "pages/pay/pay",
+    "pages/getCoupon/getCoupon",
+    "pages/bookSet/bookSet",
+    "pages/setDetail/setDetail",
+    "pages/orderDetail/orderDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
