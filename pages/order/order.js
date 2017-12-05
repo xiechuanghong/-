@@ -67,10 +67,5 @@ Page({
     wx.navigateTo({
       url: '../orderDetail/orderDetail',
     })
-  },
-  toEvaluate: function() {
-    wx.navigateTo({
-      url: '../evaluate/evaluate',
-    })
   }
 })

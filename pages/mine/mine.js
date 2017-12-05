@@ -62,15 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  toRecord: function() {
-    wx.navigateTo({
-      url: '../record/record',
-    })
-  },
-  toMyCoupon: function() {
-    wx.navigateTo({
-      url: '../myCoupon/myCoupon',
-    })
   }
 })
