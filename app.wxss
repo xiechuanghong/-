@@ -6,11 +6,11 @@ page{
 }
 @font-face {
   font-family: 'iconfont';  /* project id 495205 */
-  src: url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.eot');
-  src: url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.woff') format('woff'),
-  url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.eot');
+  src: url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -43,7 +43,7 @@ page{
 .icon-clean::before{ /*清除*/
   content: '\e617';
 }
-.icon-no-data::before{ /*清除*/
+.icon-no-data::before{ /*章鱼*/
   content: '\e624';
 }
 .icon-recharge::before{ /*充值*/
@@ -60,4 +60,10 @@ page{
 }
 .icon-star::before{ /*星星*/
   content: '\e644';
+}
+.icon-search::before{ /*星星*/
+  content: '\e60b';
+}
+.icon-close::before{ /*删除*/
+  content: '\e606';
 }

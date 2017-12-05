@@ -1,0 +1,50 @@
+<!--pages/center/center.wxml-->
+<view class="body"> 
+  <view class="total box">
+    <view class="t_txt">总金额（元）</view>
+    <view class="t_num">{{add_up_amount}}</view>
+  </view>
+
+  <view class="fans">
+    <view class="f_mo left">
+      <view class="f_txt">可提现的佣金</view>
+      <view>{{amount}}</view>
+    </view>
+    <view class="f_mo left">
+      <view class="f_txt">本月新增粉丝</view>
+      <view>{{salesman_time}}</view>
+    </view>
+    <view class="bor"></view>
+  </view>
+  
+  <view class="nav">
+    <view class="navBox box" bindtap='applyFor'>
+      <view class="iconfont icon-tixian icon"></view>
+      <view class="nTxt">佣金提现</view>
+    </view>
+    <view class="navBox box" bindtap='tapFans'>
+      <view class="iconfont icon-fensi icon"></view>
+      <view class="nTxt">我的粉丝({{salesman_sum}})</view>
+    </view>
+
+    <view class="navBox box" bindtap='commission'>
+      <view class="iconfont icon-tuiguang icon"></view>
+      <view class="nTxt">推广佣金</view>
+    </view>
+
+    <view class="navBox box" bindtap='cashDetail'>
+      <view class="iconfont icon-qianbao icon"></view>
+      <view class="nTxt">提现明细({{withdraw}})</view>
+    </view>
+     <view class="navBox box" bindtap='tapExtend'>
+      <view class="iconfont icon-dingdan icon"></view>
+      <view class="nTxt">推广订单({{order}})</view>
+    </view>
+  </view>
+
+  <view class="rule">
+    <view class="rTitle iconfont icon-lingxing">代言规则</view>
+    <view class="rContent">当你粉丝在店铺内支付订单后，你将会获得奖金收益，收益的可提现时间为支付订单后的几天，当你的粉丝取消订单、退款，或者因订单异常被扣除收益，你将不会获得奖金收益。</view>
+    <button bindtap='code'>推广二维码</button>
+  </view>
+</view>

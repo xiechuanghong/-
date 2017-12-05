@@ -1,0 +1,100 @@
+.evaluate-box{
+  background-color: #FFF;
+  padding: 20rpx 30rpx;
+}
+.evaluate-pic{
+  width: 140rpx;
+  height: 140rpx;
+  float: left;
+}
+.evaluate-pic image{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.evaluate-star{
+  height: 140rpx;
+  line-height: 140rpx;
+  margin-left: 177rpx;
+  font-size: 32rpx;
+  color: #666;
+  align-items: center;
+  display: flex;
+}
+.evaluate-star .icon-star{
+  font-size: 40rpx;
+  color: #CCC;
+  margin-right: 40rpx;
+}
+.evaluate-star .icon-star.active{
+  color: #FF6589;
+}
+.evaluate-content{
+  margin-top: 20rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background-color: #FFF;
+  height: 350rpx;
+}
+.evaluate-content view{
+  text-align: right;
+  color: #CCC;
+}
+.evaluate-content textarea{
+  height: 268rpx;
+  width: 100%;
+}
+.evaluate-anonymous{
+  line-height: 92rpx;
+  background-color: #FFF;
+  border-top: 1rpx solid #EEE;
+  padding: 0 30rpx;
+  color: #333;
+}
+.evaluate-anonymous .icon-selected-true{
+  font-size: 40rpx;
+  color: #FF86A5;
+  margin-right: 15rpx;
+}
+.evaluate-img{
+  background-color: #FFF;
+  margin-top: 20rpx;
+  padding: 30rpx 0 30rpx 35rpx;
+  margin-right: -70rpx;
+}
+.evaluate-img::after{
+  display: block;
+  clear: both;
+  content: ' ';
+}
+.img-item{
+  width: 180rpx;
+  height: 180rpx;
+  position: relative;
+  margin-right: 70rpx;
+  float: left;
+}
+.img-item .img-content{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.img-item .img-close{
+  display: block;
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  right: -25rpx;
+  top: -25rpx;
+}
+.confirm{
+  width: 690rpx;
+  margin: 0 auto;
+  background-color: #FF86A5;
+  line-height: 88rpx;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #FFF;
+  font-size: 36rpx;
+}

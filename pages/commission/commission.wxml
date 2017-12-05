@@ -1,0 +1,34 @@
+<!--pages/commission/commission.wxml-->
+<view class="body">
+  <view class="top">
+    <view class="tTxt">累计佣金</view>
+    <view class="tNum">{{list.add_up_amount}}</view>
+  </view>
+  <view class="rMo">
+    <text class="lTxt">可提现佣金</text>
+    <text class="rTxt">{{list.amount}}元</text>
+  </view>
+  <view class="rMo">
+    <text class="lTxt">累计佣金</text>
+    <text class="rTxt">{{list.add_up_amount}}元</text>
+  </view>
+  <view class="rMo">
+    <text class="lTxt">待打款佣金</text>
+    <text class="rTxt">{{list.waitPay}}元</text>
+  </view>
+  <view class="rMo" style="border:0;">
+    <text class="lTxt">成功打款佣金</text>
+    <text class="rTxt">{{list.payOk}}元</text>
+  </view>
+
+  <view class="rule">
+    <view class="rTitle iconfont icon-lingxing">提现规则</view>
+    <view class="rContent box">
+      您的粉丝消费确认完成后7天，佣金可提现，结算期内如果取消订单佣金将自动扣除。
+      <view>注：佣金满1元才能提现</view>
+    </view>
+
+    <button bindtap='applyFor'>我要提现</button>
+  </view>
+
+</view>

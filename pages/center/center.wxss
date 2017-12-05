@@ -1,0 +1,18 @@
+/* pages/center/center.wxss */
+.total{width:100%; height:390rpx; background:#5d4d44; color:#fff; text-align:center; padding-top:143rpx;}
+.total>.t_txt{font-size:26rpx;}
+.total>.t_num{font-size:110rpx;}
+
+.fans{width:100%; height:163rpx; background:#524741; color:#fff; position:relative;}
+.f_mo{width:50%; text-align:center; padding-top:45rpx; }
+.bor{width:1rpx; height:70rpx; background:#fff; position:absolute; top:47rpx; left:374rpx;}
+
+.nav{width:100%; height:481rpx; background:#fff; margin-top:20rpx;}
+.navBox{width:250rpx; height:240rpx; border-right:1rpx solid #eee; border-bottom:1rpx solid #eee; text-align:center;
+  padding-top:61rpx; float:left;}
+.navBox .icon{font-size:62rpx;  color:#999;}
+.navBox .nTxt{font-size:28rpx; margin-top:30rpx;}
+
+.rule{margin-top:20rpx; background:#fff; padding:30rpx 40rpx 50rpx;}
+.rContent{font-size:28rpx; color:#666; margin-top:20rpx;}
+.rule button{width:420rpx; height:88rpx; background:#ffa838; color:#fff; font-size:34rpx; margin-top:85rpx;}

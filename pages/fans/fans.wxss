@@ -1,0 +1,85 @@
+/* pages/fans/fans.wxss */
+.title-bar{
+  align-items: center;
+  background-color: #FFF;
+  color: #999;
+  display: flex;
+  font-size: 32rpx;
+  line-height: 100rpx; 
+  margin-bottom: 20rpx;
+  position: relative;
+  text-align: center;
+  height: 100rpx;
+
+}
+.title-bar-item{
+  flex: 1;
+  transition: all .3s linear;
+}
+.title-bar-item text{
+  border-bottom: 2px solid transparent;
+  display: inline-block;
+  transition: all .3s linear;
+}
+.title-bar-item.active{
+  color: #000;
+}
+.title-bar-item.active text{
+  border-color: #FFA838;
+}
+.fans-box{
+  background-color: #FFF;
+  border-bottom: 1rpx solid #F8F8F8;
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: #666;
+  position: relative;
+}
+.fans-header{
+  height: 100rpx;
+  width: 100rpx;
+  float: left;
+}
+.fans-header image{
+  border-radius: 50%;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.fans-info{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 116rpx;
+}
+.fans-name{
+  color: #000;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.fans-order{
+  text-align: right;
+}
+.fans-pay{
+  margin-bottom: 20rpx;
+}
+.fans-line{
+  background-color: #CCC;
+  height: 50rpx;
+  width: 1px;
+  position: absolute;
+  right: 279rpx;
+  top: 55rpx; 
+}
+.nofans{
+  text-align: center;
+  padding-top: 100rpx;
+  color: #999;
+}
+.nofans-icon{
+  font-size: 90rpx;
+  margin-bottom: 20rpx;
+}
+.nofans-text{
+  font-size: 28rpx;
+}

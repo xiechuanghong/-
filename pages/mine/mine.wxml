@@ -85,7 +85,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item'>
+  <view class='list-item' bindtap='toCenter'>
     <view class='list-icon'>
       <text class='iconfont icon-extend'></text>
     </view>

@@ -1,0 +1,31 @@
+<view class='search-bar'>
+  <text class='iconfont icon-search'></text>
+  <input placeholder='请输入需要搜索的技师' placeholder-style='color:#999;'></input>
+  <text class='iconfont icon-close'></text>
+</view>
+<view class='grids'>
+  <view class='grids-item active'>
+    <view class='grids-pic'>
+      <image src='../img/01.png'></image>
+    </view>
+    <view class='grids-name'>林静婷</view>
+  </view>
+  <view class='grids-item'>
+    <view class='grids-pic'>
+      <image src='../img/01.png'></image>
+    </view>
+    <view class='grids-name'>林静婷</view>
+  </view>
+  <view class='grids-item'>
+    <view class='grids-pic'>
+      <image src='../img/01.png'></image>
+    </view>
+    <view class='grids-name'>林静婷</view>
+  </view>
+  <view class='grids-item'>
+    <view class='grids-pic'>
+      <image src='../img/01.png'></image>
+    </view>
+    <view class='grids-name'>林静婷</view>
+  </view>
+</view>

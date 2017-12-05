@@ -1,0 +1,114 @@
+<view class='body'>
+  <view class='amount'>
+    <view class='amount-title'>可用佣金(元)</view>
+    <view class='amount-money'>{{amount}}</view>
+  </view>
+  <view class='nav-bar'>
+    <view class='nav-item {{current === 0 ? "active" : ""}}' data-current='0' bindtap='tapNav'>
+      <text class='nav-item-txt'>所有</text>
+    </view>
+    <view class='nav-item {{current === 1 ? "active" : ""}}' data-current='1' bindtap='tapNav'>
+      <text class='nav-item-txt'>待审核</text>
+    </view>
+    <view class='nav-item {{current === 2 ? "active" : ""}}' data-current='2' bindtap='tapNav'>
+      <text class='nav-item-txt'>待打款</text>
+    </view>
+    <view class='nav-item {{current === 3 ? "active" : ""}}' data-current='3' bindtap='tapNav'>
+      <text class='nav-item-txt'>已打款</text>
+    </view>
+  </view>
+  <swiper current='{{current}}' style='height:{{swiperHeight}}px' bindchange='changeSwiper'>
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-deal' wx:if='{{allList.length < 1}}'>
+          <view class='no-deal-icon'>
+            <text class='iconfont icon-qianbao'></text>
+          </view>
+          <view class='no-deal-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='deal' wx:else>
+
+          <view class='deal-box' wx:for="{{allList}}" wx:key="id" wx:for-item="item">
+            <view class='deal-info'>
+              <view>编号：{{item.order_sn}}</view>
+              <view>申请佣金：{{item.amount}}元</view>
+              <view>实际金额：{{item.real_money}}元</view>
+              <view>手续费：{{item.fee}}元</view>
+              <view>申请时间：{{item.createz_at}}</view>
+            </view>
+            <view class='deal-state'>
+          {{item.status=='0'?'待审核':item.status=='1'?'已通过':item.status=='2'?'未通过':item.status=='3'?'已打款':''}}
+            </view>
+          </view>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-deal' wx:if='{{check.length < 1}}'>
+          <view class='no-deal-icon'>
+            <text class='iconfont icon-qianbao'></text>
+          </view>
+          <view class='no-deal-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='deal' wx:else>
+          <view class='deal-box' wx:for="{{check}}" wx:key="id" wx:for-item="item">
+            <view class='deal-info'>
+              <view>编号：{{item.order_sn}}</view>
+              <view>申请佣金：{{item.amount}}元</view>
+              <view>实际金额：{{item.real_money}}元</view>
+              <view>手续费：{{item.fee}}元</view>
+              <view>申请时间：{{item.createz_at}}</view>
+            </view>
+            <view class='deal-state'>待审核</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-deal' wx:if='{{pay.length < 1}}'>
+          <view class='no-deal-icon'>
+            <text class='iconfont icon-qianbao'></text>
+          </view>
+          <view class='no-deal-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='deal' wx:else>
+          <view class='deal-box' wx:for="{{pay}}" wx:key="id" wx:for-item="item">
+            <view class='deal-info'>
+              <view>编号：{{item.order_sn}}</view>
+              <view>申请佣金：{{item.amount}}元</view>
+              <view>实际金额：{{item.real_money}}元</view>
+              <view>手续费：{{item.fee}}元</view>
+              <view>申请时间：{{item.createz_at}}</view>
+            </view>
+            <view class='deal-state'>待打款</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-deal' wx:if='{{payed.length < 1}}'>
+          <view class='no-deal-icon'>
+            <text class='iconfont icon-qianbao'></text>
+          </view>
+          <view class='no-deal-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='deal' wx:else>
+          <view class='deal-box' wx:for="{{payed}}" wx:key="id" wx:for-item="item">
+            <view class='deal-info'>
+              <view>编号：{{item.order_sn}}</view>
+              <view>申请佣金：{{item.amount}}元</view>
+              <view>实际金额：{{item.real_money}}元</view>
+              <view>个人所得税：{{item.fee}}元</view>
+              <view>申请时间：{{item.createz_at}}</view>
+            </view>
+            <view class='deal-state'>已打款</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

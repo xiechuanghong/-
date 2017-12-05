@@ -1,0 +1,173 @@
+<view class='body'>
+  <view class='amount'>
+    <view class='amount-title'>累计佣金(元)</view>
+    <view class='amount-money'>{{add_up_amount}}</view>
+  </view>
+  <view class='nav-bar'>
+    <view class='nav-item {{current === 0 ? "active" : ""}}' data-current='0' bindtap='tapNav'>
+      <text class='nav-item-txt'>所有</text>
+    </view>
+    <view class='nav-item {{current === 1 ? "active" : ""}}' data-current='1' bindtap='tapNav'>
+      <text class='nav-item-txt'>未完成</text>
+    </view>
+    <view class='nav-item {{current === 2 ? "active" : ""}}' data-current='2' bindtap='tapNav'>
+      <text class='nav-item-txt'>已完成</text>
+    </view>
+    <view class='nav-item {{current === 3 ? "active" : ""}}' data-current='3' bindtap='tapNav'>
+      <text class='nav-item-txt'>已取消</text>
+    </view>
+  </view>
+  <swiper current='{{current}}' style='height:{{swiperHeight}}px' bindchange='changeSwiper'>
+    <!-- 全部 -->
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-order' wx:if='{{orderData["0"].length < 1}}'>
+          <view class='no-order-icon'>
+            <text class='iconfont icon-order'></text>
+          </view>
+          <view class='no-order-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='order' wx:else>
+          <view class='order-box' wx:for='{{orderData["0"]}}'>
+            <view class='order-header'>
+              <view class='order-user'>
+                <image src='{{item.user.avatar}}'></image>
+                <view>{{item.user.nickname}}</view>
+              </view>
+              <!-- 1.未完成,3.已完成,0&&is_det = 1已取消 -->
+              <view class='order-state' wx:if='{{item.status === "1"}}'>未完成</view>
+              <view class='order-state' wx:elif='{{item.status === "3"}}'>已完成</view>
+              <view class='order-state' wx:elif='{{item.status === "0" && is_deleted === "1"}}'>已取消</view> 
+            </view>
+            <view class='order-body'>
+              <view class='goods-box' wx:for='{{item.details}}' wx:for-item='goodsItem'>
+                <view class='goods-pic'>
+                  <image src='{{goodsItem.goods.goods_img}}'></image>
+                  <text>{{goodsItem.goods.goods_name}}</text>
+                </view>
+                <view>X{{goodsItem.goods_num}}</view>
+              </view>
+            </view>
+            <view class='order-info'>
+              <view>推广等级：{{item.grade}}</view>
+              <view>订单编号：{{item.order_sn}}</view>
+              <view>下单时间：{{item.created_at}}</view>
+            </view>
+            <view class='order-footer'>预计佣金：￥{{item.pay_amount}}元</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 未完成 -->
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-order' wx:if='{{orderData["1"].length < 1}}'>
+          <view class='no-order-icon'>
+            <text class='iconfont icon-order'></text>
+          </view>
+          <view class='no-order-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='order' wx:else>
+          <view class='order-box' wx:for='{{orderData["1"]}}'>
+            <view class='order-header'>
+              <view class='order-user'>
+                <image src='{{item.user.avatar}}'></image>
+                <view>{{item.user.nickname}}</view>
+              </view>
+              <view class='order-state'>未完成</view>
+            </view>
+            <view class='order-body'>
+              <view class='goods-box' wx:for='{{item.details}}' wx:for-item='goodsItem'>
+                <view class='goods-pic'>
+                  <image src='{{goodsItem.goods.goods_img}}'></image>
+                  <text>{{goodsItem.goods.goods_name}}</text>
+                </view>
+                <view>X{{goodsItem.goods_num}}</view>
+              </view>
+            </view>
+            <view class='order-info'>
+              <view>推广等级：{{item.grade}}</view>
+              <view>订单编号：{{item.order_sn}}</view>
+              <view>下单时间：{{item.created_at}}</view>
+            </view>
+            <view class='order-footer'>预计佣金：￥{{item.pay_amount}}元</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 已完成 -->
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-order' wx:if='{{orderData["3"].length < 1}}'>
+          <view class='no-order-icon'>
+            <text class='iconfont icon-order'></text>
+          </view>
+          <view class='no-order-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='order' wx:else>
+          <view class='order-box' wx:for='{{orderData["3"]}}'>
+            <view class='order-header'>
+              <view class='order-user'>
+                <image src='{{item.user.avatar}}'></image>
+                <view>{{item.user.nickname}}</view>
+              </view>
+              <view class='order-state'>已完成</view>
+            </view>
+            <view class='order-body'>
+              <view class='goods-box' wx:for='{{item.details}}' wx:for-item='goodsItem'>
+                <view class='goods-pic'>
+                  <image src='{{goodsItem.goods.goods_img}}'></image>
+                  <text>{{goodsItem.goods.goods_name}}</text>
+                </view>
+                <view>X{{goodsItem.goods_num}}</view>
+              </view>
+            </view>
+            <view class='order-info'>
+              <view>推广等级：{{item.grade}}</view>
+              <view>订单编号：{{item.order_sn}}</view>
+              <view>下单时间：{{item.created_at}}</view>
+            </view>
+            <view class='order-footer'>预计佣金：￥{{item.pay_amount}}元</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 已取消 -->
+    <swiper-item>
+      <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+        <view class='no-order' wx:if='{{orderData["4"].length < 1}}'>
+          <view class='no-order-icon'>
+            <text class='iconfont icon-order'></text>
+          </view>
+          <view class='no-order-txt'>没有相应的内容喔</view>
+        </view>
+        <view class='order' wx:else>
+          <view class='order-box' wx:for='{{orderData["4"]}}'>
+            <view class='order-header'>
+              <view class='order-user'>
+                <image src='{{item.user.avatar}}'></image>
+                <view>{{item.user.nickname}}</view>
+              </view>
+              <view class='order-state'>已取消</view>
+            </view>
+            <view class='order-body'>
+              <view class='goods-box' wx:for='{{item.details}}' wx:for-item='goodsItem'>
+                <view class='goods-pic'>
+                  <image src='{{goodsItem.goods.goods_img}}'></image>
+                  <text>{{goodsItem.goods.goods_name}}</text>
+                </view>
+                <view>X{{goodsItem.goods_num}}</view>
+              </view>
+            </view>
+            <view class='order-info'>
+              <view>推广等级：{{item.grade}}</view>
+              <view>订单编号：{{item.order_sn}}</view>
+              <view>下单时间：{{item.created_at}}</view>
+            </view>
+            <view class='order-footer'>预计佣金：￥{{item.pay_amount}}元</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

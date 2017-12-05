@@ -1,0 +1,81 @@
+/* pages/cashDetail/cashDetail.wxss */
+.amount{
+  background-color: #5D4D44;
+  color: #FFF;
+  display: table-cell;
+  height: 390rpx;
+  text-align: center;
+  vertical-align: middle;
+  width: 750rpx;
+}
+.amount-title{
+  font-size: 26rpx;
+}
+.amount-money{
+  font-size: 110rpx;
+  /* font-weight: bold; */
+}
+.nav-bar{
+  display: flex;
+  text-align: center;
+  background-color: #FFF;
+  margin-bottom: 20rpx;
+}
+.nav-item{
+  color: #999;
+  flex: 1;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  transition: all .3s linear;
+}
+.nav-item-txt{
+  border-bottom: 2px solid transparent;
+  display: inline-block;
+  transition: all .3s linear;
+}
+.nav-item.active{
+  color: #000;
+}
+.nav-item.active .nav-item-txt{
+  border-color: #FFA838;
+}
+.deal-box{
+  background-color: #FFF;
+  color: #666;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.deal-box:last-child{
+  margin-bottom: 0;
+}
+.deal-info{
+  padding: 30rpx;
+}
+.deal-info view{
+  line-height: 45rpx;
+}
+.deal-state{
+  position: absolute;
+  right: 0;
+  top: 81rpx;
+  width: 196rpx;
+  height: 118rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-left: 1rpx solid #ccc;
+}
+.no-deal{
+  text-align: center;
+  padding-top: 100rpx;
+  color: #999;
+}
+.no-deal-icon{
+  font-size: 90rpx;
+  margin-bottom: 20rpx;
+}
+.no-deal-txt{
+  font-size: 28rpx;
+}

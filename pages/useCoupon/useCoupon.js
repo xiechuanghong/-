@@ -1,11 +1,11 @@
-// pages/mine/mine.js
+// pages/useCoupon/useCoupon.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    coupon: [1]
   },
 
   /**
@@ -62,20 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  toRecord: function() {
-    wx.navigateTo({
-      url: '../record/record',
-    })
-  },
-  toMyCoupon: function() {
-    wx.navigateTo({
-      url: '../myCoupon/myCoupon',
-    })
-  },
-  toCenter: function() {
-    wx.navigateTo({
-      url: '../center/center',
-    })
   }
 })

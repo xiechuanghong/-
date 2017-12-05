@@ -1,0 +1,13 @@
+/* pages/applyFor/applyFor.wxss */
+.mode{background:#fff; height:100rpx; display:flex; justify-content:space-between; font-size:30rpx;
+   align-items:center; margin-top:20rpx; padding:0 30rpx;}
+.extraction{width:100%; height:460rpx; background:#fff; margin-top:20rpx; padding:40rpx;}
+.extraction .eNum{width:100%; color:#000; border-bottom:1rpx solid #eee;}
+.extraction .eNum .ico{font-size:48rpx;}
+.extraction .eNum input{ height:112rpx; font-size:100rpx;}
+.eBtn{width:670rpx; height:86rpx; background:#ffa838; color:#fff; font-size:34rpx; margin-top:70rpx;}
+
+.info{width:100%; margin-top:20rpx; background:#fff; }
+.info .iTitel{height:100rpx; display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1rpx solid #eee;text-indent:40rpx; color:#000;}
+.info .iContent{padding:30rpx 40rpx; color: #666;}

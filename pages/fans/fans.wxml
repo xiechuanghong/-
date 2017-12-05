@@ -1,0 +1,64 @@
+<view class='body'>
+  <view class='title-bar'>
+    <view class='title-bar-item {{current === 0 ? "active" : "" }}' data-current='0' bindtap='tapBar'>
+      <text>一级({{gradeOneNum}})</text>
+    </view>
+    <view class='title-bar-item {{current === 1 ? "active" : "" }}' data-current='1' bindtap='tapBar'>
+      <text>二级({{gradeTwoNum}}) </text>
+    </view>
+  </view>
+  <swiper style='height: {{swiperHeight}}px;' current='{{current}}' bindchange='changeSwiper'>
+    <swiper-item>
+      <view class='nofans' wx:if="{{gradeOne.length < 1}}">
+        <view class='nofans-icon'>
+          <text class='iconfont icon-fensi'></text>
+        </view>
+        <view class='nofans-text'>没有相应的内容喔</view>
+      </view>
+      <scroll-view scroll-y style='height: {{swiperHeight}}px;' wx:elif="{{gradeOne.length > 0}}">
+        <view class='fans-box' wx:for="{{gradeOne}}" wx:key="gradeID">
+          <view class='fans-header'>
+            <image src='{{item.avatar}}'></image>
+          </view>
+          <view class='fans-info'>
+            <view class='fans-personal'>
+              <view class='fans-name'>{{item.name}}</view>
+              <view class='fans-create-time'>注册时间: {{item.createz_at}}</view>
+            </view>
+            <view class='fans-order'>
+              <view class='fans-pay'>消费:{{item.sum}}元</view>
+              <view class='fans-order-num'>共{{item.numder}}个订单</view>
+            </view>
+          </view>
+          <view  class='fans-line'></view>
+        </view> 
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <view class='nofans' wx:if="{{gradeTwo.length < 1}}">
+        <view class='nofans-icon'>
+          <text class='iconfont icon-fensi'></text>
+        </view>
+        <view class='nofans-text'>没有相应的内容喔</view>
+      </view>
+      <scroll-view scroll-y style='height: {{swiperHeight}}px;' wx:elif="{{gradeTwo.length > 0}}">
+        <view class='fans-box' wx:for="{{gradeTwo}}" wx:key="gradeID">
+          <view class='fans-header'>
+            <image src='{{item.avatar}}'></image>
+          </view>
+          <view class='fans-info'>
+            <view class='fans-personal'>
+              <view class='fans-name'>{{item.name}}</view>
+              <view class='fans-create-time'>注册时间: {{item.createz_at}}</view>
+            </view>
+            <view class='fans-order'>
+              <view class='fans-pay'>消费:{{item.sum}}元</view>
+              <view class='fans-order-num'>共{{item.numder}}个订单</view>
+            </view>
+          </view>
+          <view  class='fans-line'></view>
+        </view> 
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

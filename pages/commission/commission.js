@@ -1,4 +1,6 @@
-// pages/mine/mine.js
+// pages/commission/commission.js
+const app=getApp();
+const config=require("../../utils/config.js");
 Page({
 
   /**
@@ -12,7 +14,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getData();
+  },
+  getData:function(){
+    var that=this;
+    wx.request({
+      url: app.globalData.url +'Salesman/getSalesmanAmount',
+      method:'GET',
+      dataType:'POST',
+      data:{
+        pro_id:config.pro_id,
+        store:config.store,
+        key:app.globalData.key
+      },
+      success:(res)=>{
+        var str=JSON.parse(res.data);
+        console.log(str);
+        if(str.success==1){
+          that.setData({
+            list:str.responseData
+          })
+          wx.hideNavigationBarLoading();
+        }
+      }
+    })
+  },
+  applyFor:function(){
+    wx.navigateTo({
+      url: '../applyFor/applyFor',
+    })
   },
 
   /**
@@ -47,7 +77,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.showNavigationBarLoading();
+    this.onLoad();
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -62,20 +94,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  toRecord: function() {
-    wx.navigateTo({
-      url: '../record/record',
-    })
-  },
-  toMyCoupon: function() {
-    wx.navigateTo({
-      url: '../myCoupon/myCoupon',
-    })
-  },
-  toCenter: function() {
-    wx.navigateTo({
-      url: '../center/center',
-    })
   }
 })

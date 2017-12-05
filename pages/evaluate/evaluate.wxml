@@ -1,3 +1,36 @@
-<view class=''>
-
+<view class='evaluate-box'>
+  <view class='evaluate-pic'>
+    <image src='../img/01.png'></image>
+  </view>
+  <view class='evaluate-star'>
+    <text class='iconfont icon-star active'></text>
+    <text class='iconfont icon-star'></text>
+    <text class='iconfont icon-star'></text>
+    <text class='iconfont icon-star'></text>
+    <text class='iconfont icon-star'></text>
+    <text>好评</text>
+  </view>
 </view>
+<view class='evaluate-content'>
+  <textarea placeholder='我们的服务满足你的需求吗？发表你的想法喔...' placeholder-style='color:#999;'></textarea>
+  <view>200字</view>
+</view>
+<view class='evaluate-anonymous'>
+  <text class='iconfont icon-selected-true'></text> 匿名评价
+</view>
+<view class='evaluate-img'>
+  <view class='img-item'>
+    <image class='img-content' src='../img/comment_icon_add.png'></image>
+    <image class='img-close' src='../img/comment_icon_close.png'></image>
+  </view>
+  <view class='img-item'>
+    <image class='img-content' src='../img/comment_icon_add.png'></image>
+    <image class='img-close' src='../img/comment_icon_close.png'></image>
+  </view>
+  <view class='img-item'>
+    <image class='img-content' src='../img/comment_icon_add.png'></image>
+    <image class='img-close' src='../img/comment_icon_close.png'></image>
+  </view>
+  
+</view>
+<view class='confirm'>提交</view>

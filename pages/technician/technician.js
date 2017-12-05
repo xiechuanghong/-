@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+// pages/technician/technician.js
 Page({
 
   /**
@@ -62,20 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  toRecord: function() {
-    wx.navigateTo({
-      url: '../record/record',
-    })
-  },
-  toMyCoupon: function() {
-    wx.navigateTo({
-      url: '../myCoupon/myCoupon',
-    })
-  },
-  toCenter: function() {
-    wx.navigateTo({
-      url: '../center/center',
-    })
   }
 })

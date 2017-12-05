@@ -1,0 +1,15 @@
+/* pages/commission/commission.wxss */
+.top{width:100%; height:390rpx; background:#5D4D44; color:#fff; text-align:center;  padding-top:110rpx; box-sizing: border-box;}
+.top .tTxt{font-size:26rpx;}
+.top .tNum{font-size:110rpx;}
+
+.rMo{width:100%; height:100rpx; display:flex; align-items:center; justify-content:space-between; font-size:30rpx;
+  background:#fff; border-bottom:1rpx solid #eee; padding:0 30rpx; box-sizing:border-box;}
+.rMo .lTxt{color:#000;}
+.rMo .rTxt{color:#666;}
+
+.rule{width:100%; background:#fff; margin-top:20rpx;}
+.rule .rTitle{font-size:30rpx; color:#000; text-indent:40rpx; padding:30rpx 0;}
+.rule .rContent{font-size:28rpx; color:#666; padding:0 40rpx;}
+.rule button{width:690rpx; color:#fff; background:#FFA838; font-size:34rpx; margin:57rpx auto;}
+

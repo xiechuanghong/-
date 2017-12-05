@@ -27,7 +27,7 @@
   </view>
   <view class='list-item text-between'>
     <view class='item-name'>选择技师</view>
-    <view class='item-content'>
+    <view class='item-content' bindtap='toTechnician'>
       <text>请选择技师 <text class='iconfont icon-right'></text></text>
     </view>
   </view>
@@ -47,7 +47,7 @@
 <view class='discount'>
   <view class='text-between'>
     <view>优惠券</view>
-    <view class='discount-select'>未选择</view>
+    <view class='discount-select' bindtap='toUseCoupon'>未选择</view>
   </view>
   <view class='text-between'>
     <view>总计￥399.00 <text class='discount-num'>-￥0.00</text></view>

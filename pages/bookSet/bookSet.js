@@ -62,5 +62,15 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  toUseCoupon: function() {
+    wx.navigateTo({
+      url: '../useCoupon/useCoupon',
+    })
+  },
+  toTechnician: function() {
+    wx.navigateTo({
+      url: '../technician/technician',
+    })
   }
 })
