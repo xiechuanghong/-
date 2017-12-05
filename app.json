@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/book/book",
     "pages/order/order",
@@ -10,7 +11,10 @@
     "pages/getCoupon/getCoupon",
     "pages/bookSet/bookSet",
     "pages/setDetail/setDetail",
-    "pages/orderDetail/orderDetail"
+    "pages/orderDetail/orderDetail",
+    "pages/record/record",
+    "pages/myCoupon/myCoupon",
+    "pages/evaluate/evaluate"
   ],
   "window": {
     "backgroundTextStyle": "light",

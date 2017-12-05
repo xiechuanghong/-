@@ -1,11 +1,11 @@
-// pages/order/order.js
+// pages/myCoupon/myCoupon.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    order: [1]
+    current: 0
   },
 
   /**
@@ -63,14 +63,19 @@ Page({
   onShareAppMessage: function () {
   
   },
-  toOrderDetail: function() {
-    wx.navigateTo({
-      url: '../orderDetail/orderDetail',
-    })
+  changeSwiper: function(e) {
+    var _this = this,
+        current = e.detail.current;
+
+    _this.setData({
+      current: current
+    });
   },
-  toEvaluate: function() {
-    wx.navigateTo({
-      url: '../evaluate/evaluate',
+  tapNav: function(e) {
+    var _this = this,
+        current = parseInt(e.currentTarget.dataset.current);
+    _this.setData({
+      current: current
     })
   }
 })

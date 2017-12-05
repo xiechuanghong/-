@@ -1,11 +1,11 @@
-// pages/order/order.js
+// pages/record/record.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    order: [1]
+    record: [1]
   },
 
   /**
@@ -62,15 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  toOrderDetail: function() {
-    wx.navigateTo({
-      url: '../orderDetail/orderDetail',
-    })
-  },
-  toEvaluate: function() {
-    wx.navigateTo({
-      url: '../evaluate/evaluate',
-    })
   }
 })

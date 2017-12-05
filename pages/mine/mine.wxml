@@ -59,7 +59,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item'>
+  <view class='list-item' bindtap='toMyCoupon'>
     <view class='list-icon'>
       <text class='iconfont icon-lucky'></text>
     </view>
@@ -72,7 +72,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item'>
+  <view class='list-item' bindtap='toRecord'>
     <view class='list-icon'>
       <text class='iconfont icon-record'></text>
     </view>
@@ -104,7 +104,7 @@
     </view>
     <view class='list-content text-between'>
       <view class='list-title'>
-        <text>清楚缓存</text>
+        <text>清除缓存</text>
       </view>
       <view class='list-right'>
         <text class='iconfont icon-right'></text>

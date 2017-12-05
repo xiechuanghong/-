@@ -6,11 +6,11 @@ page{
 }
 @font-face {
   font-family: 'iconfont';  /* project id 495205 */
-  src: url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.eot');
-  src: url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.woff') format('woff'),
-  url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_495205_s5jrach75t1n61or.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.eot');
+  src: url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.woff') format('woff'),
+  url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_495205_xjx2wdkkjra4i.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -30,6 +30,9 @@ page{
 }
 .icon-record::before{ /*记录*/
   content: '\e616';
+}
+.icon-order::before{ /*订单*/
+  content: '\e611';
 }
 .icon-vip::before{ /*vip*/
   content: '\e6e1';
