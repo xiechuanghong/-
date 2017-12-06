@@ -3,15 +3,16 @@
   <view class='txt'>暂时没有优惠券</view>
 </view>
 <view class='list' wx:else>
-  <view class='list-item'>
+  <view class='list-item' wx:for='{{coupon}}' wx:key='id'>
     <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
+      <view class='coupon-amount'>￥<text>{{item.amount}}</text></view>
+      <view class='coupon-condition'>{{item.desc}}</view>
     </view>
     <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='coupon-btn'>立即领取</text>
+      <view class='coupon-name'>{{item.name}}</view>
+      <view class='coupon-time'>截至时间：{{item.exp_time}}</view>
+      <text class='coupon-btn invalid' wx:if="{{item.is_received === 1}}" data-id='{{item.id}}' bindtap='receiveCoupon'>已经领取</text>
+      <text class='coupon-btn' wx:else data-id='{{item.id}}' bindtap='receiveCoupon'>立即领取</text>
     </view>
   </view>
 </view>

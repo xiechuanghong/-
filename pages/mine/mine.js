@@ -10,6 +10,11 @@ Page({
     is_member: 0,
     is_salesman: 0,
     is_verifier: 0,
+<<<<<<< HEAD
+=======
+    avatarUrl: '',
+    nickName: ''
+>>>>>>> 145fd6535d3f493ca7d7a7c3d58b982896e58d69
   },
 
   /**
@@ -17,6 +22,11 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+
+    _this.setData({
+      avatarUrl: app.globalData.avatarUrl,
+      nickName : app.globalData.nickName
+    });
     _this.index();
     _this.UserInfo();
   },

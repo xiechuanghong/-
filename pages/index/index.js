@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    ad              : [],
+    expert          : [],
+    storeRecommended: []
   },
 
   /**
@@ -67,7 +69,8 @@ Page({
   
   },
   index: function() {
-    var pro_id = config.pro_id,
+    var _this = this,
+        pro_id = config.pro_id,
         store  = config.store,
         url    = app.globalData.url;
     wx.request({
@@ -79,7 +82,18 @@ Page({
       dataType: 'json',
       method: "GET",
       success: function(res) {
-
+        if (res.data.success === 1) {
+          _this.setData({
+            ad              : res.data.responseData.ad,
+            expert          : res.data.responseData.expert,
+            storeRecommended: res.data.responseData.storeRecommended
+          });
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
       }
     })
   },
