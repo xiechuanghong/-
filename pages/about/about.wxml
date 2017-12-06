@@ -6,7 +6,7 @@
     <text>哇哈哈美容</text>
   </view>
   <view class='grad'>
-    <text class="iconfont icon-star {{ isClick?'active':'' }}" wx:for="{{stars}}" wx:key="index" bindtap="selectLeft"></text>
+    <text class="iconfont icon-star" wx:for="{{stars}}" wx:key="index"></text>
     <text class='text'>4.0分</text>
   </view>
 </view>

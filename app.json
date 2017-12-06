@@ -22,8 +22,8 @@
     "pages/commission/commission",
     "pages/cashDetail/cashDetail",
     "pages/extendOrder/extendOrder",
-    "pages/about/about",
-    "pages/generalize/generalize"
+    "pages/generalize/generalize",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

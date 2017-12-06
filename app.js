@@ -13,6 +13,7 @@ App({
     this.globalData.pro_id = config.pro_id;
     this.globalData.store = config.store;
     this.getUserInfoSet();
+    this.getShopInfo();
   },
   login: function () {//获取code
     var that = this;

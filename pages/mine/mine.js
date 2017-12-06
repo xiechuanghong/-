@@ -9,7 +9,7 @@ Page({
   data: {
     is_member: 0,
     is_salesman: 0,
-    is_verifier: 0
+    is_verifier: 0,
   },
 
   /**
@@ -18,6 +18,7 @@ Page({
   onLoad: function (options) {
     var _this = this;
     _this.index();
+    _this.UserInfo();
   },
 
   /**
@@ -122,5 +123,40 @@ Page({
       });
     }
     
+  },
+  // 获取用户信息
+  UserInfo:function() {
+    var _this = this
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.rawData
+        _this.setData({
+          userInfo: userInfo,
+        })
+      }
+    })
+  },
+  // 同步会员信息
+  synchronizationInfo:function(){
+    var _this  = this,
+        pro_id = config.pro_id,
+        store  = config.store,
+        url    = app.globalData.url,
+        key    = app.globalData.key;
+    wx.request({
+      url: url + 'Users/syncwx',
+      data: {
+        pro_id: pro_id,
+        store: store,
+        key: key,
+        userInfo: _this.data.userInfo,
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log('更新成功')
+      }
+
+    })
   }
+
 })

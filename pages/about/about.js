@@ -1,4 +1,5 @@
 // pages/mine/mine.js
+var app = getApp();
 Page({
 
   /**
@@ -10,17 +11,12 @@ Page({
     stars: [0, 1, 2, 3, 4],
     key: 0,//评分
   },
-  selectLeft:function(e){
-    this.setData({
-      isClick:!this.isClick
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(app.globalData)
   },
 
   /**

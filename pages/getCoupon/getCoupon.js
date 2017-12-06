@@ -1,18 +1,22 @@
 // pages/getCoupon/getCoupon.js
+var app = getApp();
+var config = require('../../utils/config.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    coupon: [1]
+    coupon: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var _this = this;
+
+    _this.getAllCoupons();
   },
 
   /**
@@ -62,5 +66,40 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  getAllCoupons: function() {
+    var _this   = this,
+        url     = app.globalData.url,
+        key     = app.globalData.key,
+        pro_id  = config.pro_id,
+        store   = config.store,
+        shop_id = 0,
+        coupon  = [];
+    wx.request({
+      url: url + 'Activity/getAllCoupons',
+      data: {
+        pro_id : pro_id,
+        store  : store,
+        key    : key,
+        shop_id: shop_id
+      },
+      dataType: 'json',
+      method: 'GET',
+      success: function(res) {
+        if (res.data.success === 1) {
+          if (!(res.data.responseData.length === undefined)) {
+            coupon = res.data.responseData;
+          }
+          _this.setData({
+            coupon: coupon
+          });
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
+    })
   }
 })
