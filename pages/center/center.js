@@ -20,7 +20,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-    _this.salesmanIndex();
+    // _this.salesmanIndex();
     wx.stopPullDownRefresh();
     wx.hideLoading();
   },

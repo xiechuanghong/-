@@ -1,18 +1,23 @@
 // pages/mine/mine.js
+var app = getApp();
+var config = require('../../utils/config.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    is_member: 0,
+    is_salesman: 0,
+    is_verifier: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var _this = this;
+    _this.index();
   },
 
   /**
@@ -63,6 +68,33 @@ Page({
   onShareAppMessage: function () {
   
   },
+  index: function() {
+    var _this  = this, 
+        pro_id = config.pro_id,
+        store  = config.store,
+        url    = app.globalData.url,
+        key    = app.globalData.key;
+    wx.request({
+      url: url + 'Users/index',
+      data: {
+        pro_id: pro_id,
+        store: store,
+        key: key
+      },
+      dataType: 'json',
+      method: 'GET',
+      success: function(res) {
+        if (res.data.success === 1) {
+          _this.setData({
+            is_salesman: res.data.responseData.is_salesman,
+            is_verifier: res.data.responseData.is_salesman,
+            is_member  : res.data.responseData.is_member
+          });
+        }
+      }
+    })
+  },
+
   toRecord: function() {
     wx.navigateTo({
       url: '../record/record',
@@ -73,9 +105,22 @@ Page({
       url: '../myCoupon/myCoupon',
     })
   },
-  toCenter: function() {
-    wx.navigateTo({
-      url: '../center/center',
-    })
+  toExtend: function() {
+    var _this = this, 
+        is_salesman = _this.data.is_salesman;
+    if (is_salesman === 0) {
+      wx.navigateTo({
+        url: '../generalize/generalize?salesman=' + is_salesman,
+      });
+    } else if (is_salesman === 1){
+      wx.navigateTo({
+        url: '../generalize/generalize?salesman=' + is_salesman,
+      });
+    } else {
+      wx.navigateTo({
+        url: '../center/center',
+      });
+    }
+    
   }
 })

@@ -19,31 +19,31 @@
   
   <view class="nav">
     <view class="navBox box" bindtap='applyFor'>
-      <view class="iconfont icon-tixian icon"></view>
+      <view class="iconfont icon-extract-cash icon"></view>
       <view class="nTxt">佣金提现</view>
     </view>
     <view class="navBox box" bindtap='tapFans'>
-      <view class="iconfont icon-fensi icon"></view>
+      <view class="iconfont icon-fans icon"></view>
       <view class="nTxt">我的粉丝({{salesman_sum}})</view>
     </view>
 
     <view class="navBox box" bindtap='commission'>
-      <view class="iconfont icon-tuiguang icon"></view>
+      <view class="iconfont icon-wallet icon"></view>
       <view class="nTxt">推广佣金</view>
     </view>
 
     <view class="navBox box" bindtap='cashDetail'>
-      <view class="iconfont icon-qianbao icon"></view>
+      <view class="iconfont icon-extend icon"></view>
       <view class="nTxt">提现明细({{withdraw}})</view>
     </view>
      <view class="navBox box" bindtap='tapExtend'>
-      <view class="iconfont icon-dingdan icon"></view>
+      <view class="iconfont icon-order-full icon"></view>
       <view class="nTxt">推广订单({{order}})</view>
     </view>
   </view>
 
   <view class="rule">
-    <view class="rTitle iconfont icon-lingxing">代言规则</view>
+    <view class="rTitle iconfont icon-diamond">代言规则</view>
     <view class="rContent">当你粉丝在店铺内支付订单后，你将会获得奖金收益，收益的可提现时间为支付订单后的几天，当你的粉丝取消订单、退款，或者因订单异常被扣除收益，你将不会获得奖金收益。</view>
     <button bindtap='code'>推广二维码</button>
   </view>

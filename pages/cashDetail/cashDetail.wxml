@@ -22,7 +22,7 @@
       <scroll-view scroll-y style='height:{{swiperHeight}}px'>
         <view class='no-deal' wx:if='{{allList.length < 1}}'>
           <view class='no-deal-icon'>
-            <text class='iconfont icon-qianbao'></text>
+            <text class='iconfont icon-wallet'></text>
           </view>
           <view class='no-deal-txt'>没有相应的内容喔</view>
         </view>
@@ -48,7 +48,7 @@
       <scroll-view scroll-y style='height:{{swiperHeight}}px'>
         <view class='no-deal' wx:if='{{check.length < 1}}'>
           <view class='no-deal-icon'>
-            <text class='iconfont icon-qianbao'></text>
+            <text class='iconfont icon-wallet'></text>
           </view>
           <view class='no-deal-txt'>没有相应的内容喔</view>
         </view>
@@ -70,7 +70,7 @@
       <scroll-view scroll-y style='height:{{swiperHeight}}px'>
         <view class='no-deal' wx:if='{{pay.length < 1}}'>
           <view class='no-deal-icon'>
-            <text class='iconfont icon-qianbao'></text>
+            <text class='iconfont icon-wallet'></text>
           </view>
           <view class='no-deal-txt'>没有相应的内容喔</view>
         </view>
@@ -92,7 +92,7 @@
       <scroll-view scroll-y style='height:{{swiperHeight}}px'>
         <view class='no-deal' wx:if='{{payed.length < 1}}'>
           <view class='no-deal-icon'>
-            <text class='iconfont icon-qianbao'></text>
+            <text class='iconfont icon-wallet'></text>
           </view>
           <view class='no-deal-txt'>没有相应的内容喔</view>
         </view>

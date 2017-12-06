@@ -1,6 +1,6 @@
-var app=getApp();
+var app = getApp();
 
-module.exports={
+module.exports = {
   getUserInfoSet: function () {
     var that = this;
     // console.log('getUserInfoSet')
@@ -17,7 +17,7 @@ module.exports={
             fail: (res) => {
               console.log('授权失败')
               wx.openSetting({
-                
+
               })
             }
           })
@@ -26,7 +26,7 @@ module.exports={
           that.userInfo();
         }
       },
-      fail:(res)=>{
+      fail: (res) => {
         console.log('fail')
         console.log(res)
       }
@@ -48,16 +48,16 @@ module.exports={
       }
     })
   },
-  login:function(){
-    var that=this;
+  login: function () {
+    var that = this;
     wx.login({
-      success:(res)=>{
+      success: (res) => {
         console.log(res);
       },
-      fail:(res)=>{
+      fail: (res) => {
         console.log(res);
       }
-    })  
+    })
   }
 }
 

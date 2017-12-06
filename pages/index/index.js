@@ -1,4 +1,6 @@
 // index/index.js
+var app    = getApp();
+var config = require('../../utils/config.js');
 Page({
 
   /**
@@ -12,7 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var _this = this;
+
+    _this.index();
   },
 
   /**
@@ -62,6 +66,23 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  index: function() {
+    var pro_id = config.pro_id,
+        store  = config.store,
+        url    = app.globalData.url;
+    wx.request({
+      url: url + 'Index/index',
+      data: {
+        pro_id: pro_id,
+        store: store
+      },
+      dataType: 'json',
+      method: "GET",
+      success: function(res) {
+        console.log(res);
+      }
+    })
   },
   toSet: function() {
     wx.navigateTo({

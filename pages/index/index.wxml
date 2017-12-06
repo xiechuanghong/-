@@ -5,7 +5,7 @@
 </view>
 <swiper autoplay='true' circular='true'>
   <swiper-item style="background: blue;">
-  
+    <image src=''></image>
   </swiper-item>
   <swiper-item style="background: yellow;">
   

@@ -6,11 +6,11 @@ page{
 }
 @font-face {
   font-family: 'iconfont';  /* project id 495205 */
-  src: url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.eot');
-  src: url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.woff') format('woff'),
-  url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_495205_z1lf2tiha99kke29.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.eot');
+  src: url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -25,7 +25,7 @@ page{
 .icon-right::before{ /*向右*/
   content: '\e637';
 }
-.icon-extend::before{ /*推广*/
+.icon-extend-o::before{ /*推广*/
   content: '\e67b';
 }
 .icon-record::before{ /*记录*/
@@ -61,9 +61,27 @@ page{
 .icon-star::before{ /*星星*/
   content: '\e644';
 }
-.icon-search::before{ /*星星*/
+.icon-search::before{ /*搜索*/
   content: '\e60b';
 }
 .icon-close::before{ /*删除*/
   content: '\e606';
+}
+.icon-extract-cash::before{ /*提现*/
+  content: '\e690';
+}
+.icon-order-full::before{ /*订单填满*/
+  content: '\e66f';
+}
+.icon-diamond::before{ /*菱形*/
+  content: '\e620';
+}
+.icon-fans::before{ /*粉丝*/
+  content: '\e62f';
+}
+.icon-wallet::before{ /*钱包*/
+  content: '\e61a';
+}
+.icon-extend::before{ /*推广*/
+  content: '\e601';
 }

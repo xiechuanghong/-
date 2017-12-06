@@ -33,7 +33,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item'>
+  <view class='list-item {{is_member === 0 ? "hide" : ""}}'>
     <view class='list-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
@@ -46,7 +46,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item'>
+  <view class='list-item {{is_member === 0 ? "hide" : ""}}'>
     <view class='list-icon'>
       <text class='iconfont icon-recharge'></text>
     </view>
@@ -85,9 +85,9 @@
       </view>
     </view>
   </view>
-  <view class='list-item' bindtap='toCenter'>
+  <view class='list-item' bindtap='toExtend'>
     <view class='list-icon'>
-      <text class='iconfont icon-extend'></text>
+      <text class='iconfont icon-extend-o'></text>
     </view>
     <view class='list-content text-between'>
       <view class='list-title'>

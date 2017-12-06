@@ -1,0 +1,51 @@
+<!--pages/generalize/generalize.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="body">
+  <view class=" shopImg">
+    <image src="../img/index_banner2.png"></image>
+  </view>
+  <view class="welcomeTxt iconfont icon-xiaolian {{isSalesman ? 'hide' : ''}}"> 欢迎加入酒吧小程序大家庭，请填写申请资料！</view>
+
+  <form class="{{isSalesman ? 'hide' : ''}}">
+    <view class="rowMo box">
+      <view class="rLeft">邀请人</view>
+      <input class="rRight" placeholder="请输入邀请人" disabled='true' placeholder-style='color:#ccc;' value='{{upper}}'></input>
+    </view>
+    <view class="rowMo box">
+      <view class="rLeft">姓名</view>
+      <input class="rRight" placeholder="请输入您的真实姓名" placeholder-style='color:#ccc;' bindinput='inputName'  value='{{name}}'></input>
+    </view>
+    <view class="rowMo box">
+      <view class="rLeft">手机号</view>
+      <input class="rRight" placeholder="请输入您的手机号" placeholder-style='color:#ccc;' bindinput='inputPhone' value='{{phone}}'></input>
+    </view>
+    <view class=" protocol box " >
+      <text class="iconfont icon-xuanzhong {{isRead ? 'active' : ''}}" bindtap='tapRead'></text>
+     我已阅读并了解（ <text style="color:blue" id="Parse" bindtap='Parse'>推广员申请协议</text> ）
+    </view>
+    <view class="confirm">
+      <button class="button" bindtap='tapConfirm'>申请成为推广员</button>
+    </view>
+  </form>
+
+  <view class="privilege {{isSalesman ? 'hide' : ''}}">
+    <view class="titel" style="color:#000;">推广员特权</view>
+    <view class="txt">成为店铺推广员后您和您粉丝只要在店内消费就可以获得佣金。</view>
+  </view>
+
+  <view class="audit {{isSalesman ? '' : 'hide'}}">
+    <view class="iconfont icon-xiaolian a_icon"></view>
+    <view class="a_txt">您的资料我们正在加紧审核请耐心等待喔</view>
+  </view>
+
+  <button class="a_btn {{isSalesman ? '' : 'hide'}}" bindtap='to_home'>去店铺先逛逛</button>
+
+  <view class="modBg " wx:if="{{Parse}}" id="Parse" bindtap='Parse'>
+    <scroll-view class="modBox box" scroll-y>
+      <view class="moTem box">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      </view>
+    </scroll-view>
+  </view>
+ 
+</view>

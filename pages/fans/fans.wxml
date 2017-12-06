@@ -11,7 +11,7 @@
     <swiper-item>
       <view class='nofans' wx:if="{{gradeOne.length < 1}}">
         <view class='nofans-icon'>
-          <text class='iconfont icon-fensi'></text>
+          <text class='iconfont icon-fans'></text>
         </view>
         <view class='nofans-text'>没有相应的内容喔</view>
       </view>
@@ -37,7 +37,7 @@
     <swiper-item>
       <view class='nofans' wx:if="{{gradeTwo.length < 1}}">
         <view class='nofans-icon'>
-          <text class='iconfont icon-fensi'></text>
+          <text class='iconfont icon-fans'></text>
         </view>
         <view class='nofans-text'>没有相应的内容喔</view>
       </view>
