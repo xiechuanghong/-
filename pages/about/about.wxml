@@ -1,13 +1,13 @@
 <view class="head-picture">
-  <image src=''></image>
+  <image src='{{shop.background}}'></image>
 </view>
 <view class='hairdressingGrad'>
   <view class='hairdressing'>
-    <text>哇哈哈美容</text>
+    <text>{{ shop.shop_name }}</text>
   </view>
   <view class='grad'>
-    <text class="iconfont icon-star" wx:for="{{stars}}" wx:key="index"></text>
-    <text class='text'>4.0分</text>
+    <text class="iconfont icon-star {{item?'active':''}}" wx:for="{{stars}}" wx:key="index"></text>
+    <text class='text'>{{ shop.star }}分</text>
   </view>
 </view>
 <view class='list'>
@@ -17,7 +17,7 @@
       <image src='../img/book_icon_shop.png'></image>
     </view>
     <view class="right">
-      <text>哇哈哈美容</text>
+      <text>{{shop.shop_name}}</text>
     </view>
   </view>
   
@@ -27,7 +27,7 @@
       <image src='../img/book_icon_position.png'></image>
     </view>
     <view class="right">
-      <text>广州市番禺区骏盈大厦B栋501</text>
+      <text>{{ shop.address }}</text>
     </view>
   </view>
 
@@ -37,7 +37,7 @@
       <image src='../img/book_icon_shop.png'></image>
     </view>
     <view class="right">
-      <text>电话：1233213927</text>
+      <text>电话：{{shop.phone}}</text>
     </view>
   </view>
 
@@ -47,7 +47,7 @@
       <image src='../img/book_icon_businesshours.png'></image>
     </view>
     <view class="right">
-      <text>营业时间：9:00-22:00</text>
+      <text>营业时间：{{shop.business_s}}-{{shop.business_e}}</text>
     </view>
   </view>
 </view>
@@ -57,8 +57,6 @@
     <text>店铺介绍</text>
   </view>
   <view class='content'>
-    <text>各个专科领域均享有良好的信誉并得到了社会各界的广
-泛认可。用成熟专业的技术，先进的设备，安全贴心的
-保证，优质的个性化服务，全方位地服务于广大爱美"</text>
+    <text>{{shop.description}}</text>
   </view>
 </view>

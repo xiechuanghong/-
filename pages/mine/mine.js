@@ -155,7 +155,6 @@ Page({
       success: function (res) {
         console.log('更新成功')
       }
-
     })
   }
 
