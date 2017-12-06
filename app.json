@@ -21,7 +21,8 @@
     "pages/fans/fans",
     "pages/commission/commission",
     "pages/cashDetail/cashDetail",
-    "pages/extendOrder/extendOrder"
+    "pages/extendOrder/extendOrder",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

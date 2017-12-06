@@ -1,0 +1,83 @@
+.head-picture {
+  height: 360rpx;
+  width: 750rpx;
+  box-sizing: border-box;
+  background-color: red;
+}
+.hairdressingGrad {
+  height: 150rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 34rpx 0 37rpx 30rpx;
+}
+.hairdressing {
+  width:185rpx;
+  height:34rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  letter-spacing:2rpx;
+  font-family:PingFang-SC-Bold;
+}
+.grad {
+  margin-top: 20rpx;
+}
+.grad text {
+  margin-right: 10rpx;
+}
+.grad .iconfont {
+  display: inline-block;
+  width: 27rpx;
+  height: 25rpx;
+}
+.grad .text {
+  color: #ff6589;
+  font-size: 28rpx;
+  font-family:PingFang-SC-Medium;
+}
+.list {
+  height: 380rpx;
+  padding: 30rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #fff; 
+}
+.list .left {
+  float: left;
+  margin-right: 20rpx;
+}
+.list .list-a {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.list .left text {
+  color: #333;
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+}
+.list .right {
+  float: left;
+}
+.list .right text{
+  font-family: PingFang-SC-Medium;
+  color: #333;
+  font-size: 30rpx;
+}
+.about {
+  height: 224rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background-color: #fff; 
+  padding: 20rpx 25rpx 30rpx 29rpx;
+}
+.about .title {
+  font-size: 30rpx;
+  font-weight: bold;
+  font-family: PingFang-SC-Medium;
+  margin-bottom: 29rpx;
+}
+.about .content {
+  color: #666;
+  font-size: 28rpx;
+}
