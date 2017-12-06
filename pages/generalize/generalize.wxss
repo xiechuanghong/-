@@ -1,0 +1,31 @@
+/* pages/generalize/generalize.wxss */
+ @import"../../wxParse/wxParse.wxss"; 
+.shopImg{width:750rpx; height:390rpx;}
+.shopImg image{width:100%; height:100%;}
+.welcomeTxt{width:100%; height:84rpx; line-height:84rpx; text-indent:30rpx; font-size:28rpx; color:#fff;
+  background:#999; margin-bottom:20rpx;}
+
+.rowMo{display:flex; height:100rpx; align-items:center; font-size:30rpx; color:#000; padding:0 30rpx; justify-content: space-between; background:#fff; border-bottom:1rpx solid #eee;}
+.rowMo .rLeft{flex:1;}
+.rowMo .rRight{flex:4;}
+.protocol{background:#fff; height:100rpx; line-height:100rpx; text-indent:30rpx; font-size:28rpx; color:#666;}
+
+.confirm{width:100%; margin:90rpx 0 70rpx 0;}
+.confirm button{width:690rpx; height:88rpx; background:#ffa838; font-size:34rpx; color:#fff;}
+
+.privilege{padding:0 48rpx; font-size:30rpx; color:#666; line-height:50rpx;}
+.privilege .txt{padding-bottom:70rpx;}
+
+.audit{width:100%; height:400rpx; text-align:center; padding-top:90rpx;
+   background:#fff; color:#999; }
+.audit .a_icon{font-size:100rpx; margin-bottom:40rpx;}
+.audit .a_txt{width:357rpx;text-align:center; margin:0 auto;}
+.a_btn{width:310rpx; height:84rpx; border:1rpx solid #ffa838; border-radius:42rpx; color:#ffa838; margin-top:100rpx;}
+.icon-xuanzhong.active{
+  color:#ff8383;
+}
+
+.modBg{width:100%; height:100vh; background:rgba(0,0,0,0.2); position:fixed; top:0; display:flex;
+  align-items:center; justify-content:center; z-index:1000;}
+.modBg .modBox{width:600rpx; height:60vh; background:#fff;}
+.modBg .modBox .moTem{min-height:60vh;}

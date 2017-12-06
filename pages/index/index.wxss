@@ -24,8 +24,7 @@ swiper{
   background-color: #FFF;
 }
 swiper-item{
-  width: 590rpx!important;
-  left: 80rpx;
+
 }
 .navbar{
   background-color: #FFF;
