@@ -1,5 +1,5 @@
 module.exports = {
-  pro_id: 100007,
+  pro_id: 100020,
   store: 1,
   url: 'https://mpe.hanyu020.com/Api/',
   bar_plugin: {
