@@ -15,7 +15,6 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-
     _this.index();
   },
 
@@ -80,7 +79,7 @@ Page({
       dataType: 'json',
       method: "GET",
       success: function(res) {
-        console.log(res);
+
       }
     })
   },
