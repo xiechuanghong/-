@@ -9,7 +9,9 @@ Page({
   data: {
     is_member: 0,
     is_salesman: 0,
-    is_verifier: 0
+    is_verifier: 0,
+    avatarUrl: '',
+    nickName: ''
   },
 
   /**
@@ -17,6 +19,11 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+
+    _this.setData({
+      avatarUrl: app.globalData.avatarUrl,
+      nickName : app.globalData.nickName
+    });
     _this.index();
   },
 

@@ -101,5 +101,38 @@ Page({
         }
       }
     })
+  },
+  receiveCoupon: function(e) {
+    var _this = this,
+        url = app.globalData.url,
+        key = app.globalData.key,
+        pro_id = config.pro_id,
+        store = config.store,
+        coupon_id = e.currentTarget.dataset.id;
+    wx.request({
+      url: url + 'Activity/receiveCoupon',
+      data: {
+        pro_id   : pro_id,
+        store    : store,
+        key      : key,
+        coupon_id: coupon_id
+      },
+      dataType: 'json',
+      method: 'POST',
+      success: function(res) {
+        if (res.data.success === 1) {
+          _this.getAllCoupons();
+          wx.showModal({
+            title: '',
+            content: '领取成功',
+          })
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
+    })
   }
 })

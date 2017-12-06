@@ -1,17 +1,17 @@
 <!--pages/ordered/ordered.wxml-->
 <view class="body">
   <view class="topInfo box">
-    <image class="shopImg" src="../img/01.png"></image>
+    <image class="shopImg" src="{{shop.logo}}"></image>
     <view class="shopInfo">
       <view>
         <image class="topIcon" src="../img/book_icon_shop.png" ></image>
-        哇哈哈美容</view>
+        {{shop.shop_name}}</view>
       <view>
         <image class="topIcon" src="../img/book_icon_position.png" ></image>
-        广州市番禺区骏盈大厦B栋501</view>
+        {{shop.address}}</view>
       <view>
         <image class="topIcon" src="../img/book_icon_businesshours.png" ></image>
-        营业时间：9:00-22:00</view>
+        营业时间：{{shop.business_s}}-{{shop.business_e}}</view>
     </view>
   </view>
 

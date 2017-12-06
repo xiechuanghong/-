@@ -11,42 +11,42 @@
 </view>
 <swiper current='{{current}}' bindchange='changeSwiper'>
   <swiper-item>
-    <!-- <view class='no-order'>
+     <view class='no-order' wx:if="{{available.arr.length < 1}}">
       <view class='iconfont icon-no-data'></view>
       <view class='txt'>您暂时没有优惠券喔</view>
-    </view> -->
-    <scroll-view scroll-y>
+    </view> 
+    <scroll-view scroll-y wx:else>
       <view class='list'>
-        <view class='list-item'>
+        <view class='list-item' wx:for="{{available.arr}}" wx:key="id">
           <view class='coupon-content'>
-            <view class='coupon-amount'>￥<text>10</text></view>
-            <view class='coupon-condition'>满80元可使用</view>
+            <view class='coupon-amount'>￥<text>{{item.amount}}</text></view>
+            <view class='coupon-condition'>满{{item.condition_amount}}元可使用</view>
           </view>
           <view class='coupon-info'>
-            <view class='coupon-name'>新用户专享劵</view>
-            <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-            <text class='coupon-btn'>马上使用</text>
+            <view class='coupon-name'>{{item.c_name}}</view>
+            <view class='coupon-time'>截至日期：{{item.exp_time}}</view>
+            <text class='coupon-btn' data-id='{{item.id}}'>马上使用</text>
           </view>
         </view>
       </view>
     </scroll-view>
   </swiper-item>
   <swiper-item>
-    <!-- <view class='no-order'>
+     <view class='no-order' wx:if="{{used.arr.length < 1}}">
       <view class='iconfont icon-no-data'></view>
       <view class='txt'>您暂时没有优惠券喔</view>
-    </view> -->
-    <scroll-view>
+    </view> 
+    <scroll-view scroll-y wx:else>
       <view class='list'>
-        <view class='list-item invalid'>
+        <view class='list-item invalid' wx:for="{{used.arr}}" wx:key="id">
           <view class='coupon-content'>
-            <view class='coupon-amount'>￥<text>10</text></view>
-            <view class='coupon-condition'>满80元可使用</view>
+            <view class='coupon-amount'>￥<text>{{item.amount}}</text></view>
+            <view class='coupon-condition'>满{{item.condition_amount}}元可使用</view>
           </view>
           <view class='coupon-info'>
-            <view class='coupon-name'>新用户专享劵</view>
-            <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-            <text class='coupon-btn'>立即领取</text>
+            <view class='coupon-name'>{{item.c_name}}</view>
+            <view class='coupon-time'>截至日期：{{item.exp_time}}</view>
+            <text class='coupon-btn' data-id='{{item.id}}'>马上使用</text>
           </view>
           <view class='coupon-state'>
             <image src='../img/img_coupon2.png'></image>
@@ -56,21 +56,21 @@
     </scroll-view>
   </swiper-item>
   <swiper-item>
-    <!-- <view class='no-order'>
+     <view class='no-order' wx:if="{{overtime.arr.length < 1}}">
       <view class='iconfont icon-no-data'></view>
       <view class='txt'>您暂时没有优惠券喔</view>
-    </view> -->
-    <scroll-view>
+    </view> 
+    <scroll-view scroll-y wx:else>
       <view class='list'>
-        <view class='list-item invalid'>
+        <view class='list-item invalid' wx:for="{{overtime.arr}}" wx:key="id">
           <view class='coupon-content'>
-            <view class='coupon-amount'>￥<text>10</text></view>
-            <view class='coupon-condition'>满80元可使用</view>
+            <view class='coupon-amount'>￥<text>{{item.amount}}</text></view>
+            <view class='coupon-condition'>满{{item.condition_amount}}元可使用</view>
           </view>
           <view class='coupon-info'>
-            <view class='coupon-name'>新用户专享劵</view>
-            <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-            <text class='coupon-btn'>立即领取</text>
+            <view class='coupon-name'>{{item.c_name}}</view>
+            <view class='coupon-time'>截至日期：{{item.exp_time}}</view>
+            <text class='coupon-btn' data-id='{{item.id}}'>马上使用</text>
           </view>
           <view class='coupon-state'>
             <image src='../img/img_coupon3.png'></image>

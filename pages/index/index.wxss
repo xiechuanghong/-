@@ -23,8 +23,10 @@ swiper{
   margin: 0 auto;
   background-color: #FFF;
 }
-swiper-item{
-
+swiper-item image{
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .navbar{
   background-color: #FFF;
@@ -89,7 +91,6 @@ swiper-item{
 .list-pic{
   width: 180rpx;
   height: 180rpx;
-  background: red;
   border-radius: 10rpx;
 }
 .list-pic image{
@@ -140,7 +141,6 @@ swiper-item{
 .grids-pic{
   width: 345rpx;
   height: 345rpx;
-  background-color: yellow;
 }
 .grids-pic image{
   display: block;

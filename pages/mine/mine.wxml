@@ -1,7 +1,7 @@
 <view class='header'>
-  <image src='../img/index_icon_book.png'></image>
+  <image src='{{avatarUrl}}'></image>
   <view class='name'>
-    <text>小可哎</text>
+    <text>{{nickName}}</text>
   </view>
 </view>
 <view class='list'>

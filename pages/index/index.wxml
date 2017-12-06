@@ -4,14 +4,8 @@
   <text class='line'></text>
 </view>
 <swiper autoplay='true' circular='true'>
-  <swiper-item style="background: blue;">
-    <image src=''></image>
-  </swiper-item>
-  <swiper-item style="background: yellow;">
-  
-  </swiper-item>
-  <swiper-item style="background: yellow;">
-  
+  <swiper-item wx:for='{{ad}}' wx:key='id'>
+    <image src='{{item.logo}}' data-id='{{item.id}}'></image>
   </swiper-item>
 </swiper>
 <view class='navbar'>
@@ -52,41 +46,22 @@
   <text>推荐技师</text>
 </view>
 <view class='list'>
-  <view class='list-item'>
+  <view class='list-item' wx:for='{{expert}}' wx:key='id'>
     <view class='list-pic'>
-      <image></image>
+      <image src='{{item.avatar}}'></image>
     </view>
     <view class='list-content'>
       <view class='list-name'>
-        <text>小白兔</text>
+        <text>{{item.nickname}}</text>
       </view>
       <view class='list-post'>
-        <text>助理美导师</text>
+        <text>{{item.title}}</text>
       </view>
       <view class='list-result'>
-        <text>已被约：54</text>
+        <text>已被约：{{item.sum}}</text>
       </view>
     </view>
-    <view class='list-btn' bindtap='toBookInof'>
-      <text>预约TA</text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='list-pic'>
-      <image></image>
-    </view>
-    <view class='list-content'>
-      <view class='list-name'>
-        <text>小白兔</text>
-      </view>
-      <view class='list-post'>
-        <text>助理美导师</text>
-      </view>
-      <view class='list-result'>
-        <text>已被约：54</text>
-      </view>
-    </view>
-    <view class='list-btn' bindtap='toBookInof'>
+    <view class='list-btn' data-id='{{item.id}}' bindtap='toBookInof'>
       <text>预约TA</text>
     </view>
   </view>
@@ -95,32 +70,17 @@
   <text>推荐精品</text>
 </view>
 <view class='grids'>
-  <view class='grids-item' bindtap='toSetDetail'>
+  <view class='grids-item' wx:for='{{storeRecommended}}' wx:key='id' data-id='{{item.id}}' bindtap='toSetDetail'>
     <view class='grids-pic'>
-      <image></image>
+      <image src='{{item.goods_img}}'></image>
     </view>
     <view class='grids-content'>
       <view class='grids-info'>
         <view class='grids-name'>
-          <text>意大利玻尿酸原液</text>
+          <text>{{item.goods_name}}</text>
         </view>
         <view class='grids-price'>
-          <text>￥158.00</text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class='grids-item' bindtap='toSetDetail'>
-    <view class='grids-pic'>
-      <image></image>
-    </view>
-    <view class='grids-content'>
-      <view class='grids-info'>
-        <view class='grids-name'>
-          <text>意大利玻尿酸原液</text>
-        </view>
-        <view class='grids-price'>
-          <text>￥158.00</text>
+          <text>￥{{item.goods_price}}</text>
         </view>
       </view>
     </view>

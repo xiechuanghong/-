@@ -1,18 +1,40 @@
 // pages/myCoupon/myCoupon.js
+var app = getApp();
+var config = require('../../utils/config.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    current: 0
+    current: 0,
+    available: {
+      start: 0,
+      type: 0,
+      arr: []
+    },
+    used: {
+      start: 0,
+      type: 1,
+      arr: []
+    },
+    overtime: {
+      start: 0,
+      type: 2,
+      arr: []
+    },
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var _this = this;
+
+    _this.getUserCouponsBy(_this.data.available, _this.setAvailable);
+    _this.getUserCouponsBy(_this.data.used, _this.setUsed);
+    _this.getUserCouponsBy(_this.data.overtime, _this.setOvertime);
   },
 
   /**
@@ -77,5 +99,55 @@ Page({
     _this.setData({
       current: current
     })
+  },
+  getUserCouponsBy: function(obj, callback) {
+    var _this  = this,
+        key    = app.globalData.key,
+        url    = app.globalData.url,
+        pro_id = config.pro_id,
+        store  = config.store,
+        start  = obj.start,
+        type   = obj.type;
+    wx.request({
+      url: url + 'Users/getUserCouponsBy',
+      data: {
+        pro_id: pro_id,
+        store : store,
+        start : start,
+        type  : type,
+        key   : key
+      },
+      dataType: 'json',
+      method: 'POST',
+      success: function(res) {
+        if (res.data.success === 1) {
+          callback(res.data.responseData, res.data.nextStart);
+        }
+      }
+    })
+  },
+  setAvailable: function(arr, start) {
+    var available = this.data.available;
+    available.arr = arr;
+    available.start = start;
+    this.setData({
+      available: available
+    });
+  },
+  setUsed: function (arr, start) {
+    var used = this.data.used;
+    used.arr = arr;
+    used.start = start;
+    this.setData({
+      used: used
+    });
+  },
+  setOvertime: function (arr, start) {
+    var overtime = this.data.overtime;
+    overtime.arr = arr;
+    overtime.start = start;
+    this.setData({
+      overtime: overtime
+    });
   }
 })

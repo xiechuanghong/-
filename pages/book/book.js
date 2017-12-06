@@ -1,18 +1,27 @@
 // pages/book/book.js
+var app = getApp();
+var config = require('../../utils/config.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    shop: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var _this = this;
+
+    console.log(app.globalData);
+
+    _this.setData({
+      shop: app.globalData.shop
+    })
   },
 
   /**
