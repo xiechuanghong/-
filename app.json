@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/about/about",
     "pages/index/index",
     "pages/book/book",
     "pages/order/order",
@@ -23,7 +22,8 @@
     "pages/commission/commission",
     "pages/cashDetail/cashDetail",
     "pages/extendOrder/extendOrder",
-    "pages/generalize/generalize"
+    "pages/generalize/generalize",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
