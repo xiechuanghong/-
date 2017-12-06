@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/about/about",
     "pages/index/index",
     "pages/book/book",
     "pages/order/order",
@@ -22,7 +23,6 @@
     "pages/commission/commission",
     "pages/cashDetail/cashDetail",
     "pages/extendOrder/extendOrder",
-    "pages/about/about",
     "pages/generalize/generalize"
   ],
   "window": {

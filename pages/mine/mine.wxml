@@ -5,7 +5,7 @@
   </view>
 </view>
 <view class='list'>
-  <view class='list-item'>
+  <view class='list-item' bindtap='synchronizationInfo'>
     <view class='list-icon'>
       <text class='iconfont icon-sync'></text>
     </view>

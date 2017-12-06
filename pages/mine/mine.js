@@ -10,8 +10,11 @@ Page({
     is_member: 0,
     is_salesman: 0,
     is_verifier: 0,
+<<<<<<< HEAD
+=======
     avatarUrl: '',
     nickName: ''
+>>>>>>> 145fd6535d3f493ca7d7a7c3d58b982896e58d69
   },
 
   /**
@@ -25,6 +28,7 @@ Page({
       nickName : app.globalData.nickName
     });
     _this.index();
+    _this.UserInfo();
   },
 
   /**
@@ -129,5 +133,39 @@ Page({
       });
     }
     
+  },
+  // 获取用户信息
+  UserInfo:function() {
+    var _this = this
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.rawData
+        _this.setData({
+          userInfo: userInfo,
+        })
+      }
+    })
+  },
+  // 同步会员信息
+  synchronizationInfo:function(){
+    var _this  = this,
+        pro_id = config.pro_id,
+        store  = config.store,
+        url    = app.globalData.url,
+        key    = app.globalData.key;
+    wx.request({
+      url: url + 'Users/syncwx',
+      data: {
+        pro_id: pro_id,
+        store: store,
+        key: key,
+        userInfo: _this.data.userInfo,
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log('更新成功')
+      }
+    })
   }
+
 })

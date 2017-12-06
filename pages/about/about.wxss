@@ -4,6 +4,10 @@
   box-sizing: border-box;
   background-color: red;
 }
+.head-picture image {
+  width: 100%;
+  height: 100%
+}
 .hairdressingGrad {
   height: 150rpx;
   box-sizing: border-box;
@@ -23,6 +27,10 @@
 }
 .grad text {
   margin-right: 10rpx;
+  color: #ccc;
+}
+.grad text.active {
+  color: #FF6589;
 }
 .grad .iconfont {
   display: inline-block;
@@ -50,11 +58,11 @@
   height: 80rpx;
   line-height: 80rpx;
 }
-.list .left text {
+.list .left image {
   color: #333;
   width: 50rpx;
   height: 50rpx;
-  display: inline-block;
+  vertical-align: middle;
 }
 .list .right {
   float: left;
@@ -69,13 +77,13 @@
   box-sizing: border-box;
   margin-top: 20rpx;
   background-color: #fff; 
-  padding: 20rpx 25rpx 30rpx 29rpx;
+  padding: 20rpx 25rpx 0rpx 29rpx;
 }
 .about .title {
   font-size: 30rpx;
   font-weight: bold;
-  font-family: PingFang-SC-Medium;
   margin-bottom: 29rpx;
+  font-family: PingFang-SC-Medium;
 }
 .about .content {
   color: #666;

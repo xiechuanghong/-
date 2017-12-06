@@ -8,8 +8,8 @@
     <image src='{{item.logo}}' data-id='{{item.id}}'></image>
   </swiper-item>
 </swiper>
-<view class='navbar'>
-  <view class='navbar-item'>
+<view class='navbar' >
+  <view class='navbar-item' bindtap="toAbout">
     <view class='navbar-icon'>
       <image src='../img/index_icon_introduce.png'></image>
     </view>
