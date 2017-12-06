@@ -1,30 +1,15 @@
 <view class='grids'>
-  <view class='grids-item' bindtap='toSetDetail'>
+  <view class='grids-item' wx:for='{{expert}}' wx:key='id' data-id='{{item.goods_id}}'  bindtap='toSetDetail'>
     <view class='grids-pic'>
-      <image></image>
+      <image src='{{item.goods_img}}'></image>
     </view>
     <view class='grids-content'>
       <view class='grids-info'>
         <view class='grids-name'>
-          <text>意大利玻尿酸原液</text>
+          <text>{{item.goods_name}}</text>
         </view>
         <view class='grids-price'>
-          <text>￥158.00</text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class='grids-item' bindtap='toSetDetail'>
-    <view class='grids-pic'>
-      <image></image>
-    </view>
-    <view class='grids-content'>
-      <view class='grids-info'>
-        <view class='grids-name'>
-          <text>意大利玻尿酸原液</text>
-        </view>
-        <view class='grids-price'>
-          <text>￥158.00</text>
+          <text>￥{{item.goods_price}}</text>
         </view>
       </view>
     </view>
