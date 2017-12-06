@@ -93,4 +93,9 @@ Page({
       url: '../setDetail/setDetail',
     })
   },
+  toAbout:function() {
+    wx.navigateTo({
+      url: '../about/about',
+    })
+  }
 })

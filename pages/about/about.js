@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    isShow:1,
+    isClick:false,
+    stars: [0, 1, 2, 3, 4],
+    key: 0,//评分
+  },
+  selectLeft:function(e){
+    this.setData({
+      isClick:!this.isClick
+    })
   },
 
   /**

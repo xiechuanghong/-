@@ -6,11 +6,7 @@
     <text>哇哈哈美容</text>
   </view>
   <view class='grad'>
-    <text class='iconfont icon-sync'></text>
-    <text class='iconfont icon-sync'></text>
-    <text class='iconfont icon-sync'></text>
-    <text class='iconfont icon-sync'></text>
-    <text class='iconfont icon-sync'></text>
+    <text class="iconfont icon-star {{ isClick?'active':'' }}" wx:for="{{stars}}" wx:key="index" bindtap="selectLeft"></text>
     <text class='text'>4.0分</text>
   </view>
 </view>
@@ -18,7 +14,7 @@
   <!-- 列表 -->
   <view class='list-a'>
     <view class="left">
-      <text class='iconfont icon-sync'></text>
+      <image src='../img/book_icon_shop.png'></image>
     </view>
     <view class="right">
       <text>哇哈哈美容</text>
@@ -28,30 +24,30 @@
     <!-- 列表 -->
   <view class='list-a'>
     <view class="left">
-      <text class='iconfont icon-sync'></text>
+      <image src='../img/book_icon_position.png'></image>
     </view>
     <view class="right">
-      <text>哇哈哈美容</text>
+      <text>广州市番禺区骏盈大厦B栋501</text>
     </view>
   </view>
 
     <!-- 列表 -->
   <view class='list-a'>
     <view class="left">
-      <text class='iconfont icon-sync'></text>
+      <image src='../img/book_icon_shop.png'></image>
     </view>
     <view class="right">
-      <text>哇哈哈美容</text>
+      <text>电话：1233213927</text>
     </view>
   </view>
 
     <!-- 列表 -->
   <view class='list-a'>
     <view class="left">
-      <text class='iconfont icon-sync'></text>
+      <image src='../img/book_icon_businesshours.png'></image>
     </view>
     <view class="right">
-      <text>哇哈哈美容</text>
+      <text>营业时间：9:00-22:00</text>
     </view>
   </view>
 </view>
@@ -63,7 +59,6 @@
   <view class='content'>
     <text>各个专科领域均享有良好的信誉并得到了社会各界的广
 泛认可。用成熟专业的技术，先进的设备，安全贴心的
-保证，优质的个性化服务，全方位地服务于广大爱美"
-    </text>
+保证，优质的个性化服务，全方位地服务于广大爱美"</text>
   </view>
 </view>
