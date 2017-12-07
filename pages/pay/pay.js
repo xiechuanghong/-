@@ -143,7 +143,7 @@ Page({
     })
   },
   selPay:function(){
-    if(selId == 1){
+    if(this.data.selId == 1){
       this.balancePay();
     }else{
       // this.wxPay();
