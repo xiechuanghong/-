@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shop: {}
+    shop: {},
+    start: 0,
+    expert: []
   },
 
   /**
@@ -16,8 +18,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-
-    console.log(app.globalData);
+    _this.bespeakExpert();
 
     _this.setData({
       shop: app.globalData.shop
@@ -72,9 +73,40 @@ Page({
   onShareAppMessage: function () {
   
   },
-  toBookInof: function () {
+  toBookInof: function (e) {
+    var user_id = e.currentTarget.dataset.user_id;
     wx.navigateTo({
-      url: '../bookInfo/bookInfo',
+      url: '../bookInfo/bookInfo?user_id=' + user_id,
+    })
+  },
+  bespeakExpert: function() {
+    var _this = this,
+        url   = app.globalData.url,
+        data  = {
+          key    : app.globalData.key,
+          pro_id : config.pro_id,
+          store  : config.store,
+          start  : _this.data.start
+        }
+        
+    wx.request({
+      url: url + 'Cosmetology/bespeakExpert',
+      data: data,
+      dataType: 'json',
+      method: 'GET',
+      success: function(res) {
+        if (res.data.success === 1) {
+          _this.setData({
+            expert: res.data.responseData,
+            start: res.data.nextStart
+          });
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
     })
   }
 })

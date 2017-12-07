@@ -102,9 +102,10 @@ Page({
       url: '../set/set',
     })
   },
-  toBookInof: function() {
+  toBookInof: function(e) {
+    var user_id = e.currentTarget.dataset.user_id;
     wx.navigateTo({
-      url: '../bookInfo/bookInfo',
+      url: '../bookInfo/bookInfo?user_id=' + user_id,
     })
   },
   toPay: function() {
