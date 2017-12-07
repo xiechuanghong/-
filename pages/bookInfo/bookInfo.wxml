@@ -1,16 +1,16 @@
 <view class='person-box'>
   <view class='person-header'>
-    <image src='../img/02.png'></image>
+    <image src='{{avatar}}'></image>
   </view>
   <view class='person-info'>
     <view class='person-name'>
-      <text>小可爱</text>
+      <text>{{name}}</text>
     </view>
     <view class='person-role'>
-      <text>金牌美导师</text>
+      <text>{{title}}</text>
     </view>
     <view class='person-record'>
-      <text>已被约：5</text>
+      <text>已被约：{{sum}}</text>
     </view>
   </view>
 </view>
@@ -43,23 +43,8 @@
   </view>
   <view class='card-body'>
     <view class='btn-group'>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
+      <view class='btn {{selectGoods[item.goods_id] ? "active" : ""}}' wx:for='{{goods}}' wx:key='goods_id' data-goods_price='{{item.goods_price}}' data-goods_id='{{item.goods_id}}' bindtap='selectGoods'>
+        <text>{{item.goods_name}}</text>
       </view>
     </view>
   </view>
@@ -70,22 +55,22 @@
   </view>
   <view class='card-body'>
     <view class='btn-group'>
-      <view class='btn'>
+      <view class='btn {{selectNums === "1" ? "active" : ""}}' data-nums='1' bindtap='selectNums'>
         <text>1人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "2" ? "active" : ""}}' data-nums='2' bindtap='selectNums'>
         <text>2人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "3" ? "active" : ""}}' data-nums='3' bindtap='selectNums'>
         <text>3人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "4" ? "active" : ""}}' data-nums='4' bindtap='selectNums'>
         <text>4人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "5" ? "active" : ""}}' data-nums='5' bindtap='selectNums'>
         <text>5人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "6" ? "active" : ""}}' data-nums='6' bindtap='selectNums'>
         <text>6人</text>
       </view>
     </view>
@@ -99,28 +84,44 @@
     <view class='picker-group'>
       <view class='picker-box'>
         <view class='picker-title'>选择预约日期</view>
-        <picker mode='date'>
-          <view class="picker">2011</view>
+        <picker mode='date' value="{{date}}" start="{{dateStart}}" end="" bindchange="bindDateChange">
+          <view class="picker">{{date}}</view>
         </picker>
       </view>
       <view class='picker-line'></view>
       <view class='picker-box'>
         <view class='picker-title'>选择预约时间</view>
-        <picker mode='time'>
-          <view class="picker">2011</view>
+        <picker mode='time' value="{{time}}" start="{{timeStart}}" end="" bindchange="bindTimeChange">
+          <view class="picker">{{time}}</view>
         </picker>
       </view>
     </view>
   </view>
 </view>
-<view class='discount'>
+<view class='card {{hasfun ? "hasfun" : ""}}'>
+  <view class='card-body integral-box text-between'>
+    <view class='integral-content'>
+      <view class='integral-name'>积分兑换1000分</view>
+      <view class='integral-explain'>你当前有{{integration}}积分，{{deduct}}积分=1元</view>
+    </view>
+    <view class='integral-switch'>
+      <switch color='#FF6589;' disabled='{{isIntegral ? "true" : "false"}}' bindchange='switchChange'/>
+    </view>
+  </view>
+  
+</view>
+<view class='discount {{hasfun ? "hasfun" : ""}}'>
+  <view class='text-between'>
+    <view>活动满减</view>
+    <view class='discount-num'>-￥{{activityPrice}}</view>
+  </view>
   <view class='text-between'>
     <view>优惠券</view>
     <view class='discount-select' bindtap='toUseCoupon'>未选择</view>
   </view>
   <view class='text-between'>
-    <view>总计￥399.00 <text class='discount-num'>-￥0.00</text></view>
-    <view class='discount-result'>实付￥399.00</view>
+    <view>总计￥{{totalPrice}} <text class='discount-num'>-￥0.00</text></view>
+    <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>
 <view class='confirm' bindtap='bespeakAdd'>确定预约</view>

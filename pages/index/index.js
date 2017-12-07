@@ -131,6 +131,7 @@ Page({
   toAbout:function() {
     wx.navigateTo({
       url: '../about/about',
-    })
-  }
+    });
+  },
+  
 })

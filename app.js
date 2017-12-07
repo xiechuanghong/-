@@ -43,6 +43,7 @@ App({
         if (res.data.success == 1) {
           console.log('成功获取key');
           that.globalData.key = res.data.responseData;
+          that.userRecord();
         }
       }
     })
@@ -112,8 +113,60 @@ App({
       success: (res) => {
         that.globalData.shop = res.data.responseData;
         that.globalData.shop_id = res.data.responseData.shop_id;
+        that.getActivity();
       }
     })
   },
+  userRecord: function () {
+    var _this = this,
+        url = _this.globalData.url,
+        data = {
+          pro_id: config.pro_id,
+          store: config.store,
+          key: _this.globalData.key
+        };
+    wx.request({
+      url: url + 'Users/index',
+      data: data,
+      dataType: 'json',
+      method: 'GET',
+      success: function (res) {
+        if (res.data.success === 1) {
+          _this.globalData.gradeInfo = res.data.responseData;
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          });
+        }
+      }
+    });
 
+  },
+  getActivity: function () {
+    var _this = this,
+        url = _this.globalData.url,
+        data = {
+          pro_id: config.pro_id,
+          store: config.store,
+          shop_id: _this.globalData.shop.shop_id
+        };
+    wx.request({
+      url: url + 'Activity/getFullMinusActivity',
+      data: data,
+      dataType: 'json',
+      method: 'GET',
+      success: function (res) {
+        if (res.data.success === 1) {
+          _this.globalData.activity = res.data.responseData;
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
+    });
+
+  },
 })
