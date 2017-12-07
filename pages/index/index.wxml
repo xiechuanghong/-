@@ -70,9 +70,9 @@
   <text>推荐精品</text>
 </view>
 <view class='grids'>
-  <view class='grids-item' wx:for='{{storeRecommended}}' wx:key='id' data-goods_id='{{item.goods_id}}' bindtap='toSetDetail'>
+  <view class='grids-item' wx:for='{{storeRecommended}}' wx:key='id' data-goods_id='{{item.goods_id}}' >
     <view class='grids-pic'>
-      <image src='{{item.goods_img}}'></image>
+      <image  data-goods_id='{{item.goods_id}}' src='{{item.goods_img}}' bindtap='toSetDetail'></image>
     </view>
     <view class='grids-content'>
       <view class='grids-info'>
