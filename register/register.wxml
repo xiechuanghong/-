@@ -1,0 +1,19 @@
+<!--pages/register/register.wxml-->
+<view class="body">
+  <form>
+    <view class="phone rRow"> 
+      <text class="iconfont icon-user icon"></text>
+      <input placeholder='请输入手机号码' value='{{phone}}' bindinput='changePhone' placeholder-style='color:#999'></input>
+    </view>
+
+    <view class="code rRow">
+      <text class="iconfont icon-security icon"></text>
+      <input placeholder='请输入验证码' placeholder-style='color:#999' bindinput='codeValue' ></input>
+      <button class="codeBtn" bindtap='sendCode'>{{codeMsg}}</button>
+    </view>
+
+    <button class="bundling confirm" bindtap='bindPhone'>绑定手机号</button>
+  </form>
+
+  <button open-type='getPhoneNumber' bindgetphonenumber='getPhone' class="weix confirm">微信快捷登录</button>
+</view>

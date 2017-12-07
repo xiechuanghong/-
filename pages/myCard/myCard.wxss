@@ -1,0 +1,88 @@
+/* pages/myCard/myCard.wxss */
+.body{padding-top:40rpx;}
+.card{width:690rpx; height:340rpx; margin:0 auto 40rpx; position:relative; box-shadow:-5rpx 5rpx 10rpx #ccc; 
+  border-radius:10rpx;}
+.card .cbg{position:absolute; width:690rpx; height:340rpx; z-index:0; }
+.content{width:690rpx; height:340rpx; position:relative; z-index:10; border:1px solid transparent;
+  }
+.img{width:110rpx; height:110rpx; border-radius:50%; margin:53rpx 0 0 50rpx;}
+.info{width:400rpx; color:#000; margin:66rpx 0 0 13rpx;}
+.info .name{font-size:32rpx; font-weight:bold; min-width:200rpx;}
+.info .grade{min-width:90rpx; height:38rpx; line-height:38rpx; border:1rpx solid #000; border-radius:10rpx; font-size:26rpx;
+  text-align:center; margin-left:20rpx;}
+.code{width:62rpx; height:62rpx; margin:63rpx 30rpx 0 0;}
+.number{font-size:26rpx; width:100%;}
+
+.mRow{display:flex; width:100%; height:100rpx; align-items:center; justify-content:space-between; background:#fff;
+  padding:0 40rpx; border-bottom:1rpx solid #eee;}
+.mRow .icon{font-size:18rpx; color:#999;  }
+
+.qcode-modal{
+  display:none;
+  transform:scale(0,0);
+  transition:all .2s ease-in-out;
+  width:100%;
+  height:550rpx;
+  top:250rpx;
+  margin:0 auto;
+  position:absolute;
+  z-index:1601;
+
+}
+.qcode-modal.in{
+  display: block;
+}
+.qcode-modal.show{
+  transform:scale(1,1);
+}
+.mask{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:rgba(0, 0, 0, .5);
+  display:none;
+  opacity:0;
+  z-index:1600;
+  transition:all .2s linear;
+}
+.mask.in{
+  display: block;
+}
+.mask.show{
+  opacity: 1;
+}
+.qcode-content{
+  width: 450rpx;
+  margin: 0 auto;
+  background-color: #FFF;
+  border-radius: 6rpx;
+  height: 100%;
+  padding: 30rpx;
+}
+.qcode-content image{
+  display:block;
+  width: 100%;
+  height: 100%;
+  margin:0 auto;
+}
+.qcode-close{
+  position:absolute;
+  width:40rpx;
+  height:40rpx;
+  line-height:40rpx;
+  text-align:center;
+  font-size:34rpx;
+  right:5rpx;
+  top:5rpx;
+  color:#666;
+
+}
+.qcode-pic{
+  position:relative;
+  padding-top:40rpx;
+  width: 100%;
+  height: 450rpx;
+
+}

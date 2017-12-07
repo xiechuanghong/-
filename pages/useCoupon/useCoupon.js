@@ -1,18 +1,28 @@
 // pages/useCoupon/useCoupon.js
+var app = getApp();
+var config = require('../../utils/config.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    coupon: [1]
+    coupon: [1],
+    couponID:'',
+    noSel:'icon-selected-false',
+    sel:'icon-selected-true'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options)
+    this.getList();
+    this.setData({
+      couponID: options.couponID,
+      totalPrice: parseFloat(options.totalPrice)
+    })
   },
 
   /**
@@ -62,5 +72,92 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  getList:function(){
+    var that = this;
+    wx.request({
+      url: app.globalData.url + 'Activity/getAllCoupons',
+      method:'GET',
+      dataType:'JSON',
+      data:{
+        pro_id: config.pro_id,
+        store: config.store,
+        key: app.globalData.key,
+        shop_id: app.globalData.shop.shop_id
+      },
+      success:(res)=>{
+        var str = JSON.parse(res.data);
+        console.log(str)
+        if(str.success == 1){
+          var lis = str.responseData;
+          lis = JSON.stringify(lis) == '{}'?[]:lis;
+          that.setData({
+            list:lis
+          })
+        }
+      }
+    })
+  },
+  selCoupon:function(ev){
+    var ID = ev.target.dataset.id;
+    if (ID == this.data.couponID){
+      this.setData({
+        couponID:''
+      })
+    }else{
+      this.setData({
+        couponID:ID
+      })
+    }
+  },
+  confirmUse:function(){
+    var that = this;
+    var lis = that.data.list,
+        couponID = that.data.couponID;
+        if(couponID == ''){
+          console.log('空')
+          var current = getCurrentPages(),
+            payPrice = parseFloat(that.data.totalPrice);
+          var prePage = current[current.length - 2];
+          prePage.setData({
+            couponAmout: 0.00,
+            payPrice: payPrice,
+            couponID: ''
+          })
+          wx.navigateBack({
+            data: -1
+          })
+        }
+    try{   
+      lis.forEach(function(v){
+        if (v.id == couponID){
+          if (that.data.totalPrice >= v.condition_amount){
+            var current = getCurrentPages(),
+              payPrice = parseFloat(that.data.totalPrice) - parseFloat(v.amount) ;
+            var prePage = current[current.length - 2];
+            prePage.setData({
+              couponAmout: v.amount,
+              payPrice: payPrice,
+              couponID: v.id
+            })
+            throw true
+          }else{
+            wx.showModal({
+              title: '提示',
+              content: '不符合优惠券使用要求',
+            })
+            throw false
+          }
+        }
+      })
+    }catch(e){
+      console.log(e)
+      if(e){
+        wx.navigateBack({
+          data: -1
+        })
+      }
+    } 
   }
+
 })

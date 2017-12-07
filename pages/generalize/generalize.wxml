@@ -2,7 +2,7 @@
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="body">
   <view class=" shopImg">
-    <image src="../img/index_banner2.png"></image>
+    <image src="../img/01.png"></image>
   </view>
   <view class="welcomeTxt iconfont icon-xiaolian {{isSalesman ? 'hide' : ''}}"> 欢迎加入酒吧小程序大家庭，请填写申请资料！</view>
 

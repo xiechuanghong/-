@@ -81,6 +81,12 @@ Page({
         store  = config.store,
         url    = app.globalData.url,
         key    = app.globalData.key;
+    if(!key){
+      setTimeout(function(){
+        _this.index();
+      },100)
+      return;
+    }
     wx.request({
       url: url + 'Users/index',
       data: {
@@ -92,6 +98,7 @@ Page({
       method: 'GET',
       success: function(res) {
         if (res.data.success === 1) {
+          app.globalData.mineData = res.data.responseData;
           _this.setData({
             is_salesman: res.data.responseData.is_salesman,
             is_verifier: res.data.responseData.is_salesman,
@@ -170,6 +177,21 @@ Page({
           return
         }
       }
+    })
+  },
+  register:function(){
+    wx.navigateTo({
+      url: '../register/register',
+    })
+  },
+  credit:function(){
+    wx.navigateTo({
+      url: '../credit/credit?wallet=' + app.globalData.mineData.wallet,
+    })
+  },
+  myCard:function(){
+    wx.navigateTo({
+      url: '../myCard/myCard',
     })
   }
 })

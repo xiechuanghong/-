@@ -20,11 +20,11 @@
   </view>
 </view>
 <view class='list'>
-  <view class='list-item'>
+  <view  wx:if="{{is_member == 0}}" class='list-item'>
     <view class='list-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
-    <view class='list-content text-between'>
+    <view class='list-content text-between' bindtap='register'>
       <view class='list-title'>
         <text>会员注册</text>
       </view>
@@ -33,7 +33,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item {{is_member === 0 ? "hide" : ""}}'>
+  <view  wx:if="{{is_member == 1}}" class='list-item }}' bindtap='myCard' >
     <view class='list-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
@@ -46,7 +46,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item {{is_member === 0 ? "hide" : ""}}'>
+  <view  wx:if="{{is_member == 1}}" class='list-item }}' bindtap='credit'>
     <view class='list-icon'>
       <text class='iconfont icon-recharge'></text>
     </view>

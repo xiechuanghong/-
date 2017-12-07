@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "优惠券选择"
+  "navigationBarTitleText": "优惠券选择",
+  "enablePullDownRefresh":false
 }
