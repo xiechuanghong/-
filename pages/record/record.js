@@ -1,4 +1,6 @@
 // pages/record/record.js
+var app = getApp();
+var config = require('../../utils/config.js');
 Page({
 
   /**
@@ -12,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getUserCashFlow()
   },
 
   /**
@@ -62,5 +64,34 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  getUserCashFlow: function () {
+    var _this = this,
+      pro_id = config.pro_id,
+      store = config.store,
+      url = app.globalData.url,
+      key = app.globalData.key;
+    wx.request({
+      url: url + 'Users/getUserCashFlow',
+      data: {
+        pro_id: pro_id,
+        store: store,
+        key: key,
+        start:'0'
+      },
+      method: 'GET',
+      success: function (res) {
+        if(res.data.success == 1){
+          _this.setData({
+            record: res.data.responseData
+          })
+          console.log("请求成功")
+        }
+        else {
+          console.log("请求失败")
+          return
+        }
+      }
+    })
   }
 })

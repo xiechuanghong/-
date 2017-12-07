@@ -19,7 +19,6 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-
     _this.setData({
       avatarUrl: app.globalData.avatarUrl,
       nickName : app.globalData.nickName
@@ -82,6 +81,12 @@ Page({
         store  = config.store,
         url    = app.globalData.url,
         key    = app.globalData.key;
+    if(!key){
+      setTimeout(function(){
+        _this.index();
+      },100)
+      return;
+    }
     wx.request({
       url: url + 'Users/index',
       data: {
@@ -93,6 +98,7 @@ Page({
       method: 'GET',
       success: function(res) {
         if (res.data.success === 1) {
+          app.globalData.mineData = res.data.responseData;
           _this.setData({
             is_salesman: res.data.responseData.is_salesman,
             is_verifier: res.data.responseData.is_salesman,
@@ -146,7 +152,7 @@ Page({
   // 同步会员信息
   synchronizationInfo:function(){
     var _this  = this,
-        pro_id = config.pro_id,
+        pro_id = 100007,
         store  = config.store,
         url    = app.globalData.url,
         key    = app.globalData.key;
@@ -160,9 +166,32 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log('更新成功')
+        if(res.data.success == 1) {
+          wx.showToast({
+            title: '同步成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+        else {
+          return
+        }
       }
     })
+  },
+  register:function(){
+    wx.navigateTo({
+      url: '../register/register',
+    })
+  },
+  credit:function(){
+    wx.navigateTo({
+      url: '../credit/credit?wallet=' + app.globalData.mineData.wallet,
+    })
+  },
+  myCard:function(){
+    wx.navigateTo({
+      url: '../myCard/myCard',
+    })
   }
-
 })

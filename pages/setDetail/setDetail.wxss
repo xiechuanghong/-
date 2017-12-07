@@ -1,3 +1,4 @@
+@import "../../wxParse/wxParse.wxss";
 .text-between{
   display: flex;
   justify-content: space-between;
@@ -60,11 +61,12 @@
   align-items: center;
   justify-content: space-around;
   background-color: #FFF;
-  padding: 20rpx 50rpx;
+  padding: 20rpx 0 20rpx 50rpx;
 }
 .score-total{
   font-size: 28rpx;
   color: #333;
+  width:210rpx;
 }
 .score-num{
   font-size: 36rpx;
@@ -186,3 +188,4 @@
   right: 0;
   bottom: 0;
 }
+.noData{text-align:center; margin:200rpx 0; color:#999;}

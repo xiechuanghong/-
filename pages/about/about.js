@@ -6,18 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShow:1,
     stars: [false, false, false, false, false],
     key: 0,//评分
   },
   rating:function(){
-   
+    var arrStar = app.globalData.shop.star
+    var arrStars = this.data.stars
+    for (var i = 0; i < arrStar ; i ++){
+      arrStars[i] = true      
+   }
+   this.setData({
+     stars: arrStars
+   })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData)
     this.setData({
       shop: app.globalData.shop,
     })

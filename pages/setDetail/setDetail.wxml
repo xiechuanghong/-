@@ -1,12 +1,14 @@
+<import src="../../wxParse/wxParse.wxml" />
 <view class='set-pic'>
-  <image src='../img/01.png'></image>
+  <image src='{{list.goods_img}}'></image>
 </view>
 <view class='set-info'>
-  <view class='set-name'>进口玻尿酸原液</view>
-  <view class='set-intro'>嫩肤、去皱、锁住水分</view>
-  <view class='set-price'>￥399.00</view>
+  <view class='set-name'>{{list.goods_name}}</view>
+  <view class='set-intro'>{{list.goods}}</view>
+  <view class='set-price'>￥{{list.goods_price}}</view>
   <view class='set-explain'>
-    <text>各个专科领域均享有良好的信誉并得到了社会各界的广泛认可。用成熟专业的技术，先进的设备，安全贴心的保证，优质的个性化服务，全方位地服务于广大爱美"各个专科领域均享有良好的信誉并得到了社会各界的广泛认可。用成熟专业的技术，先进的设备，安全贴心的保证，优质的个性化服务，全方位地服务于广大爱美"</text>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    <!-- <text>各个专科领域均享有良好的信誉并得到了社会各界的广泛认可。用成熟专业的技术，先进的设备，安全贴心的保证，优质的个性化服务，全方位地服务于广大爱美"各个专科领域均享有良好的信誉并得到了社会各界的广泛认可。用成熟专业的技术，先进的设备，安全贴心的保证，优质的个性化服务，全方位地服务于广大爱美"</text> -->
   </view>
 </view>
 <view class='title-bar'>
@@ -16,19 +18,23 @@
 </view>
 <view class='score-box'>
   <view class='score-total'>
-    <view class='score-num'><text>4.0</text>分</view>
+    <view class='score-num'><text>{{list.comment.length<1?'0.0':''}}</text>分</view>
     <view>综合评分</view>
   </view>
   <view class='score-line'></view>
-  <view class='score-btn'>
-    <text class='active'>全部</text>
-    <text>好评</text>
-    <text>中评</text>
-    <text>差评</text>
-    <text>有图</text>
+  <view class='score-btn' bindtap='aBtn'>
+    <text data-id="0" class="{{aBtn == 0?'active':''}}">全部</text>
+    <text data-id="1" class="{{aBtn == 1?'active':''}}">好评</text>
+    <text data-id="2" class="{{aBtn == 2?'active':''}}">中评</text>
+    <text data-id="3" class="{{aBtn == 3?'active':''}}">差评</text>
+    <text data-id="4" class="{{aBtn == 4?'active':''}}">有图</text>
   </view>
 </view>
 <view class='list'>
+  
+  <view class="noData" wx:if="{{list.comment.length<1}}" >暂时没有评价哦！</view>
+
+  <!--
   <view class='list-item'>
     <view class='evaluate-box'>
       <view class='evaluate-header'>
@@ -60,6 +66,9 @@
       </view>
     </view>
   </view>
+  -->
+
+  <!--
   <view class='list-item'>
     <view class='evaluate-box'>
       <view class='evaluate-header'>
@@ -83,5 +92,6 @@
       </view>
     </view>
   </view>
+  -->
 </view>
 <view class='confirm' bindtap='toBookSet'>立即预约</view>

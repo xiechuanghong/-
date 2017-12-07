@@ -3,61 +3,23 @@
   <view class='txt'>您暂时没有订单喔</view>
 </view>
 <view class='list' wx:else>
-  <view class='list-item'>
+  <view class='list-item' wx:for="{{order}}" wx:key="{{index}}">
     <view class='list-header text-between' bindtap='toOrderDetail'>
       <text class='name'>哇哈哈美容</text>
       <text class='state'>待支付</text>
     </view>
     <view class='list-body'>
       <view class='text-between'>
-        <text class='name'>意大利玻尿酸原液</text>
-        <text class='price'>￥40</text>
+        <text class='name'>{{item.goods[0].goods_anme}}</text>
+        <text class='price'>￥{{item.pay_amount}}</text>
       </view>
       <view class='text-right'>
-        <text>共1件服务项目，实付<text class='actual'>￥45.00</text></text>
+        <text>共{{item.goods[0].num}}件服务项目，实付<text class='actual'>￥{{item.goods[0].goods_price}}</text></text>
       </view>
     </view>
     <view class='list-footer text-right'>
       <text class='btn btn-cancel'>取消</text>
       <text class='btn'>支付</text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='list-header text-between' bindtap='toOrderDetail'>
-      <text class='name'>哇哈哈美容</text>
-      <text class='state'>待支付</text>
-    </view>
-    <view class='list-body'>
-      <view class='text-between'>
-        <text class='name'>意大利玻尿酸原液</text>
-        <text class='price'>￥40</text>
-      </view>
-      <view class='text-right'>
-        <text>共1件服务项目，实付<text class='actual'>￥45.00</text></text>
-      </view>
-    </view>
-    <view class='list-footer text-right'>
-      <text class='btn btn-cancel'>取消</text>
-      <text class='btn'>支付</text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='list-header text-between' bindtap='toOrderDetail'>
-      <text class='name'>哇哈哈美容</text>
-      <text class='state'>待支付</text>
-    </view>
-    <view class='list-body'>
-      <view class='text-between'>
-        <text class='name'>意大利玻尿酸原液</text>
-        <text class='price'>￥40</text>
-      </view>
-      <view class='text-right'>
-        <text>共1件服务项目，实付<text class='actual'>￥45.00</text></text>
-      </view>
-    </view>
-    <view class='list-footer text-right'>
-      <text class='btn btn-cancel'>取消</text>
-      <text class='btn' bindtap='toEvaluate'>评价</text>
     </view>
   </view>
 </view>

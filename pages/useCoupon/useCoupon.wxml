@@ -1,95 +1,19 @@
-<view class='no-order' wx:if="{{coupon.length < 1}}">
+<view class='no-order' wx:if="{{list.length < 1}}">
   <view class='iconfont icon-no-data'></view>
   <view class='txt'>暂时没有优惠券</view>
 </view>
-<view class='list' wx:else>
-  <view class='list-item'>
+<view class='list'>
+
+  <view class='list-item' wx:for="{{list}}" wx:key="id" wx:for-item="coupon" >
     <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
+      <view class='coupon-amount' style="font-size:{{coupon.amount>=100?'60rpx':''}}" >￥<text>{{coupon.amount}}</text></view>
+      <view class='coupon-condition'>满{{coupon.condition_amount}}元可使用</view>
     </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-false'></text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
-    </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-true'></text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
-    </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-true'></text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
-    </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-true'></text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
-    </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-true'></text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
-    </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-true'></text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
-    </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-true'></text>
-    </view>
-  </view>
-  <view class='list-item'>
-    <view class='coupon-content'>
-      <view class='coupon-amount'>￥<text>10</text></view>
-      <view class='coupon-condition'>满80元可使用</view>
-    </view>
-    <view class='coupon-info'>
-      <view class='coupon-name'>新用户专享劵</view>
-      <view class='coupon-time'>使用时间：2017.09.14-2017.10.30</view>
-      <text class='iconfont icon-selected-true'></text>
+    <view class='coupon-info' data-id="{{coupon.id}}" bindtap='selCoupon' >
+      <view class='coupon-name' data-id="{{coupon.id}}">{{coupon.activity.name}}</view>
+      <view class='coupon-time' data-id="{{coupon.id}}">过期时间：{{coupon.exp_time}}</view>
+      <text class='iconfont {{couponID == coupon.id?sel:noSel}}' data-id="{{coupon.id}}"></text>
     </view>
   </view>
 </view>
-<view class='confirm'>确定</view>
+<view class='confirm' bindtap='confirmUse' >确定</view>

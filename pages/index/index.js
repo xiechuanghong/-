@@ -31,7 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
@@ -123,9 +123,9 @@ Page({
       url: '../bookSet/bookSet',
     })
   },
-  toSetDetail: function() {
+  toSetDetail: function(ev) {
     wx.navigateTo({
-      url: '../setDetail/setDetail',
+      url: '../setDetail/setDetail?goods_id=' + ev.target.dataset.goods_id,
     })
   },
   toAbout:function() {
