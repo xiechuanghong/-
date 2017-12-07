@@ -89,5 +89,15 @@ Page({
 
       }
     })
+  },
+  bespeakAdd: function() {
+    wx.navigateTo({
+      url: '../orderDetail/orderDetail',
+    });
+  },
+  toUseCoupon: function() {
+    wx.navigateTo({
+      url: '../useCoupon/useCoupon',
+    });
   }
 })
