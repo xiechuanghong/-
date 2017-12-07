@@ -1,3 +1,5 @@
+var app = getApp();
+var config = require('../../utils/config.js');
 // pages/order/order.js
 Page({
 
@@ -12,14 +14,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.orderList()
   },
 
   /**
@@ -72,5 +74,35 @@ Page({
     wx.navigateTo({
       url: '../evaluate/evaluate',
     })
+  },
+  orderList:function(){
+    var _this = this,
+      pro_id  = config.pro_id,
+      store   = config.store,
+      key     = app.globalData.key,
+      url     = app.globalData.url;
+    wx.request({
+      url: url + 'Cosmetology/bespeakPay',
+      data: {
+        pro_id: pro_id,
+        store: store,
+        key: key
+      },
+      method:'GET',
+      success:function(res){
+        console.log(res)
+        if(res.data.success == 1) {
+          _this.setData({
+            order:res.data.responseData
+          })
+        }else {
+          wx.showModal({
+            title: '',
+            content: '',
+          })
+        }
+      }
+    })
   }
+
 })
