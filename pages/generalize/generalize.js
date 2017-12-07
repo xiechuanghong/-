@@ -21,6 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var _this = this,
         pre_key = options.pre_key,
         salesman = parseInt(options.salesman),
@@ -52,13 +53,14 @@ Page({
       });
     }
 
+    console.log(app.globalData.txt)
     var txt=app.globalData.txt;
     // var article = txt.protocol_title;
-    var content = txt.protocol_content;
-      WxParse.wxParse('article', 'html', content, _this, 10);
-      _this.setData({
-        isLoading: false
-      });
+    // var content = txt.protocol_content;
+    //   WxParse.wxParse('article', 'html', content, _this, 10);
+    //   _this.setData({
+    //     isLoading: false
+    //   });
 
   },
   Parse:function(ev){
@@ -179,6 +181,11 @@ Page({
               title: '申请成功',
               icon: 'success',
               duration: 1000
+            })
+            var current = getCurrentPages();
+            var prePage = current[current.length - 2];
+            prePage.setData({
+              is_salesman: 1
             })
             _this.setData({
               isSalesman: true

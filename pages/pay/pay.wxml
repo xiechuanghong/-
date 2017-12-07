@@ -5,34 +5,34 @@
 <view class='price-bar text-between'>
   <view class='item-name'>消费总额（元）</view>
   <view class='item-content'>
-    <input type='text' placeholder='询问服务员后输入'></input>
+    <input type='digit' placeholder='询问服务员后输入' bindblur='inputVal' ></input>
   </view>
 </view>
 <view class='list'>
-  <view class='list-item text-between'>
+  <view class='list-item text-between' bindtap='useCoupon' >
     <view class='item-name'>优惠券</view>
-    <view class='item-content'>未选择 <text class='iconfont icon-right'></text></view>
+    <view class='item-content'>{{couponID == ''?'未选择':'-'+couponAmout}} <text class='iconfont icon-right'></text></view>
   </view>
   <view class='list-item text-between'>
     <view class='item-name'>实付金额</view>
     <view class='item-content'>
-      <text class='text-theme'>￥0.00</text>
+      <text class='text-theme'>￥{{payPrice}}</text>
     </view>
   </view>
 </view>
 <view class='title-bar'>请选择支付方式</view>
 <view class='list'>
-  <view class='list-item text-between'>
+  <view class='list-item text-between' bindtap='selWx' >
     <view class='item-name'>微信支付</view>
     <view class='item-content'>
-      <text class='iconfont icon-selected-true'></text>
+      <text class='iconfont {{selId == 3?selPay:noSelPay}}'></text>
     </view>
   </view>
-  <view class='list-item text-between'>
+  <view class='list-item text-between' bindtap='seslBalance' >
     <view class='item-name'>余额支付</view>
     <view class='item-content'>
-      <text class='iconfont icon-selected-false'></text>
+      <text class='iconfont {{selId == 1?selPay:noSelPay}}'></text>
     </view>
   </view>
 </view>
-<view class='pay-btn'>立即买单</view>
+<view class='pay-btn' bindtap='selPay' >立即买单</view>

@@ -1,0 +1,45 @@
+<!--pages/myCard/myCard.wxml-->
+<view class="body">
+  <view class="card">
+    <image class="cbg" src="{{ba_cover}}"></image>
+    <view class="content box">
+      <image class="left img" src="{{logo}}"></image>
+      <view class="info left">
+        <view class="name left">{{brand_name}}会员卡</view>
+        <view class="grade left">{{grade_name}}</view>
+        <view class="number left">{{code}}</view>
+      </view>
+      <image class="code right" src="{{qrcode}}" bindtap='openCode'></image>
+    </view>
+  </view>
+
+  <view class="mRow box" bindtap='myBalance' >
+    <view class="mTxt">我的余额</view>
+    <text class="iconfont icon-right icon"></text>
+  </view>
+  <view class="mRow box" bindtap='myGrade' >
+    <view class="mTxt">我的等级</view>
+    <text class="iconfont icon-right icon"></text>
+  </view>
+  <view class="mRow box" bindtap='myPoints' >
+    <view class="mTxt">我的积分</view>
+    <text class="iconfont icon-right icon"></text>
+  </view>
+  <view class="mRow box" style="border:0;" bindtap='myMemberDetail'>
+    <view class="mTxt">会员卡详情</view>
+    <text class="iconfont icon-right icon"></text>
+  </view>
+
+</view>
+<view class='qcode-modal {{isShowQcode ? "show" : ""}} {{isInQcode ? "in" : ""}}'>
+  <view class='qcode-content'>
+    <view class='qcode-pic'>
+      <image src='{{qrcode}}'></image>
+      <view class='qcode-close'>
+        <text class='iconfont icon-wrong-empty'  bindtap='bindCloseQcode'></text>
+      </view>
+    </view>
+    
+  </view>
+</view>
+<view class='mask {{isShowQcode ? "show" : ""}} {{isInQcode ? "in" : ""}}' bindtap='bindCloseQcode'></view>

@@ -1,0 +1,29 @@
+<!--pages/register02/register02.wxml-->
+<view class="body">
+  <image class="topImg" src="../img/01.png"></image>
+
+  <view class="rRow">
+    <view class="rTxt">姓名</view>
+    <input class="rInput" placeholder='请输入您的姓名' placeholder-style='color:#ccc' data-val="realname" bindblur='inputValue' ></input>
+  </view>
+  <view class="rRow">
+    <view class="rTxt">手机号</view>
+    <input class="rInput" value="{{phone}}" disabled type="number" placeholder='请输入您的手机号' placeholder-style='color:#ccc' data-val="phone" bindblur='inputValue' ></input>
+  </view>
+  <view class="rRow">
+    <view class="rTxt">性别</view>
+    <picker value="{{index}}" range="{{sexs}}" bindchange='sexs' >
+      <input class="rInput" disabled value="{{sex}}" placeholder='请输入您的性别' placeholder-style='color:#ccc' ></input>
+    </picker>
+    
+  </view>
+  <view class="rRow">
+    <view class="rTxt">生日</view>
+    <picker mode="date" bindchange="dateValue" end="{{nowDate}}">
+      <input class="rInput" disabled value="{{dateVal}}" placeholder='请输入您的出生日期' placeholder-style='color:#ccc' ></input>
+    </picker>
+  </view>
+
+  <button class="btn" bindtap='confirm' >申请成为会员</button>
+
+</view>

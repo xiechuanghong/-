@@ -1,0 +1,18 @@
+/* pages/credit/credit.wxss */
+.left{float:left;}
+.top{width:100%; height:84rpx; background:#999; font-size:28rpx; color:#fff; display:flex; align-items:center;  }
+.top .icon{margin:0 9rpx 0 30rpx;}
+
+.form{padding-top:46rpx; width:100%; height:810rpx; display:block; background:#fff;}
+.title{font-size:30rpx; color:#333; text-indent:41rpx;}
+
+.input{width:670rpx; height:110rpx; margin:48rpx auto 0; color:#000; line-height:110rpx; border-bottom:1rpx solid #ccc;}
+.input>text{font-size:48rpx; margin-top:-20rpx;}
+.input>input{font-size:100rpx; width:600rpx; height:110rpx;}
+.balance{font-size:28rpx; color:#999; margin:35rpx 0 0 40rpx;}
+.btn{width:670rpx; height:86rpx; font-size:34rpx; background:#FCA135; color:#fff; margin:65rpx auto;}
+
+.num{width:184rpx; height:88rpx; line-height:88rpx; font-size:30rpx; color:#999; border:1rpx solid #999; 
+  border-radius:10rpx; margin:40rpx 0 0 40rpx; text-align:center;}
+.act{height:85rpx; line-height:85rpx; color:#000;}
+.actContent{font-size:30rpx; color:#666; box-sizing:border-box; padding:0 41rpx; text-align:justify;}

@@ -1,6 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/register/register",
+    "pages/register02/register02",
+    "pages/label/label",
+    "pages/credit/credit",
+    "pages/myCard/myCard",
+    
     "pages/book/book",
     "pages/order/order",
     "pages/mine/mine",

@@ -1,0 +1,33 @@
+<!--pages/credit/credit.wxml-->
+<view class="body">
+  <view class="top">
+    <text class="icon iconfont icon-xiaolian"></text>
+    提示:调用微信支付充值
+  </view>
+
+  <form class="form">
+    <view class="title">充值金额</view>
+    <view class="input">
+      <text class="left">￥</text>
+      <input class="left" type="number" value="{{inputVal}}" bindblur='money'  ></input>
+    </view>
+    <view class="balance">会员卡余额￥{{wallet}}</view>
+    <button class="btn" bindtap='refill'>确定</button>
+
+    <view class="title">充值活动</view>
+
+    <block wx:for="{{['200','500','1000','1500','2000']}}" wx:key="id" wx:for-item="item">
+      <view style="{{actId == item?actBtnStyle:''}}" data-id="{{item}}" class="num left" data-num="{{item}}"  bindtap='activity'>
+        {{item}}
+      </view>
+    </block>
+
+  </form>
+
+  <view class="title act hide">活动说明</view>
+
+  <view class="actContent hide">1、活动时间：2017年09月01日-30日；</view>
+  <view class="actContent hide">
+2、您先购买一单指定礼券的订单，再给账户充值１００元，我们也会在约定时间给您账户返还相应的金额；</view>
+
+</view>

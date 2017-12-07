@@ -3,7 +3,9 @@ page{
   background-color: #F8F8F8;
   font-size: 30rpx;
   color: #333;
+  font-family:'苹方';
 }
+.hide{display:none;}
 @font-face {
   font-family: 'iconfont';  /* project id 495205 */
   src: url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.eot');

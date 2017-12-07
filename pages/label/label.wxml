@@ -1,0 +1,12 @@
+<!--pages/label/label.wxml-->
+<view class="body">
+  <view class="title">请选择你喜欢的标签</view>
+  <view class="selectNum">已选择{{num}}个，还可添加{{9 - num}}个</view>
+  <view class="labelBox clear">
+    <view class="label left" style="{{item.sel?sel:''}}" wx:for="{{list}}" wx:key="id" wx:for-item="item" data-id="{{item.id}}" bindtap='selLabel' >
+      {{item.label_name}}
+    </view>
+  </view>
+
+  <button class="next" bindtap='postDatas' >确定</button>
+</view>
