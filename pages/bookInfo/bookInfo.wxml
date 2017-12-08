@@ -1,3 +1,4 @@
+<view class='body {{isPay ? "in" : ""}}'>
 <view class='person-box'>
   <view class='person-header'>
     <image src='{{avatar}}'></image>
@@ -14,6 +15,7 @@
     </view>
   </view>
 </view>
+<form bindsubmit="formSubmit" report-submit='true'>
 <view class='card'>
   <view class='card-header'>
     <text>请完善您的个人信息</text>
@@ -24,7 +26,7 @@
         <text>姓名</text>
       </view>
       <view class='form-control'>
-        <input type='text' placeholder='请输入您的姓名' placeholder-style='color:#CCC;'></input>
+        <input type='text' class='{{isPay ? "in" : ""}}' placeholder='请输入您的姓名' value='{{userName}}' bindchange='changeUserName' placeholder-style='color:#CCC;'></input>
       </view>
     </view>
     <view class='form-group'>
@@ -32,7 +34,7 @@
         <text>手机号</text>
       </view>
       <view class='form-control'>
-        <input type='text' placeholder='请输入您的手机号码' placeholder-style='color:#CCC;'></input>
+        <input type='text' class='{{isPay ? "in" : ""}}' placeholder='请输入您的手机号码' value='{{userPhone}}' bindchange='changeUserPhone' placeholder-style='color:#CCC;'></input>
       </view>
     </view>
   </view>
@@ -98,30 +100,54 @@
     </view>
   </view>
 </view>
-<view class='card {{hasfun ? "hasfun" : ""}}'>
+<view class='card {{couponID === ""  ? "hasfun" : ""}}'>
   <view class='card-body integral-box text-between'>
     <view class='integral-content'>
       <view class='integral-name'>积分兑换1000分</view>
       <view class='integral-explain'>你当前有{{integration}}积分，{{deduct}}积分=1元</view>
     </view>
     <view class='integral-switch'>
-      <switch color='#FF6589;' disabled='{{isIntegral ? "true" : "false"}}' bindchange='switchChange'/>
+      <switch color='#FF6589;' checked='{{isChecked}}' disabled='{{isIntegral ? true : false}}' bindchange='switchChange'/>
     </view>
   </view>
   
 </view>
-<view class='discount {{hasfun ? "hasfun" : ""}}'>
-  <view class='text-between'>
+<view class='discount {{couponID === "" ? "hasfun" : ""}}'>
+  <view class='text-between activity'>
     <view>活动满减</view>
     <view class='discount-num'>-￥{{activityPrice}}</view>
   </view>
   <view class='text-between'>
     <view>优惠券</view>
-    <view class='discount-select' bindtap='toUseCoupon'>未选择</view>
+    <view class='discount-select' bindtap='toUseCoupon'>
+      <text wx:if='{{couponID === ""}}'>请选择</text>
+      <text wx:else>-￥{{couponAmout}}</text>
+    </view>
   </view>
   <view class='text-between'>
-    <view>总计￥{{totalPrice}} <text class='discount-num'>-￥0.00</text></view>
+    <view>总计￥{{totalPrice}}<text class='discount-num'>会员折扣{{mcardDeduct * 10}}折</text></view>
     <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>
-<view class='confirm' bindtap='bespeakAdd'>确定预约</view>
+<button formType="submit" class='confirm'>确定预约</button>
+</form>
+<view class='mask {{isPay ? "in" : ""}}' bindtap='closeModal'></view>
+<!-- <view class=''>
+  
+</view> -->
+<view class='modal-content modal {{isPay ? "in" : ""}}'>
+    <view class='modal-header'>请选择支付方式
+      <view class='iconfont icon-close' bindtap='closeModal'></view>
+    </view>
+    <view class='modal-body'>
+      <view class='pay-item' bindtap='payWeixin'>
+        <text class='iconfont icon-selected-{{selectPayType === "1" ? "true" : "false"}}'></text>
+        <text>微信支付</text>
+      </view>
+      <view class='pay-item' bindtap='payYue'>
+        <text class='iconfont icon-selected-{{selectPayType === "2" ? "true" : "false"}}'></text>
+        <text>余额支付</text>
+      </view>
+    </view>
+  </view>
+</view>

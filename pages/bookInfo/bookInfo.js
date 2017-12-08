@@ -29,13 +29,20 @@ Page({
     dateStart  : '',
     timeStart  : '',
 
-    hasfun       : false,
     deduct       : '0',
     integration  : '0',
     isIntegral   : false,
     activity     : [],
     activityPrice: '0.00',
-    
+    discountPrice: '0.00',
+    mcardDeduct  : 0,
+    integralPrice: 0,
+    userName: '',
+    changeUserPhone: '',
+    bespeak_type: '1',
+    isPay: false,
+    isChecked: false,
+    selectPayType: "-1"
   },
 
   /**
@@ -51,15 +58,19 @@ Page({
         hasfun = false,
         deduct = parseInt(app.globalData.gradeInfo.jf_toamount_deduct),
         integration = parseInt(app.globalData.gradeInfo.integration),
-        isIntegral = false;
+        isIntegral = false,
+        mcardDeduct = 0;
 
-    isIntegral = (deduct > integration) ? false : true;
+    isIntegral = (integration > 0) ? false : true;
 
     if (!!(activity.length)) {
       hasfun = true;
       _this.sortActivity();
     }
-    console.log(app.globalData);
+    
+    // if (app.globalData.gradeInfo.mcard_deduct !== undefined) {
+    //   mcardDeduct = app.globalData.gradeInfo.mcard_deduct * 10 / 1000;
+    // }
     _this.setData({
       date       : date,
       time       : time,
@@ -69,10 +80,12 @@ Page({
       hasfun     : hasfun,
       deduct     : deduct,
       integration: integration,
-      isIntegral : isIntegral
+      isIntegral : isIntegral,
+      mcardDeduct: 0.99
     });
     _this.bespeakExpertInfo();
     _this.sortActivity();
+    _this.integral();
   },
 
 
@@ -87,7 +100,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var _this = this,
+        couponID = _this.data.couponID;
+    if (couponID === '') {
+      this.fullReduce();
+    } else {
+      this.member();
+    }
   },
 
   /**
@@ -157,10 +176,9 @@ Page({
       }
     })
   },
+  //提交预约
   bespeakAdd: function() {
-    wx.navigateTo({
-      url: '../orderDetail/orderDetail',
-    });
+   
   },
   toUseCoupon: function() {
     var _this       = this,
@@ -187,9 +205,11 @@ Page({
     _this.setData({
       selectGoods: selectGoods,
       goodsPrice : goodsPrice,
-      totalPrice : totalPrice
+      totalPrice : totalPrice,
+      isChecked: false
     });
     _this.fullReduce();
+    
   },
   //选择人数
   selectNums: function(e) {
@@ -201,6 +221,7 @@ Page({
     _this.setData({
       selectNums: selectNums,
       totalPrice: count.multiply(selectNums, goodsPrice),
+      isChecked: false
     });
     _this.fullReduce();
   },
@@ -240,6 +261,7 @@ Page({
         activity      = _this.data.activity,
         totalPrice    = _this.data.totalPrice,
         activityPrice = _this.data.activityPrice;
+        totalPrice    = _this.data.totalPrice;
     for (var item of activity) {
       if ((totalPrice - item.full_amount) > 0) {
         activityPrice = item.minus_amount;
@@ -248,8 +270,136 @@ Page({
         activityPrice = '0.00';
       }
     }
+
     _this.setData({
-      activityPrice: activityPrice
+      activityPrice: activityPrice,
+      payPrice: count.reduce(totalPrice, activityPrice),
+      cachePayPrice: count.reduce(totalPrice, activityPrice)
     });
-  }
+    _this.member();
+  },
+  //计算积分优惠
+  integral: function() {
+    var _this         = this,
+        deduct        = parseInt(_this.data.deduct),
+        integration   = parseInt(_this.data.integration),
+        integralPrice = integration / deduct;
+    _this.setData({
+      integralPrice: integralPrice
+    })
+  },
+  //计算会员折扣
+  member: function() {
+    var _this       = this,
+        payPrice    = _this.data.payPrice,
+        mcardDeduct = _this.data.mcardDeduct;
+    if (!(mcardDeduct === 0)) {
+      payPrice = (payPrice * mcardDeduct).toFixed(2);
+    }
+    _this.setData({
+      payPrice: payPrice,
+      cachePayPrice: payPrice
+    });
+  },
+  //是否选择积分
+  switchChange: function(e) {
+    var _this      = this,
+        checked    = e.detail.value,
+        payPrice   = _this.data.payPrice,
+        totalPrice = _this.data.totalPrice,
+        integralPrice = _this.data.integralPrice,
+        cachePayPrice = null;
+    if (checked) {
+      if ((payPrice - integralPrice) >= 0) {
+        payPrice = count.reduce(payPrice, integralPrice);
+      } else {
+        payPrice = 0;
+      }
+    } else {
+      if ((payPrice - integralPrice) >= 0) {
+        payPrice = count.add(payPrice, integralPrice);
+      } else {
+        payPrice = _this.data.cachePayPrice
+      }
+    }
+    _this.setData({
+      payPrice: payPrice
+    });
+  },
+  //填写姓名
+  changeUserName: function(e) {
+    var _this = this,
+        userName = e.detail.value;
+    _this.setData({
+      userName: userName
+    })
+  },
+  //填写手机
+  changeUserPhone: function(e) {
+    var _this = this,
+        userPhone = e.detail.value;
+    console.log();
+    _this.setData({
+      userPhone: userPhone
+    })
+  },
+  validate: function (data, regex, prompt) {
+    for (var i of data) {
+      if (!regex[i].test(data[i])) {
+        wx.showModal({
+          title: '',
+          content: prompt[i],
+        })
+      }
+    }
+  },
+  formSubmit: function(e) {
+    var _this = this,
+        userName = _this.data.userName,
+        userPhone = _this.data.userPhone,
+        selectGoods = _this.data.selectGoods;
+    // if (userName === '') {
+    //   wx.showModal({
+    //     title: '',
+    //     content: '请输入姓名',
+    //   })
+    // } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(userPhone))) {
+    //   wx.showModal({
+    //     title: '',
+    //     content: '请输入正确手机号',
+    //   })
+    // } else if (JSON.stringify(selectGoods) === '{}'){
+    //   wx.showModal({
+    //     title: '',
+    //     content: '请选择服务项目',
+    //   })
+    // } else {
+      
+    // }
+      
+    _this.setData({
+      formId: e.detail.formId,
+      isPay: true
+    });
+    
+  },
+  closeModal: function(e) {
+    var _this = this;
+
+    _this.setData({
+      isPay: false
+    });
+  },
+  payWeixin: function(e) {
+    var _this = this,
+        url = app.globalData.url,
+        data = {
+          pro_id: config.pro_id,
+          store: config.store,
+          key: app.globalData.key,
+          phone: _this.data.userPhone,
+          bespeak_type: _this.data.bespeak_type,
+          select_id: _this.data.user_id
+        }
+  },
 })
