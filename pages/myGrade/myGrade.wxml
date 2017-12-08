@@ -1,0 +1,93 @@
+<view class='grade-heading'>
+  <image class="bgImg" src="../img/grade_bg.png"></image>
+  <image class="avatarUrl" src="{{avatarUrl}}"></image>
+  <view class='grade-name'>
+    <text>{{nickName}}</text> 
+  </view>
+  <view class='grade-level'>
+    <text>你所在的等级: {{grade_name}}</text>
+  </view>
+  <!-- <view class='grade-axis'>
+    <text class='grade-point-1 active'></text>
+    <text class='grade-point-2'></text>
+    <text class='grade-point-3'></text>
+    <text class='grade-point-4'></text>
+  </view>
+  <view class='grade-class'>
+    <text class='grade-class-1'>普通会员</text>
+    <text class='grade-class-2'>黄钻会员</text>
+    <text class='grade-class-3'>白钻会员</text>
+    <text class='grade-class-4'>至尊会员</text>
+  </view> -->
+</view>
+<!-- <view class='nav'>
+  <view class='nav-item'>
+    <view class='nav-icon' style='color: #31E0FF;'>
+      <text class='iconfont icon-discount'></text>
+    </view>
+    <view class='nav-txt'>
+      <text>享受9折优惠</text>
+    </view>
+  </view>
+  <view class='nav-item'>
+    <view class='nav-icon' style='color: #FFDB31;'>
+      <text class='iconfont icon-crown'></text>
+    </view>
+    <view class='nav-txt'>
+      <text>20积分=1元</text>
+    </view>
+  </view>
+  <view class='nav-item'>
+    <view class='nav-icon' style='color: #FFA531;'>
+      <text class='iconfont icon-gift'></text>
+    </view>
+    <view class='nav-txt'>
+      <text>可用余额进行消费</text>
+    </view>
+  </view>
+</view> -->
+<view class='privilege'>
+  <view class='privilege-title'>
+    {{prerogative[0].grade_name}}
+  </view>
+  <view class='privilege-box'>
+    <view class='privilege-pic'>
+      <image src='../img/grade_icon_member1.png'></image>
+    </view>
+    <view class='privilege-content'>
+      <view>{{prerogative[0].prerogative}}</view>
+      <!-- <view>2.会员折扣 享有8.8折优惠</view>
+      <view>3.会员折扣 享有8.8折优惠</view> -->
+    </view>
+  </view>
+</view>
+<!-- <view class='privilege'>
+  <view class='privilege-title'>
+    白钻会员特权
+  </view>
+  <view class='privilege-box'>
+    <view class='privilege-pic'>
+      <image src='../img/grade_icon_member2.png'></image>
+    </view>
+    <view class='privilege-content'>
+      <view>1.会员折扣 享有8.8折优惠</view>
+      <view>2.会员折扣 享有8.8折优惠</view>
+      <view>3.会员折扣 享有8.8折优惠</view>
+    </view>
+  </view>
+</view>
+<view class='privilege'>
+  <view class='privilege-title'>
+    至尊会员特权
+  </view>
+  <view class='privilege-box'>
+    <view class='privilege-pic'>
+      <image src='../img/grade_icon_member3.png'></image>
+    </view>
+    <view class='privilege-content'>
+      <view>1.会员折扣 享有8.8折优惠</view>
+      <view>2.会员折扣 享有8.8折优惠</view>
+      <view>3.会员折扣 享有8.8折优惠</view>
+    </view>
+  </view>
+</view> -->

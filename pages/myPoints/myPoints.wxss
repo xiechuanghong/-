@@ -1,0 +1,62 @@
+page{
+  min-height: 100%;
+  background-color: #F8F8F8;
+}
+.points-heading{
+  width: 100%;
+  height: 340rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #444;
+  color: #FFF;
+  position: relative;
+}
+.points-num text:first-child{
+  font-size: 80rpx;
+}
+.points-explain{
+  position: absolute;
+  right: 50rpx;
+  top: 40rpx;
+  font-size: 28rpx;
+  text-decoration: underline;
+}
+.points-title{
+  padding: 30rpx 39rpx;
+  font-size: 32rpx;
+  color: #000;
+}
+.points-item{
+  background-color: #FFF;
+  border-bottom: 1rpx solid #EEE;
+  padding: 37rpx 30rpx;
+}
+.points-name{
+  font-size: 30rpx;
+}
+.points-amount{
+  font-size: 34rpx;
+}
+.points-time{
+  font-size: 26rpx;
+  color: #666;
+}
+.points-record{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+.nodata{
+  padding-top: 200rpx;
+  text-align: center;
+  color: #999;
+}
+.nodata .icon{
+  font-size: 110rpx;
+  margin-bottom: 20rpx;
+}
+.nodata .txt{
+  font-size: 28rpx;
+}

@@ -1,0 +1,133 @@
+page{
+  min-height: 100%;
+  background-color: #F8F8F8;
+}
+.grade-heading{
+  width: 100%;
+  height: 300rpx;
+  color: #FFF;
+  text-align: center;
+  overflow: hidden;
+  position:relative;
+}
+.grade-heading>.bgImg{
+  width:100vw;
+  height:300rpx;
+  position:absolute;
+  z-index: 0; top:0; left:0;
+}
+
+.avatarUrl{position:relative; z-index:10; width:150rpx; height:150rpx; border-radius:50%;
+  margin:20rpx 0 0 0;}
+.grade-name{
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+  position:relative; z-index: 10;
+}
+.grade-level{
+  font-size: 26rpx;
+  position:relative; z-index: 10;
+}
+.grade-axis{
+  position: relative;
+  height: 1rpx;
+  width: 540rpx;
+  margin: 0 auto;
+  background-color: #FFF;
+  margin-top: 70rpx;
+}
+.grade-axis text{
+  display: inline-block;
+  height: 34rpx;
+  width: 34rpx;
+  border-radius: 50%;
+  background-color: #FFF;
+  position: absolute;
+  top: -17rpx;
+}
+.grade-axis text.active{
+  background-color: #DCC187;
+  border: 10rpx solid rgba(0, 0, 0, .3);
+  top: -27rpx;
+}
+.grade-point-1{
+  left: -17rpx;
+}
+.grade-point-2{
+  left: 163rpx;
+}
+.grade-point-3{
+  left: 343rpx;
+}
+.grade-point-4{
+  right: -17rpx;
+}
+.grade-class{
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 45rpx;
+}
+.grade-class text{
+  flex: 1;
+  text-align: center;
+}
+.nav{
+  background-color: #FFF;
+  padding: 48rpx 0;
+}
+.nav::after{
+  display: block;
+  content: ' ';
+  clear: both;
+}
+.nav .nav-item{
+  text-align: center;
+  float: left;
+  width: 33%;
+  font-size: 28rpx;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  color: #666;
+}
+.nav .nav-icon{
+  font-size: 55rpx;
+  margin-bottom: 20rpx;
+}
+.nav .nav-item:nth-of-type(2n) {
+  border-left: 1rpx solid #EEE;
+  border-right: 1rpx solid #EEE;
+}
+.nav-txt{
+  display:block;
+  white-space:nowrap;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+}
+.privilege-title{
+  font-size: 32rpx;
+  line-height: 90rpx;
+  padding-left: 42rpx;
+}
+.privilege-box{
+  background-color: #FFF;
+  font-size: 28rpx;
+  color: #666;
+  padding: 40rpx;
+}
+.privilege-pic{
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+}
+.privilege-pic image{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.privilege-content{
+  padding-left: 180rpx;
+  height: 150rpx;
+  line-height: 50rpx;
+}

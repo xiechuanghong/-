@@ -4,7 +4,7 @@
 </view>
 <view class='set-box'>
   <view class='set-pic'>
-    <image src='../img/02.png'></image>
+    <image src='{{list.goods_img}}'></image>
   </view>
   <view class='set-info'>
     <view class='set-name'>{{list.goods_name}}</view>
@@ -12,46 +12,78 @@
     <view class='set-price'>￥{{list.goods_price}}</view>
   </view>
 </view>
+
+
 <view class='list'>
   <view class='list-item text-between'>
     <view class='item-name'>姓名</view>
     <view class='item-content'>
-      <input type='text' placeholder='请输入您的真实姓名' placeholder-style='color:#999;'></input>
+      <input type='text' bindblur='nameValue' placeholder='请输入您的真实姓名' placeholder-style='color:#999;'></input>
     </view>
   </view>
   <view class='list-item text-between'>
     <view class='item-name'>手机号码</view>
     <view class='item-content'>
-      <input type='number' placeholder='请输入您的手机号码' placeholder-style='color:#999;'></input>
+      <input type='number' bindblur='phoneValue' placeholder='请输入您的手机号码' placeholder-style='color:#999;'></input>
     </view>
   </view>
   <view class='list-item text-between'>
     <view class='item-name'>选择技师</view>
     <view class='item-content' bindtap='toTechnician'>
-      <text>请选择技师 <text class='iconfont icon-right'></text></text>
+      <text>{{technician == ''?'请选择技师':technician}} <text class='iconfont icon-right'></text></text>
     </view>
   </view>
   <view class='list-item text-between'>
     <view class='item-name'>美容时间</view>
-    <view class='item-content'>
-      <input type='text' placeholder='请选择服务时间' placeholder-style='color:#999;'></input>
-    </view>
+    <picker mode="date" start="{{start}}" bindchange="dateValue">
+      <view class="item-content">{{dateVal == ''?'请选择服务日期':dateVal}}</view>
+    </picker>
+    <picker mode="time" start="{{startTime}}"  bindchange='timeValue'>
+      <view class='item-content'>
+        {{timeVal == ''?'请选择服务时间':timeVal}}
+        <!-- <input type='text' placeholder='请选择服务时间' placeholder-style='color:#999;'></input> -->
+      </view>
+    </picker>
   </view>
   <view class='list-item text-between'>
     <view class='item-name'>预约人数</view>
-    <view class='item-content'>
-      <input type='text' placeholder='请选择人数' placeholder-style='color:#999;'></input>
-    </view>
+    <picker bindchange='selManNumber' range='{{manArry}}'>
+      <view class='item-content'>
+        {{manNumber == ''?'请选择人数':manNumber}}
+        <!-- <input type='text' placeholder='请选择人数' placeholder-style='color:#999;'></input> -->
+      </view>
+    </picker>
   </view>
 </view>
 <view class='discount'>
   <view class='text-between'>
     <view>优惠券</view>
-    <view class='discount-select' bindtap='toUseCoupon'>未选择</view>
+    <view class='discount-select' bindtap='toUseCoupon'>{{couponID == ''?'未选择':'-￥'+couponAmout}}</view>
   </view>
   <view class='text-between'>
-    <view>总计￥{{totalPrice}} <text class='discount-num'>-￥0.00</text></view>
+    <view>总计￥{{totalPrice}} <text class='discount-num'>-￥{{reduceAmout}}</text></view>
     <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>
-<view class='confirm'>提交</view>
+
+<form report-submit='true' bindsubmit='confirmSubmit'>
+  <button class='confirm' bindtap='PAY' form-type='submit'> 提交</button> 
+</form>
+
+  <view class="selPay" style="{{selPay}}" bindtap='selPay' >
+    <view class="selBox">
+      <view class="payTitle" style="position:relative; text-align:center; color:#000">请选择支付方式 
+        <text class="iconfont icon-wrong-empty" style=""></text>
+      </view>
+      <view id="3" class="psatus" style="" data-paytype="3">
+        <image class="choice" src="{{selId == 3?choice:nochoice}}"></image>
+        微信支付
+      </view>
+      <view style="width:560rpx;height:2rpx;margin:0 auto; background:#eee;"></view>
+      <view id="1" class="psatus" style="" data-paytype="1">
+        <image class="choice" src="{{selId == 1?choice:nochoice}}"></image>
+        余额支付
+      </view>
+    </view>
+  </view>
+
