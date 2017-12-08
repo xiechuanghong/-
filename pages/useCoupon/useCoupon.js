@@ -127,7 +127,7 @@ Page({
         }
     try{   
       lis.forEach(function(v){
-        if (v.id == couponID){
+        if (v.activity_id == couponID){
           if (that.data.totalPrice >= v.condition_amount){
             var current = getCurrentPages(),
               payPrice = parseFloat(that.data.totalPrice) - parseFloat(v.amount) ;
@@ -136,7 +136,7 @@ Page({
             prePage.setData({
               couponAmout: v.amount,
               payPrice: payPrice,
-              couponID: v.id
+              couponID: v.activity_id
             })
             throw true
           }else{

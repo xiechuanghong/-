@@ -68,8 +68,11 @@ Page({
   
   },
   toBookSet: function() {
+    var list = this.data.list;
+    list = JSON.stringify(list);
+    list = encodeURIComponent(list);
     wx.navigateTo({
-      url: '../bookSet/bookSet',
+      url: '../bookSet/bookSet?list='+list,
     })
   },
   getList:function(id){
