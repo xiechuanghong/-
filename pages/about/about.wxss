@@ -2,7 +2,6 @@
   height: 360rpx;
   width: 750rpx;
   box-sizing: border-box;
-  background-color: red;
 }
 .head-picture image {
   width: 100%;

@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    order: [1]
+    order: [],
+    status:'123'
   },
 
   /**
@@ -65,9 +66,10 @@ Page({
   onShareAppMessage: function () {
   
   },
-  toOrderDetail: function() {
+  toOrderDetail: function(e) {
+    var order_id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../orderDetail/orderDetail',
+      url: '../orderDetail/orderDetail?id='+order_id,
     })
   },
   toEvaluate: function() {
@@ -91,14 +93,19 @@ Page({
       method:'GET',
       success:function(res){
         console.log(res)
+        let arr = []
         if(res.data.success == 1) {
+          if (!(res.data.responseData.length === undefined)) {
+            arr = res.data.responseData;
+          }
           _this.setData({
-            order:res.data.responseData
+            order: arr,
           })
+
         }else {
           wx.showModal({
             title: '',
-            content: '',
+            content: '当前没有订单',
           })
         }
       }

@@ -86,6 +86,7 @@ Page({
       dataType: 'json',
       method: 'GET',
       success: function(res) {
+        console.log(res)
         if (res.data.success === 1) {
           if (!(res.data.responseData.length === undefined)) {
             coupon = res.data.responseData;
@@ -120,6 +121,7 @@ Page({
       dataType: 'json',
       method: 'POST',
       success: function(res) {
+        console.log(res)
         if (res.data.success === 1) {
           _this.getAllCoupons();
           wx.showModal({
