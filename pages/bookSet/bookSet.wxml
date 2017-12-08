@@ -7,9 +7,9 @@
     <image src='../img/02.png'></image>
   </view>
   <view class='set-info'>
-    <view class='set-name'>进口玻尿酸原液</view>
-    <view class='set-intro'>嫩肤、去皱、锁水保湿</view>
-    <view class='set-price'>￥399.00</view>
+    <view class='set-name'>{{list.goods_name}}</view>
+    <view class='set-intro'>{{list.goods}}</view>
+    <view class='set-price'>￥{{list.goods_price}}</view>
   </view>
 </view>
 <view class='list'>
@@ -22,7 +22,7 @@
   <view class='list-item text-between'>
     <view class='item-name'>手机号码</view>
     <view class='item-content'>
-      <input type='text' placeholder='请输入您的手机号码' placeholder-style='color:#999;'></input>
+      <input type='number' placeholder='请输入您的手机号码' placeholder-style='color:#999;'></input>
     </view>
   </view>
   <view class='list-item text-between'>
@@ -50,8 +50,8 @@
     <view class='discount-select' bindtap='toUseCoupon'>未选择</view>
   </view>
   <view class='text-between'>
-    <view>总计￥399.00 <text class='discount-num'>-￥0.00</text></view>
-    <view class='discount-result'>实付￥399.00</view>
+    <view>总计￥{{totalPrice}} <text class='discount-num'>-￥0.00</text></view>
+    <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>
 <view class='confirm'>提交</view>

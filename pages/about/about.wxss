@@ -55,7 +55,7 @@
   margin-right: 20rpx;
 }
 .list .list-a {
-  height: 80rpx;
+  height: 82rpx;
   line-height: 80rpx;
 }
 .list .left image {
