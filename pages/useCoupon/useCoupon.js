@@ -87,7 +87,6 @@ Page({
       },
       success:(res)=>{
         var str = JSON.parse(res.data);
-        console.log(str)
         if(str.success == 1){
           var lis = str.responseData;
           lis = JSON.stringify(lis) == '{}'?[]:lis;
@@ -124,9 +123,7 @@ Page({
             payPrice: payPrice,
             couponID: ''
           })
-          wx.navigateBack({
-            data: -1
-          })
+          wx.navigateBack();
         }
     try{   
       lis.forEach(function(v){
@@ -135,6 +132,7 @@ Page({
             var current = getCurrentPages(),
               payPrice = parseFloat(that.data.totalPrice) - parseFloat(v.amount) ;
             var prePage = current[current.length - 2];
+            console.log(1);
             prePage.setData({
               couponAmout: v.amount,
               payPrice: payPrice,
@@ -153,9 +151,7 @@ Page({
     }catch(e){
       console.log(e)
       if(e){
-        wx.navigateBack({
-          data: -1
-        })
+        wx.navigateBack();
       }
     } 
   }

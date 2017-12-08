@@ -34,7 +34,8 @@ Page({
     integration  : '0',
     isIntegral   : false,
     activity     : [],
-    activityPrice: '0.00'
+    activityPrice: '0.00',
+    
   },
 
   /**
@@ -44,8 +45,8 @@ Page({
     var _this = this,
         user_id = options.user_id,
         now = new Date(),
-        date = now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate(),
-        time = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes()),
+        date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + (now.getDate() < 10 ? '0' + now.getDate() : now.getDate()),
+        time = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours()) + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes()),
         activity = app.globalData.activity,
         hasfun = false,
         deduct = parseInt(app.globalData.gradeInfo.jf_toamount_deduct),
@@ -58,6 +59,7 @@ Page({
       hasfun = true;
       _this.sortActivity();
     }
+    console.log(app.globalData);
     _this.setData({
       date       : date,
       time       : time,
@@ -72,6 +74,7 @@ Page({
     _this.bespeakExpertInfo();
     _this.sortActivity();
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -121,6 +124,7 @@ Page({
   onShareAppMessage: function () {
   
   },
+  //获取技师信息
   bespeakExpertInfo: function() {
     var _this = this,
         url   = app.globalData.url,
@@ -159,10 +163,14 @@ Page({
     });
   },
   toUseCoupon: function() {
+    var _this       = this,
+        couponID    = _this.data.couponID,
+        totalPrice  = _this.data.totalPrice;
     wx.navigateTo({
-      url: '../useCoupon/useCoupon',
+      url: '../useCoupon/useCoupon?couponID=' + couponID + '&totalPrice=' + totalPrice,
     });
   },
+  //选择商品
   selectGoods: function(e) {
     var _this       = this,
         selectGoods = _this.data.selectGoods,
@@ -183,6 +191,7 @@ Page({
     });
     _this.fullReduce();
   },
+  //选择人数
   selectNums: function(e) {
     var _this      = this,
         selectNums = e.currentTarget.dataset.nums,
@@ -195,12 +204,23 @@ Page({
     });
     _this.fullReduce();
   },
+  //选择日期
   bindDateChange: function(e) {
-
+    var _this = this,
+        date  = e.detail.value;
+    _this.setData({
+      date: date
+    });
   },
+  //选择时间
   bindTimeChange: function(e) {
-
+    var _this = this,
+        time  = e.detail.value;
+    _this.setData({
+      time: time
+    });
   },
+  //优惠活动按照满减的价格排序
   sortActivity: function () {
     var activity = app.globalData.activity,
         arr      = [];

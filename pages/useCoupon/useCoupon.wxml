@@ -9,10 +9,10 @@
       <view class='coupon-amount' style="font-size:{{coupon.amount>=100?'60rpx':''}}" >￥<text>{{coupon.amount}}</text></view>
       <view class='coupon-condition'>满{{coupon.condition_amount}}元可使用</view>
     </view>
-    <view class='coupon-info' data-id="{{coupon.id}}" bindtap='selCoupon' >
-      <view class='coupon-name' data-id="{{coupon.id}}">{{coupon.activity.name}}</view>
-      <view class='coupon-time' data-id="{{coupon.id}}">过期时间：{{coupon.exp_time}}</view>
-      <text class='iconfont {{couponID == coupon.id?sel:noSel}}' data-id="{{coupon.id}}"></text>
+    <view class='coupon-info' data-id="{{coupon.activity_id}}" bindtap='selCoupon' >
+      <view class='coupon-name' data-id="{{coupon.activity_id}}">{{coupon.activity.name}}</view>
+      <view class='coupon-time' data-id="{{coupon.activity_id}}">过期时间：{{coupon.exp_time}}</view>
+      <text class='iconfont {{couponID == coupon.activity_id?sel:noSel}}' data-id="{{coupon.activity_id}}"></text>
     </view>
   </view>
 </view>
