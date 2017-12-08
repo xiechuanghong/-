@@ -87,9 +87,10 @@ page{
   content: ' ';
 }
 .btn{
-  width: 146rpx;
-  height: 66rpx;
-  line-height: 66rpx;
+  /* width: 146rpx; */
+  padding: 20rpx 30rpx;
+  /* height: 66rpx;
+  line-height: 66rpx; */
   text-align: center;
   border: 1rpx solid #666;
   border-radius: 40rpx;
