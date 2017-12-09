@@ -206,8 +206,11 @@ Page({
         goodsPrice  = _this.data.goodsPrice,
         totalPrice  = _this.data.totalPrice,
         selectNums  = _this.data.selectNums;
-
-    goodsPrice = selectGoods[goods_id] ? count.reduce(goodsPrice, goods_price * mcardDeduct) : count.add(goodsPrice, goods_price);
+    if (is_discount === '0') {
+      goodsPrice = selectGoods[goods_id] ? count.reduce(goodsPrice, goods_price) : count.add(goodsPrice, goods_price);
+    } else {
+      goodsPrice = selectGoods[goods_id] ? count.reduce(goodsPrice, goods_price * mcardDeduct) : count.add(goodsPrice, goods_price);
+    }
     selectGoods[goods_id] = selectGoods[goods_id] ? false : true;
     totalPrice = count.multiply(selectNums, goodsPrice);
 
