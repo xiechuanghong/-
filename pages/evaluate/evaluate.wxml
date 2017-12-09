@@ -3,34 +3,22 @@
     <image src='../img/01.png'></image>
   </view>
   <view class='evaluate-star'>
-    <text class='iconfont icon-star active'></text>
-    <text class='iconfont icon-star'></text>
-    <text class='iconfont icon-star'></text>
-    <text class='iconfont icon-star'></text>
-    <text class='iconfont icon-star'></text>
-    <text>好评</text>
+    <text class="iconfont icon-star {{item?'active':''}}" wx:for="{{stars}}" data-id='{{index+1}}' wx:key="index" bindtap='rating'></text>
+    <text>{{grade=='1'?'差评':grade=='2'?'差评':grade=='3'?'中评':'好评'}}</text>
   </view>
 </view>
 <view class='evaluate-content'>
-  <textarea placeholder='我们的服务满足你的需求吗？发表你的想法喔...' placeholder-style='color:#999;'></textarea>
+  <textarea bindblur='bindTextAreaBlur' placeholder='我们的服务满足你的需求吗？发表你的想法喔...' placeholder-style='color:#999;'></textarea>
   <view>200字</view>
 </view>
 <view class='evaluate-anonymous'>
-  <text class='iconfont icon-selected-true'></text> 匿名评价
+  <text class="iconfont {{anonymous?'icon-selected-true':'icon-selected-false'}}" bindtap='isAnonymous'></text> 匿名评价
 </view>
 <view class='evaluate-img'>
-  <view class='img-item' bindtap='bindChoicePice'>
-    <image class='img-content' src='../img/comment_icon_add.png'></image>
-    <image class='img-close' src='../img/comment_icon_close.png'></image>
-  </view>
-  <view class='img-item'>
-    <image class='img-content' src='../img/comment_icon_add.png'></image>
-    <image class='img-close' src='../img/comment_icon_close.png'></image>
-  </view>
-  <view class='img-item'>
-    <image class='img-content' src='../img/comment_icon_add.png'></image>
-    <image class='img-close' src='../img/comment_icon_close.png'></image>
+  <view class='img-item' wx:for="{{images}}" wx:key="index" >
+    <image class='img-content' src='{{images[index].src}}' bindtap='bindChoicePice' data-index='{{index}}'></image>
+    <image class='img-close' bindtap='delImg' wx:if="{{item.cancel}}" src='../img/comment_icon_close.png' data-index='{{index}}'></image>
   </view>
   
 </view>
-<view class='confirm'>提交</view>
+<view class='confirm' bindtap='formSubmit'>提交</view>

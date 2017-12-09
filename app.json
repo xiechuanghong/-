@@ -10,7 +10,7 @@
     "pages/myPoints/myPoints",
     "pages/memberDetail/memberDetail",
     "pages/myBalance/myBalance",
-    
+    "pages/evaluate/evaluate",
     "pages/book/book",
     "pages/order/order",
     "pages/mine/mine",
@@ -23,7 +23,6 @@
     "pages/orderDetail/orderDetail",
     "pages/record/record",
     "pages/myCoupon/myCoupon",
-    "pages/evaluate/evaluate",
     "pages/useCoupon/useCoupon",
     "pages/technician/technician",
     "pages/center/center",
