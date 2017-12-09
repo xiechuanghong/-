@@ -47,10 +47,10 @@ Page({
         list = this.data.list,
         selId = this.data.selId;
     list.forEach(function(v){
-      if(v.user_id == selId){
+      if(v.id == selId){
         prePage.setData({
           technician: v.name,
-          technicianID:v.user_id
+          technicianID:v.id
         })
       }
     })

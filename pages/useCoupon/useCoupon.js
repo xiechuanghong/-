@@ -78,7 +78,7 @@ Page({
   getList:function(){
     var that = this;
     wx.request({
-      url: app.globalData.url + 'Activity/getAllCoupons',
+      url: app.globalData.url + 'Users/getUserShopCoupon',
       method:'GET',
       dataType:'JSON',
       data:{
@@ -129,7 +129,7 @@ Page({
         }
     try{   
       lis.forEach(function(v){
-        if (v.activity_id == couponID){
+        if (v.id == couponID){
           if (that.data.totalPrice >= v.condition_amount){
             var current = getCurrentPages(),
                 payPrice = count.reduce(that.data.totalPrice, v.amount);
@@ -137,7 +137,7 @@ Page({
             prePage.setData({
               couponAmout: v.amount,
               payPrice: payPrice,
-              couponID: v.activity_id
+              couponID: v.id
             });
             // prePage.member();
             throw true

@@ -8,7 +8,10 @@ Page({
    */
   data: {
     order: [],
-    status:'123'
+    status:'123',
+    isPay: false,
+    selectPayType: '1',
+    orderID: -1
   },
 
   /**
@@ -123,6 +126,183 @@ Page({
         }
       }
     })
-  }
+  },
+  openModal: function(e) {
+    var _this   = this,
+        orderID = e.currentTarget.dataset.id;
+    _this.setData({
+      isPay  : true,
+      orderID: orderID
+    })
+  },
+  closeModal: function() {
+    var _this = this;
+    _this.setData({
+      isPay: false
+    });
+    
+  },
+  confirmConsume:function(ev){
+    var that = this;
+    wx.request({
+      url: app.globalData.url + 'Cosmetology/consumeOk',
+      method:'GET',
+      dataType:'POST',
+      data:{
+        pro_id:config.pro_id,
+        store:config.store,
+        key:app.globalData.key,
+        order_id:ev.target.dataset.id
+      },
+      success:(res)=>{
+        var str = JSON.parse(res.data);
+        console.log(str);
+        if(str.success == 1){
+          that.orderList();
+        }
+      }
+    })
+  },
+  //余额支付
+  payYue: function() {
+    var _this = this;
 
+  },
+  //微信支付
+  payWeixin: function() {
+    var _this = this,
+        url   = app.globalData.url,
+        data  = {
+          key     : app.globalData.key,
+          store   : config.store,
+          pro_id  : config.pro_id,
+          order_id: _this.data.orderID,
+        };
+    _this.setData({
+      selectPayType: '1'
+    });
+    wx.request({
+      url: url + 'Order/orderPayment',
+      data: data,
+      dataType: 'json',
+      method: 'POST',
+      success: (res) => {
+        if (res.data.success === 1) {
+          _this.setData({
+            isPay: false
+          });
+          var _order_id = res.data.responseData.order_id.order_id;
+          wx.requestPayment({
+            timeStamp: res.data.responseData.pay_data.time,
+            nonceStr: res.data.responseData.pay_data.nonce_str,
+            package: res.data.responseData.pay_data.package,
+            signType: 'MD5',
+            paySign: res.data.responseData.pay_data.paySign,
+            success: (res) => {
+              wx.showToast({
+                title   : '支付成功',
+                icon    : 'success',
+                duration: 2000,
+                complete: () => {
+                  wx.navigateTo({
+                    url: '../orderDetail/orderDetail?id=' + _order_id,
+                  })
+                }
+              });
+            },
+            fail: (res) => {
+              wx.showModal({
+                title: '',
+                content: '支付失败',
+                success: (res) => {
+                  wx.navigateTo({
+                    url: '../orderDetail/orderDetail?id=' + _order_id,
+                  })
+                }
+              })
+            },
+          });
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
+    })
+  },
+  payYue: function() {
+    var _this = this,
+        url   = app.globalData.url,
+        data  = {
+          key: app.globalData.key,
+          store: config.store,
+          pro_id: config.pro_id,
+          order_id: _this.data.orderID,
+        };
+    _this.setData({
+      selectPayType: '2'
+    });
+    wx.request({
+      url: url + 'Payment/orderPaymentBalancePaid',
+      data: data,
+      dataType: 'json',
+      method: 'POST',
+      success: (res) => {
+        if (res.data.success === 1) {
+          _this.setData({
+            isPay: false
+          });
+          var _order_id = res.data.responseData.order_id;
+          wx.showToast({
+            title: '支付成功',
+            icon : 'success',
+            duration: 2000,
+            complete: () => {
+              wx.navigateTo({
+                url: '../orderDetail/orderDetail?id=' + _order_id,
+              })
+            }
+          })
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
+    });
+  },
+  cancelOrder: function(e) {
+    var _this = this,
+        url = app.globalData.url,
+        order_id = e.currentTarget.dataset.id,
+        data = {
+          pro_id  : config.pro_id,
+          store   : config.store,
+          key     : app.globalData.key,
+          order_id: order_id    
+        };
+    wx.request({
+      url: url + 'Order/cancelNoPayOrder',
+      data: data,
+      dataType: 'json',
+      method: 'POST',
+      success: (res) => {
+        if (res.data.success === 1) {
+          wx.showToast({
+            title: '取消成功',
+            icon: 'success',
+            duration: 2000
+          });
+          _this.orderList();
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
+    })
+  }
 })

@@ -1,3 +1,4 @@
+<view class='body {{isPay ? "in" : ""}}'>
 <view class='no-order' wx:if="{{order.length < 1}}">
   <view class='iconfont icon-no-data'></view>
   <view class='txt'>您暂时没有订单喔</view>
@@ -24,10 +25,27 @@
       </view>
     </view>
     <view class='list-footer text-right'>
-      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" >取消</text>
+      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}"  bindtap='cancelOrder'>取消</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}">支付</text>
-      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}">确认消费</text>
+      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}">评价</text>
+    </view>
+  </view>
+</view>
+<view class='mask {{isPay ? "in" : ""}}' bindtap='closeModal'></view>
+  <view class='modal-content modal {{isPay ? "in" : ""}}'>
+    <view class='modal-header'>请选择支付方式
+      <view class='iconfont icon-close' bindtap='closeModal'></view>
+    </view>
+    <view class='modal-body'>
+      <view class='pay-item {{isWeiXin ? "active" : ""}}' bindtap='payWeixin'>
+        <text class='iconfont icon-selected-{{selectPayType === "1" ? "true" : "false"}}'></text>
+        <text>微信支付</text>
+      </view>
+      <view class='pay-item {{isYue ? "active" : ""}}' bindtap='payYue'>
+        <text class='iconfont icon-selected-{{selectPayType === "2" ? "true" : "false"}}'></text>
+        <text>余额支付</text>
+      </view>
     </view>
   </view>
 </view>

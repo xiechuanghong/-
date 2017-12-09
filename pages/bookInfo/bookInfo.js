@@ -42,7 +42,11 @@ Page({
     bespeak_type: '1',
     isPay: false,
     isChecked: false,
-    selectPayType: "-1"
+    selectPayType: "-1",
+    activityID: '',
+    wallet: '0.00',
+    isWallet: false,
+    select_id: -1
   },
 
   /**
@@ -68,9 +72,9 @@ Page({
       _this.sortActivity();
     }
     
-    // if (app.globalData.gradeInfo.mcard_deduct !== undefined) {
-    //   mcardDeduct = app.globalData.gradeInfo.mcard_deduct * 10 / 1000;
-    // }
+    if (app.globalData.gradeInfo.mcard_deduct !== undefined) {
+      mcardDeduct = app.globalData.gradeInfo.mcard_deduct * 10 / 1000;
+    }
     _this.setData({
       date       : date,
       time       : time,
@@ -81,7 +85,8 @@ Page({
       deduct     : deduct,
       integration: integration,
       isIntegral : isIntegral,
-      mcardDeduct: 0.99
+      mcardDeduct: mcardDeduct,
+      wallet     : app.globalData.gradeInfo.wallet
     });
     _this.bespeakExpertInfo();
     _this.sortActivity();
@@ -106,6 +111,9 @@ Page({
       this.fullReduce();
     } else {
       this.member();
+      _this.setData({
+        activityID: ''
+      })
     }
   },
 
@@ -161,11 +169,12 @@ Page({
       success: function(res) {
         if (res.data.success === 1) {
           _this.setData({
-            avatar: res.data.responseData.avatar,
-            name  : res.data.responseData.name,
-            sum   : res.data.responseData.sum,
-            title : res.data.responseData.title,
-            goods : res.data.responseData.goods
+            avatar   : res.data.responseData.avatar,
+            name     : res.data.responseData.name,
+            sum      : res.data.responseData.sum,
+            title    : res.data.responseData.title,
+            goods    : res.data.responseData.goods,
+            select_id: res.data.responseData.id
           });
         } else {
           wx.showModal({
@@ -260,21 +269,28 @@ Page({
     var _this         = this,
         activity      = _this.data.activity,
         totalPrice    = _this.data.totalPrice,
-        activityPrice = _this.data.activityPrice;
-        totalPrice    = _this.data.totalPrice;
+        activityPrice = _this.data.activityPrice,
+        totalPrice    = _this.data.totalPrice,
+        activityID    = _this.data.activityID;
     for (var item of activity) {
       if ((totalPrice - item.full_amount) > 0) {
+        console.log(item.activity_id)
         activityPrice = item.minus_amount;
+        activityID    = item.activity_id;
+        console.log(activityID)
         break;
       } else {
         activityPrice = '0.00';
+        activityID    = '';
       }
     }
 
     _this.setData({
       activityPrice: activityPrice,
       payPrice: count.reduce(totalPrice, activityPrice),
-      cachePayPrice: count.reduce(totalPrice, activityPrice)
+      cachePayPrice: count.reduce(totalPrice, activityPrice),
+      activityID: activityID,
+      couponID: ''
     });
     _this.member();
   },
@@ -298,7 +314,8 @@ Page({
     }
     _this.setData({
       payPrice: payPrice,
-      cachePayPrice: payPrice
+      cachePayPrice: payPrice,
+      // activityID: ''
     });
   },
   //是否选择积分
@@ -357,32 +374,33 @@ Page({
     var _this = this,
         userName = _this.data.userName,
         userPhone = _this.data.userPhone,
-        selectGoods = _this.data.selectGoods;
-    // if (userName === '') {
-    //   wx.showModal({
-    //     title: '',
-    //     content: '请输入姓名',
-    //   })
-    // } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(userPhone))) {
-    //   wx.showModal({
-    //     title: '',
-    //     content: '请输入正确手机号',
-    //   })
-    // } else if (JSON.stringify(selectGoods) === '{}'){
-    //   wx.showModal({
-    //     title: '',
-    //     content: '请选择服务项目',
-    //   })
-    // } else {
-      
-    // }
-      
-    _this.setData({
-      formId: e.detail.formId,
-      isPay: true
-    });
-    
+        selectGoods = _this.data.selectGoods,
+        isWallet = (_this.data.wallet - _this.data.payPrice) > 0 ? true : false;
+    console.log(_this.data.wallet, _this.data.payPrice)
+    if (userName === '') {
+      wx.showModal({
+        title: '',
+        content: '请输入姓名',
+      })
+    } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(userPhone))) {
+      wx.showModal({
+        title: '',
+        content: '请输入正确手机号',
+      })
+    } else if (JSON.stringify(selectGoods) === '{}'){
+      wx.showModal({
+        title: '',
+        content: '请选择服务项目',
+      })
+    } else {
+      _this.setData({
+        formId: e.detail.formId,
+        isPay: true,
+        isWallet: isWallet
+      });
+    }
   },
+  //关闭模态框
   closeModal: function(e) {
     var _this = this;
 
@@ -390,16 +408,133 @@ Page({
       isPay: false
     });
   },
+
+  //微信支付
   payWeixin: function(e) {
     var _this = this,
         url = app.globalData.url,
+        ref_id = [],
         data = {
           pro_id: config.pro_id,
           store: config.store,
           key: app.globalData.key,
           phone: _this.data.userPhone,
           bespeak_type: _this.data.bespeak_type,
-          select_id: _this.data.user_id
+          select_id: _this.data.select_id,
+          pay_amount: _this.data.payPrice,
+          order_amount: _this.data.totalPrice,
+          date: _this.data.date,
+          time: _this.data.time,
+          contacts: _this.data.userName,
+          pnum: _this.data.selectNums,
+          ticket: _this.data.couponID,
+          activity_id: _this.data.activityID,
+          formId: _this.data.formId,
+          is_used_jf: _this.isChecked ? '1' : '0'
+        };
+    for (var key in _this.data.selectGoods) {
+      if (_this.data.selectGoods[key]) {
+        ref_id.push(key);
+      }
+    }
+    data.ref_id = ref_id.join(',');
+
+    _this.setData({
+      selectPayType: '1'
+    })
+    wx.request({
+      url: url + 'Reserve/bespeakAdd',
+      data: data,
+      dataType: 'json',
+      method: 'POST',
+      success: (res) => {
+        if(res.data.success === 1) {
+          var _order_id = res.data.responseData.order_id.order_id;
+          wx.requestPayment({
+            timeStamp: res.data.responseData.pay_data.time,
+            nonceStr: res.data.responseData.pay_data.nonce_str,
+            package: res.data.responseData.pay_data.package,
+            signType: 'MD5',
+            paySign: res.data.responseData.pay_data.paySign,
+            success: (res) => {
+              wx.redirectTo({
+                url: '../orderDetail/orderDetail?id=' + _order_id,
+              })
+            },
+            fail: (res) => {
+              wx.showModal({
+                title: '',
+                content: '支付失败',
+                success: (res) => {
+                  wx.redirectTo({
+                    url: '../orderDetail/orderDetail?id=' + _order_id,
+                  })
+                }
+              })
+            },
+          });
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
         }
+      } 
+    })
   },
+  //余额支付
+  payYue: function() {
+    var _this = this,
+      url = app.globalData.url,
+      ref_id = [],
+      data = {
+        pro_id: config.pro_id,
+        store: config.store,
+        key: app.globalData.key,
+        phone: _this.data.userPhone,
+        bespeak_type: _this.data.bespeak_type,
+        select_id: _this.data.select_id,
+        pay_amount: _this.data.payPrice,
+        order_amount: _this.data.totalPrice,
+        date: _this.data.date,
+        time: _this.data.time,
+        contacts: _this.data.userName,
+        pnum: _this.data.selectNums,
+        ticket: _this.data.couponID,
+        activity_id: _this.data.activityID,
+        formId: _this.data.formId,
+        is_used_jf: _this.isChecked ? '1' : '0'
+      };
+    for (var key in _this.data.selectGoods) {
+      if (_this.data.selectGoods[key]) {
+        ref_id.push(key);
+      }
+    }
+    data.ref_id = ref_id.join(',');
+    _this.setData({
+      selectPayType: '1'
+    })
+
+    _this.setData({
+      selectPayType: '2'
+    })
+    wx.request({
+      url: url + 'Payment/bespeakBalancePaid',
+      data: data,
+      dataType: 'json',
+      method: 'POST',
+      success: (res) => {
+        if (res.data.success === 1) {
+          wx.redirectTo({
+            url: '../orderDetail/orderDetail?id=' + res.data.responseData.order_id.order_id,
+          })
+        } else {
+          wx.showModal({
+            title: '',
+            content: res.data.message,
+          })
+        }
+      }
+    })
+  }
 })

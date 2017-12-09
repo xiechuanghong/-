@@ -36,11 +36,11 @@
   <view class='list-item text-between'>
     <view class='item-name'>美容时间</view>
     <picker mode="date" start="{{start}}" bindchange="dateValue">
-      <view class="item-content">{{dateVal == ''?'请选择服务日期':dateVal}}</view>
+      <view class="item-content">{{dateVal == ''?'请选择美容日期':dateVal}}</view>
     </picker>
     <picker mode="time" start="{{startTime}}"  bindchange='timeValue'>
       <view class='item-content'>
-        {{timeVal == ''?'请选择服务时间':timeVal}}
+        {{timeVal == ''?'请选择美容时间':timeVal}}
         <!-- <input type='text' placeholder='请选择服务时间' placeholder-style='color:#999;'></input> -->
       </view>
     </picker>
@@ -61,7 +61,20 @@
     <view class='discount-select' bindtap='toUseCoupon'>{{couponID == ''?'未选择':'-￥'+couponAmout}}</view>
   </view>
   <view class='text-between'>
-    <view>总计￥{{totalPrice}} <text class='discount-num'>-￥{{reduceAmout}}</text></view>
+    <view>满减活动</view>
+    <view class='discount-select' >{{activityID == ''?'-￥0.00':'-￥'+reduce}}</view>
+  </view>
+  <view class='text-between'>
+    <view>积分</view>
+    <view class='discount-select' >{{isMember == 1?'-￥'+integral:'-￥0.00'}}</view>
+  </view>
+  <view class='text-between'>
+    <view>会员折扣</view>
+    <view class='discount-select' >{{list.is_discount == 1?mcard_deduct*10+'折':'-￥0.00'}}</view>
+  </view>
+  <view class='text-between'>
+    <view>总计￥{{totalPrice}} </view>
+    <text class='discount-num'>-￥{{reduceAmout}}</text>
     <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>

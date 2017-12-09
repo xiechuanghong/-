@@ -100,13 +100,13 @@ Page({
     console.log(this.dat)
     if (ev.target.dataset.paytype == 3) {
       console.log('微信支付')
-      this.orderPay(this.payId);
+      this.wxPay();
       this.setData({
         selId: 3
       })
     } else if (ev.target.dataset.paytype == 1) {
       console.log('余额支付')
-      this.balance(this.payId);
+      this.balance();
       this.setData({
         selId: 1
       })
@@ -116,6 +116,41 @@ Page({
       })
 
     }
+  },
+  wxPay:function(){
+    var that = this;
+    wx.request({
+      url: app.globalData.url + 'Reserve/bespeakAdd',
+      method:'POST',
+      dataType:'JSON',
+      data:that.dat,
+      success:(res)=>{
+        var str = JSON.parse(res.data);
+        console.log(str);
+        if(str.success == 1){
+          var dat = str.responseData.pay_data,
+              order_id = str.responseData.order_id.order_id;
+          wx.requestPayment({
+            timeStamp: dat.time,
+            nonceStr: dat.nonce_str,
+            package: dat.package,
+            signType: 'MD5',
+            paySign: dat.paySign,
+            success:(res)=>{
+              wx.showModal({
+                title: '提示',
+                content: '支付成功',
+                success:()=>{
+                  wx.redirectTo({
+                    url: '../orderDetail/orderDetail?id=' + order_id,
+                  })
+                }
+              })
+            }
+          })
+        }
+      }
+    })
   },
   balance:function(){
     var that = this;
@@ -134,6 +169,9 @@ Page({
             success:()=>{
               this.setData({
                 selPay: 'display:none'
+              })
+              wx.redirectTo({
+                url: '../orderDetail/orderDetail?id='+str.responseData.order_id,
               })
             }
           })
@@ -277,10 +315,10 @@ Page({
       mcard_deduct = that.data.mcard_deduct,
       payPrice = that.data.payPrice,
       couponID = that.data.couponID,
-      actReduce =0;
+      actReduce =0,
+      activityID = '';
     if (couponID == ''){
-      var activity = that.data.activity,
-        activityID = '';
+      var activity = that.data.activity;
       activity.forEach(function (v) {
         if (parseFloat(v.amount[0].full_amount) <= parseFloat(totalPrice)) {
           activityID = v.amount[0].activity_id;
@@ -300,10 +338,13 @@ Page({
       payPrice = totalPrice - actReduce;
     }
     payPrice = payPrice <= 0 ? 0 : payPrice;
+    integral = payPrice <= 0 ? payPrice : integral;
     that.setData({
       payPrice: parseFloat(payPrice).toFixed(2),
       reduceAmout: (totalPrice - payPrice).toFixed(2),
-      activityID: activityID
+      activityID: activityID,
+      reduce: actReduce,
+      integral: integral
     })
   },
   confirmSubmit:function(ev){
@@ -314,6 +355,14 @@ Page({
     this.contacts = ev.detail.value;
   },
   phoneValue:function(ev){
+    var ph = /^1[3|4|5|7|8]\d{9}$/;
+    if(!ph.test(ev.detail.value)){
+      wx.showModal({
+        title: '提示',
+        content: '手机号码格式不正确',
+      })
+      return;
+    }
     this.phone = ev.detail.value;
   }
 })
