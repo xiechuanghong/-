@@ -194,8 +194,15 @@ Page({
       url: '../myCard/myCard',
     })
   },
-  clearBuff:function(){
-    var that = this;
-    
+  clear: function() {
+    wx.showLoading({
+      title: '清除中',
+    })
+    wx.clearStorage();
+    wx.showToast({
+      title: '清除成功',
+      icon: 'success',
+      duration: 1500
+    })
   }
 })

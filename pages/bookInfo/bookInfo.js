@@ -153,10 +153,10 @@ Page({
     var _this = this,
         url   = app.globalData.url,
         data  = {
-          key    : app.globalData.key,
-          pro_id : config.pro_id,
-          store  : config.store,
-          user_id: _this.data.user_id
+          key      : app.globalData.key,
+          pro_id   : config.pro_id,
+          store    : config.store,
+          expert_id: _this.data.expert_id
         };
     wx.request({
       url: url + 'Cosmetology/bespeakExpertInfo',
