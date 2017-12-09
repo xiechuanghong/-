@@ -28,7 +28,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.setData({
+      shop_name: app.globalData.shop.shop_name
+    })
+    wx.setNavigationBarTitle({
+      title: app.globalData.shop.shop_name,
+    })
   },
 
   /**
@@ -49,14 +54,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
@@ -76,11 +81,19 @@ Page({
     })
   },
   orderList:function(){
+    
     var _this = this,
       pro_id  = config.pro_id,
       store   = config.store,
       key     = app.globalData.key,
       url     = app.globalData.url;
+      console.log('key:'+key)
+    if (!app.globalData.key) {
+      setTimeout(function () {
+        _this.orderList();
+      },200)
+      return;
+    }
     wx.request({
       url: url + 'Cosmetology/bespeakPay',
       data: {

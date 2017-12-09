@@ -31,9 +31,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.title();
   },
-
+  title:function(){
+    var that = this;
+    if (!app.globalData.shop){
+      setTimeout(function(){
+        that.title();
+      },200)
+      return;
+    }
+    wx.setNavigationBarTitle({
+      title: app.globalData.shop.shop_name,
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
