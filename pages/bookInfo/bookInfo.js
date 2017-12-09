@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user_id    : -1,
+    id         : -1,
     avatar     : '',
     name       : '',
     sum        : '',
@@ -54,7 +54,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this,
-        user_id = options.user_id,
+        id    = options.id,
         now = new Date(),
         date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + (now.getDate() < 10 ? '0' + now.getDate() : now.getDate()),
         time = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours()) + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes()),
@@ -78,7 +78,7 @@ Page({
     _this.setData({
       date       : date,
       time       : time,
-      user_id    : user_id,
+      id         : id,
       dateStart  : date,
       timeStart  : time,
       hasfun     : hasfun,
@@ -159,7 +159,7 @@ Page({
           key      : app.globalData.key,
           pro_id   : config.pro_id,
           store    : config.store,
-          expert_id: _this.data.expert_id
+          expert_id: _this.data.id
         };
     wx.request({
       url: url + 'Cosmetology/bespeakExpertInfo',
