@@ -79,11 +79,7 @@ Page({
   },
   toEvaluate: function(ev) {
     wx.navigateTo({
-<<<<<<< HEAD
       url: '../evaluate/evaluate?id='+ev.target.dataset.id,
-=======
-      url: '../evaluate/evaluate?id='+order_id,
->>>>>>> 834770340f4c2afb3f2880767e8b89bc63dbefb7
     })
   },
   orderList:function(){

@@ -11,11 +11,8 @@
     "pages/myPoints/myPoints",
     "pages/memberDetail/memberDetail",
     "pages/myBalance/myBalance",
-<<<<<<< HEAD
     "pages/drawimg/drawimg",
     
-=======
->>>>>>> 834770340f4c2afb3f2880767e8b89bc63dbefb7
     "pages/book/book",
     "pages/order/order",
     "pages/mine/mine",
