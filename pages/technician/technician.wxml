@@ -12,11 +12,11 @@
     <view class='grids-name'>林静婷</view>
   </view> -->
 
-  <view class='grids-item {{selId == item.user_id?"active":""}}' wx:for="{{list}}" wx:key="id" wx:for-item="item"  bindtap='selTechnician' data-id="{{item.user_id}}">
-    <view class='grids-pic' data-id="{{item.user_id}}" >
-      <image data-id="{{item.user_id}}" src='{{item.avatar}}' ></image>
+  <view class='grids-item {{selId == item.id?"active":""}}' wx:for="{{list}}" wx:key="id" wx:for-item="item"  bindtap='selTechnician' data-id="{{item.id}}">
+    <view class='grids-pic' data-id="{{item.id}}" >
+      <image data-id="{{item.id}}" src='{{item.avatar}}' ></image>
     </view>
-    <view data-id="{{item.user_id}}" class='grids-name'>{{item.name}}</view>
+    <view data-id="{{item.id}}" class='grids-name'>{{item.name}}</view>
   </view>
 
   

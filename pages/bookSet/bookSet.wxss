@@ -66,9 +66,10 @@
 .discount{
   padding: 30rpx;
   background-color: #FFF;
-  height: 157rpx;
+  /* height: 157rpx; */
   box-sizing: border-box;
   margin-top: 20rpx;
+  margin-bottom:100rpx;
 }
 .discount-select{
   color: #FF4B4B;
@@ -96,6 +97,7 @@
   color: #FFF;
   text-align: center;
   font-size: 36rpx;
+  border-radius:0;
 }
 
 .selPay{width:100%; height:100vh; background:rgba(0,0,0,0.2); position:fixed; z-index:1000; top:0;} 

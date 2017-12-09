@@ -123,6 +123,27 @@ Page({
         }
       }
     })
+  },
+  confirmConsume:function(ev){
+    var that = this;
+    wx.request({
+      url: app.globalData.url + 'Cosmetology/consumeOk',
+      method:'GET',
+      dataType:'POST',
+      data:{
+        pro_id:config.pro_id,
+        store:config.store,
+        key:app.globalData.key,
+        order_id:ev.target.dataset.id
+      },
+      success:(res)=>{
+        var str = JSON.parse(res.data);
+        console.log(str);
+        if(str.success == 1){
+          that.orderList();
+        }
+      }
+    })
   }
 
 })
