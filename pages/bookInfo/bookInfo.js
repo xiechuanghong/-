@@ -526,7 +526,7 @@ Page({
       success: (res) => {
         if (res.data.success === 1) {
           wx.redirectTo({
-            url: '../orderDetail/orderDetail?id=' + res.data.responseData.order_id.order_id,
+            url: '../orderDetail/orderDetail?id=' + res.data.responseData.order_id,
           })
         } else {
           wx.showModal({

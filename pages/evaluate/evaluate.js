@@ -186,26 +186,23 @@ Page({
     for (var i = 0; i < this.data.images.length ; i++){
       arrImg.push(this.data.images[i].src)
     }
-    var _this   = this,
-      url       = app.globalData.url,
-      pro_id    = config.pro_id,
-      store     = config.store,
-      key       = app.globalData.key,
-      order_id  = order_id,  //
-      content   = this.data.textArea,
-      star      = this.data.grade,
-      anonymous = this.data.anonymous?'1':'0',
-      images    = arrImg.join(','),
-      shop_id   = shop_id, // 
-      goods_id  = goods_id; // 
+    var _this     = this,
+        url       = app.globalData.url,
+        order_id  = order_id;  //
+      // anonymous = this.data.anonymous?'1':'0',
     wx.request({
-      url: url + 'Store / commentStore',
+      url: url + 'Store/commentStore',
       data: {
-        pro_id: pro_id,
-        store: store,
-        key: key,
-        order_id: order_id,
-        content: content
+        pro_id: config.pro_id,
+        store: config.store,
+        key: app.globalData.key,
+        order_id: order_id,//
+        content: _this.data.textArea,
+        star: _this.data.grade,
+        anonymous: _this.data.anonymous ? '1' : '0',
+        images: arrImg.join(','),
+        shop_id: shop_id, // 
+        goods_id: goods_id // 
       },
       method: 'POST',
       success: function (res) {

@@ -304,5 +304,12 @@ Page({
         }
       }
     })
+  },
+  toEvaluate: function(e) {
+    var _this = this,
+        orderID = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../evaluate/evaluate?orderID=' + id,
+    })
   }
 })

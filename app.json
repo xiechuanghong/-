@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/evaluate/evaluate",
     "pages/register/register",
     "pages/register02/register02",
     "pages/label/label",
@@ -10,7 +11,6 @@
     "pages/myPoints/myPoints",
     "pages/memberDetail/memberDetail",
     "pages/myBalance/myBalance",
-    "pages/evaluate/evaluate",
     "pages/book/book",
     "pages/order/order",
     "pages/mine/mine",
