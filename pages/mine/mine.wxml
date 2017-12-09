@@ -98,7 +98,7 @@
       </view>
     </view>
   </view>
-  <view class='list-item'>
+  <view class='list-item' bindtap='clear'>
     <view class='list-icon'>
       <text class='iconfont icon-clean'></text>
     </view>
