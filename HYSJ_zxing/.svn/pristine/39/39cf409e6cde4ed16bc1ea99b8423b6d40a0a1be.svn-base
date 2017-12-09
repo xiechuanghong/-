@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:background="@color/colorWhite"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="鸡尾酒"
+            android:textColor="@color/stand_text_title"
+            android:textSize="@dimen/size_item_title2"
+             />
+
+        <TextView
+            android:id="@+id/tv_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="无规格"
+            android:textColor="@color/stand_text_des"
+            android:textSize="@dimen/size_item_des" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_per"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="￥"
+        android:textColor="@color/stand_yellow"
+        android:textSize="@dimen/size_item_money" />
+
+    <com.hanyu.hysj.weight.NumberButton
+        android:id="@+id/btn_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:editable="false"
+        app:textColor="@color/stand_text_title" />
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_normal">17sp</dimen>
+    <dimen name="text_55">55dp</dimen>
+    <dimen name="item_desc">12sp</dimen>
+    <dimen name="details_desc">13sp</dimen>
+    <dimen name="member_desc">14sp</dimen>
+    <dimen name="details_tab">15sp</dimen>
+    <dimen name="btn_text">16sp</dimen>
+    <dimen name="title_main">18sp</dimen>
+
+    <dimen name="size_item_money">16sp</dimen>
+    <dimen name="size_item_title">13sp</dimen>
+    <dimen name="size_item_title2">14sp</dimen>
+    <dimen name="size_item_des">12sp</dimen>
+    <dimen name="size_content_1">15sp</dimen>
+    <dimen name="size_content_2">14sp</dimen>
+    <dimen name="size_content_3">13sp</dimen>
+    <dimen name="size_btn_text">16sp</dimen>
+    <dimen name="size_meun">14sp</dimen>
+
+</resources>

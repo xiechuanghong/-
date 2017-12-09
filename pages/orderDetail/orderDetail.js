@@ -1,3 +1,5 @@
+var app = getApp();
+var config = require('../../utils/config.js');
 // pages/orderDetail/orderDetail.js
 Page({
 
@@ -5,14 +7,78 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    list:{},
+    goods:[],
+    payType:''
+  },
+  orderDetail:function(){
+    var _this    = this,
+        order_id = this.data.order_id,
+        pro_id   = config.pro_id,
+        store    = config.store,
+        key      = app.globalData.key,
+        url      = app.globalData.url;
+    wx.request({
+      url: url + 'Cosmetology/bespeakOrderInfo',
+      data: {
+        pro_id: pro_id,
+        store: store,
+        key: key,
+        order_id: order_id,
+      },
+      method: 'GET',
+      success: function (res) {
+        if(res.data.success == 1){
+          _this.setData({
+            list:res.data.responseData,
+            payType: res.data.responseData.pay_type,
+            goods: res.data.responseData.goods
+          })
+          switch (res.data.responseData.pay_type){
+            case '1':
+            _this.setData({
+              payType: '余额'
+            })
+            break;
+            case '2':
+            _this.setData({
+              payType: '支付宝'
+            })
+            break;
+            case '3':
+            _this.setData({
+              payType: '微信'
+            })
+            break;
+            case '4':
+            _this.setData({
+              payType: '佣金'
+            })
+            break;
+            case '5':
+            _this.setData({
+              payType: '优惠券'
+            })
+            break;
+            case '6':
+            _this.setData({
+              payType: '满减'
+            })
+            break;
+          }
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      order_id:options.id
+    })
+    this.orderDetail()
   },
 
   /**
@@ -26,7 +92,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**

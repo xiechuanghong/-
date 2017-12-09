@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/stand_title_bg"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <com.hanyu.hysj.weight.ClearEditText
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/db_search_bg"
+            android:drawableLeft="@mipmap/membermanagement_icon_sousuo"
+            android:drawablePadding="10dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:hint="请输入用户昵称/手机号"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="@color/stand_text_title"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/size_item_title" />
+
+        <TextView
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="搜索"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_item_money"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <com.hanyu.hysj.base.LoadingView
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/stand_bg_light"
+            android:overScrollMode="never" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
