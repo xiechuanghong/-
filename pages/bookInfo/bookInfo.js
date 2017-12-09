@@ -372,31 +372,28 @@ Page({
         selectGoods = _this.data.selectGoods,
         isWallet = (_this.data.wallet - _this.data.payPrice) > 0 ? true : false;
     console.log(_this.data.wallet, _this.data.payPrice)
-    // if (userName === '') {
-    //   wx.showModal({
-    //     title: '',
-    //     content: '请输入姓名',
-    //   })
-    // } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(userPhone))) {
-    //   wx.showModal({
-    //     title: '',
-    //     content: '请输入正确手机号',
-    //   })
-    // } else if (JSON.stringify(selectGoods) === '{}'){
-    //   wx.showModal({
-    //     title: '',
-    //     content: '请选择服务项目',
-    //   })
-    // } else {
-      
-    // }
-      
-    _this.setData({
-      formId: e.detail.formId,
-      isPay: true,
-      isWallet: isWallet
-    });
-    
+    if (userName === '') {
+      wx.showModal({
+        title: '',
+        content: '请输入姓名',
+      })
+    } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(userPhone))) {
+      wx.showModal({
+        title: '',
+        content: '请输入正确手机号',
+      })
+    } else if (JSON.stringify(selectGoods) === '{}'){
+      wx.showModal({
+        title: '',
+        content: '请选择服务项目',
+      })
+    } else {
+      _this.setData({
+        formId: e.detail.formId,
+        isPay: true,
+        isWallet: isWallet
+      });
+    }
   },
   //关闭模态框
   closeModal: function(e) {
