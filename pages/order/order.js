@@ -127,7 +127,6 @@ Page({
       }
     })
   },
-<<<<<<< HEAD
   openModal: function(e) {
     var _this   = this,
         orderID = e.currentTarget.dataset.id;
@@ -138,7 +137,11 @@ Page({
   },
   closeModal: function() {
     var _this = this;
-=======
+    _this.setData({
+      isPay: false
+    });
+    
+  },
   confirmConsume:function(ev){
     var that = this;
     wx.request({
@@ -159,12 +162,6 @@ Page({
         }
       }
     })
-  }
->>>>>>> b69e2d761bd9410b52d95e254f1b68ab18b4a4a8
-
-    _this.setData({
-      isPay: false
-    });
   },
   //余额支付
   payYue: function() {
