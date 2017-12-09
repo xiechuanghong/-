@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">ZxingLite</string>
-
-    <string name="text_san_qrcode">扫一扫</string>
-    <string name="text_no_falsh">没有闪光灯</string>
-    <string name="text_open_flash">打开手电筒</string>
-    <string name="text_close_flash">关闭手电筒</string>
-</resources>
