@@ -28,7 +28,7 @@
       <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}"  bindtap='cancelOrder'>取消</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}">支付</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
-      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}">评价</text>
+      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
     </view>
   </view>
 </view>
