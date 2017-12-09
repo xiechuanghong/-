@@ -46,7 +46,8 @@ Page({
     activityID: '',
     wallet: '0.00',
     isWallet: false,
-    select_id: -1
+    select_id: -1,
+    allGoods: [],
   },
 
   /**
@@ -111,9 +112,6 @@ Page({
       this.fullReduce();
     } else {
       this.member();
-      _this.setData({
-        activityID: ''
-      })
     }
   },
 
@@ -174,7 +172,8 @@ Page({
             sum      : res.data.responseData.sum,
             title    : res.data.responseData.title,
             goods    : res.data.responseData.goods,
-            select_id: res.data.responseData.id
+            select_id: res.data.responseData.id,
+            allGoods : res.data.responseData.goods
           });
         } else {
           wx.showModal({
@@ -271,13 +270,11 @@ Page({
         totalPrice    = _this.data.totalPrice,
         activityPrice = _this.data.activityPrice,
         totalPrice    = _this.data.totalPrice,
-        activityID    = _this.data.activityID;
+        activityID    = '';
     for (var item of activity) {
       if ((totalPrice - item.full_amount) > 0) {
-        console.log(item.activity_id)
         activityPrice = item.minus_amount;
         activityID    = item.activity_id;
-        console.log(activityID)
         break;
       } else {
         activityPrice = '0.00';
@@ -315,7 +312,7 @@ Page({
     _this.setData({
       payPrice: payPrice,
       cachePayPrice: payPrice,
-      // activityID: ''
+      activityID: ''
     });
   },
   //是否选择积分
@@ -413,7 +410,6 @@ Page({
   payWeixin: function(e) {
     var _this = this,
         url = app.globalData.url,
-        ref_id = [],
         data = {
           pro_id: config.pro_id,
           store: config.store,
@@ -425,6 +421,7 @@ Page({
           order_amount: _this.data.totalPrice,
           date: _this.data.date,
           time: _this.data.time,
+          ref_id: Object.keys(_this.data.selectGoods).join(','),
           contacts: _this.data.userName,
           pnum: _this.data.selectNums,
           ticket: _this.data.couponID,
@@ -432,13 +429,6 @@ Page({
           formId: _this.data.formId,
           is_used_jf: _this.isChecked ? '1' : '0'
         };
-    for (var key in _this.data.selectGoods) {
-      if (_this.data.selectGoods[key]) {
-        ref_id.push(key);
-      }
-    }
-    data.ref_id = ref_id.join(',');
-
     _this.setData({
       selectPayType: '1'
     })
@@ -448,31 +438,8 @@ Page({
       dataType: 'json',
       method: 'POST',
       success: (res) => {
-        if(res.data.success === 1) {
-          var _order_id = res.data.responseData.order_id.order_id;
-          wx.requestPayment({
-            timeStamp: res.data.responseData.pay_data.time,
-            nonceStr: res.data.responseData.pay_data.nonce_str,
-            package: res.data.responseData.pay_data.package,
-            signType: 'MD5',
-            paySign: res.data.responseData.pay_data.paySign,
-            success: (res) => {
-              wx.redirectTo({
-                url: '../orderDetail/orderDetail?id=' + _order_id,
-              })
-            },
-            fail: (res) => {
-              wx.showModal({
-                title: '',
-                content: '支付失败',
-                success: (res) => {
-                  wx.redirectTo({
-                    url: '../orderDetail/orderDetail?id=' + _order_id,
-                  })
-                }
-              })
-            },
-          });
+        if(res.success === 1) {
+
         } else {
           wx.showModal({
             title: '',
@@ -486,7 +453,6 @@ Page({
   payYue: function() {
     var _this = this,
       url = app.globalData.url,
-      ref_id = [],
       data = {
         pro_id: config.pro_id,
         store: config.store,
@@ -498,6 +464,7 @@ Page({
         order_amount: _this.data.totalPrice,
         date: _this.data.date,
         time: _this.data.time,
+        ref_id: Object.keys(_this.data.selectGoods).join(','),
         contacts: _this.data.userName,
         pnum: _this.data.selectNums,
         ticket: _this.data.couponID,
@@ -505,28 +472,18 @@ Page({
         formId: _this.data.formId,
         is_used_jf: _this.isChecked ? '1' : '0'
       };
-    for (var key in _this.data.selectGoods) {
-      if (_this.data.selectGoods[key]) {
-        ref_id.push(key);
-      }
-    }
-    data.ref_id = ref_id.join(',');
-    _this.setData({
-      selectPayType: '1'
-    })
-
     _this.setData({
       selectPayType: '2'
     })
     wx.request({
-      url: url + 'Payment/bespeakBalancePaid',
+      url: url + 'Reserve/bespeakAdd',
       data: data,
       dataType: 'json',
       method: 'POST',
       success: (res) => {
         if (res.data.success === 1) {
           wx.redirectTo({
-            url: '../orderDetail/orderDetail?id=' + res.data.responseData.order_id,
+            url: '../orderDetail/orderDetail?id=' + res.data.responseData.order_id.order_id,
           })
         } else {
           wx.showModal({

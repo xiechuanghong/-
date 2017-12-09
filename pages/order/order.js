@@ -1,6 +1,5 @@
 var app = getApp();
 var config = require('../../utils/config.js');
-// pages/order/order.js
 Page({
 
   /**
@@ -8,10 +7,7 @@ Page({
    */
   data: {
     order: [],
-    status:'123',
-    isPay: false,
-    selectPayType: '1',
-    orderID: -1
+    status:'123'
   },
 
   /**
@@ -127,21 +123,6 @@ Page({
       }
     })
   },
-  openModal: function(e) {
-    var _this   = this,
-        orderID = e.currentTarget.dataset.id;
-    _this.setData({
-      isPay  : true,
-      orderID: orderID
-    })
-  },
-  closeModal: function() {
-    var _this = this;
-    _this.setData({
-      isPay: false
-    });
-    
-  },
   confirmConsume:function(ev){
     var that = this;
     wx.request({
@@ -162,11 +143,6 @@ Page({
         }
       }
     })
-  },
-  //余额支付
-  payYue: function() {
-    var _this = this;
-
   },
   //微信支付
   payWeixin: function() {
@@ -312,4 +288,5 @@ Page({
       url: '../evaluate/evaluate?id=' + id,
     })
   }
+
 })

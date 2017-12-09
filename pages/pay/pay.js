@@ -105,23 +105,21 @@ Page({
               wx.showModal({
                 title: '提示',
                 content: '支付成功',
-                success:()=>{
-                  
-                }
-              })
-            },
-            complete:()=>{
-              this.setData({
-                couponID: '',
-                totalPrice: '0.00',
-                couponAmout: '0.00',
-                payPrice: '0.00',
+                success:()=>{}
               })
             },
             fail:()=>{
               wx.showModal({
                 title: '提示',
                 content: '支付失败',
+              })
+            },
+            complete: () => {
+              that.setData({
+                couponID: '',
+                totalPrice: '0.00',
+                payPrice: '0.00',
+                couponAmout: '0.00'
               })
             }
           })
