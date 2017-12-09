@@ -3,10 +3,16 @@
   <view class='txt'>您暂时没有订单喔</view>
 </view>
 <view class='list' wx:else>
-  <view class='list-item' wx:for="{{order}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="item">
+  <!-- <view class='list-item' wx:for="{{order}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="item">
     <view class='list-header text-between' bindtap='toOrderDetail' data-id="{{item.order_id}}">
       <text class='name'>哇哈哈美容</text>
-      <text class='state'>{{item.status=='0'?'待消费':item.status=='1'?'未付款':item.status=='2'?'待评价':item.status=='3'?'已完成':item.status=='4'?'已退款':''}}</text>
+      <text class='state'>{{item.status=='0'?'待消费':item.status=='1'?'未付款':item.status=='2'?'待评价':item.status=='3'?'已完成':item.status=='4'?'已退款':''}}</text> -->
+  <view class='list-item' wx:for="{{order}}" wx:key="{{index}}" wx:for-item="item">
+    <view class='list-header text-between' data-id="{{item.order_id}}" bindtap='toOrderDetail'>
+      <text class='name' data-id="{{item.order_id}}" >{{shop_name}}</text>
+      <text class='state' data-id="{{item.order_id}}">
+        {{item.status == 0?'待支付':item.status == 1?'已支付':'已完成'}}
+      </text>
     </view>
     <view class='list-body'>
       <view class='text-between' wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{index}}">
@@ -18,8 +24,10 @@
       </view>
     </view>
     <view class='list-footer text-right'>
-      <text class='btn btn-cancel'>取消</text>
-      <text class='btn'>支付</text>
+      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" >取消</text>
+      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}">支付</text>
+      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}">确认消费</text>
+      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}">评价</text>
     </view>
   </view>
 </view>
