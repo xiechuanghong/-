@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:background="@drawable/bg_seat_blue2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="空位"
+            android:textColor="@color/stand_text_des"
+            android:textSize="@dimen/size_item_title" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:background="@drawable/bg_seat_yellow2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="已预订"
+            android:textColor="@color/stand_text_des"
+            android:textSize="@dimen/size_item_title" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:background="@drawable/bg_seat_purple2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="已开台"
+            android:textColor="@color/stand_text_des"
+            android:textSize="@dimen/size_item_title" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <com.hanyu.hysj.weight.ClearEditText
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/db_search_bg"
+            android:drawableLeft="@mipmap/membermanagement_icon_sousuo"
+            android:drawablePadding="10dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:hint="请输入需要搜索的台号"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="@color/stand_text_title"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/size_item_title" />
+
+        <TextView
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="搜索"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/size_item_money"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <com.hanyu.hysj.base.LoadingView
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/stand_bg_light"
+            android:overScrollMode="never" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

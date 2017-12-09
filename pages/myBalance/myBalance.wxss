@@ -1,0 +1,94 @@
+page{
+  min-height: 100%;
+  background-color: #F8F8F8;
+}
+.balance-heading{
+  background-color: #444;
+  width: 100%;
+  position: relative;
+  color: #FFF;
+  text-align: center;
+  padding: 70rpx 0;
+}
+.balance-num text:first-child{
+  font-size: 80rpx;
+}
+.balance-num{
+  margin-bottom: 70rpx;
+}
+.balance-total{
+  font-size: 28rpx;
+}
+.nav{
+  font-size: 32rpx;
+  color: #999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FFF;
+  line-height: 100rpx;
+}
+.nav-item{
+  text-align: center;
+  transition: all .25s;
+}
+.nav-item .nav-text{
+  border-bottom: 4rpx solid transparent;
+  display: inline-block;
+  transition: all .25s;
+}
+.nav-item.active{
+  color: #000;
+}
+.nav-item.active .nav-text{
+  border-bottom: 4rpx solid #DCC187;
+}
+swiper{
+  margin-top: 20rpx;
+}
+.balance-item{
+  background-color: #FFF;
+  border-bottom: 1rpx solid #EEE;
+  padding: 37rpx 30rpx;
+}
+.balance-record{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+.balance-name{
+  font-size: 30rpx;
+}
+.balance-amount{
+  font-size: 34rpx;
+}
+.balance-time{
+  font-size: 26rpx;
+  color: #999;
+}
+.recharge-btn{
+  background-color: #FCA135;
+  line-height: 88rpx;
+  color: #FFF;
+  font-size: 36rpx;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+.content,.content scroll-view{
+  height: 638rpx;
+}
+.nodata{
+  padding-top: 200rpx;
+  text-align: center;
+  color: #999;
+}
+.nodata .icon{
+  font-size: 110rpx;
+  margin-bottom: 20rpx;
+}
+.nodata .txt{
+  font-size: 28rpx;
+}

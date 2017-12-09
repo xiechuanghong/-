@@ -1,0 +1,31 @@
+<view class='points-heading'>
+  <view class='points-num'>
+    <text>{{sum}}</text>
+    <text>分</text>
+  </view>
+  <view class='points-explain'>
+    <text>积分说明</text>
+  </view>
+</view>
+<view class='nodata' wx:if='{{integration.length < 1}}'>
+  <view class='icon'>
+    <text class='iconfont icon-xiaolian'></text>
+  </view>
+  <view class='txt'>
+    <text>没有相关记录哟!</text>
+  </view>
+</view>
+<block wx:else>
+  <view class='points-title'>
+    <text>积分记录</text>
+  </view>
+  <view class='points-list'>
+    <view class='points-item' wx:for='{{integration}}' wx:key='id'>
+      <view class='points-record'>
+        <view class='points-name'>充值</view>
+        <view class='points-amount'>+1220.00</view>
+      </view>
+      <view class='points-time'>2017-08-20</view>
+    </view>
+  </view>
+</block> 

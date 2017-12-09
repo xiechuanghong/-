@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3D3E4E</color>
+    <color name="colorPrimaryDark">#3D3E4E</color>
+    <color name="colorAccent">#3D3E4E</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="colorWhite">#fff</color>
+    <color name="colorBlack">#000</color>
+
+    <color name="stand_status_bar_bg">#3D3E4E</color>
+    <color name="stand_title_bg">#3D3E4E</color>
+    <color name="stand_main_tab_text">#CCCCCC</color>
+    <color name="stand_tab_bg">#2F303C</color>
+    <color name="stand_text_1">#ffffff</color>
+    <color name="stand_tab_vertical_line">#40ffffff</color>
+    <color name="stand_frame_line">#EEEEEE</color>
+    <color name="stand_normal_2">#666666</color>
+    <color name="stand_desc">#CCCCCC</color>
+    <color name="stand_btn_pressed">#803D3E4E</color>
+    <color name="stand_apply_text">#FD641E</color>
+    <color name="stand_page_bg">#F8F8F8</color>
+    <color name="stand_text_2">#333333</color>
+    <color name="grey_700">#3C3F41</color>
+
+    <color name="stand_text_title">#333333</color>
+    <color name="stand_text_title2">#3D3E4E</color>
+    <color name="stand_text_des">#999999 </color>
+    <color name="stand_text_des2">#666666 </color>
+    <color name="stand_bg_normal">#3D3E4E</color>
+    <color name="stand_bg_dark">#2F303C</color>
+    <color name="stand_bg_middle">#CCCCCC</color>
+    <color name="stand_bg_light">#EEEEEE</color>
+
+    <color name="stand_yellow">#FD641E</color>
+    <color name="stand_red">#C90000</color>
+
+    <color name="seat_blue">#4676C8</color>
+    <color name="seat_yellow">#FD641E</color>
+    <color name="seat_purple">#950195</color>
+
+    <color name="golden_stars">#3D3E4E</color>
+    <color name="un_golden_stars">#CCCCCC</color>
+
+    <!--ios风格dialog-->
+    <color name="trans">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+
+</resources>

@@ -1,0 +1,77 @@
+<view class='balance-heading'>
+  <view class='balance-num'>
+    <text>{{sum}}</text>
+    
+    <text>元</text>
+  </view>
+  <view class='balance-total'>累计充值金额{{add_sum}}元，累计消费金额{{reduce_sum}}元</view>
+</view>
+<view class='nav'>
+  <view class='nav-item {{current === 0 ? "active" : ""}}' data-current='0' bindtap='changeNav'>
+    <text class='nav-text'>充值金额</text>
+  </view>
+  <view class='nav-item {{current === 1 ? "active" : ""}}' data-current='1' bindtap='changeNav'>
+    <text class='nav-text'>消费金额</text>
+  </view>
+</view>
+<swiper class='content' current='{{current}}' bindchange='changeSwiper'>
+  <swiper-item>
+    <scroll-view scroll-y>
+      <view class='nodata' wx:if='{{add.length < 1}}'>
+        <view class='icon'>
+          <text class='iconfont icon-xiaolian'></text>
+        </view>
+        <view class='txt'>
+          <text>没有相关记录哟!</text>
+        </view>
+      </view>
+      <block wx:else>
+        <view class='balance-list'>
+          <view class='balance-item' wx:for='{{add}}' wx:key='id'>
+            <view class='balance-record'>
+              <view class='balance-name' wx:if='{{item.cash_flow_type === "0"}}'>买单</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "1"}}'>体现</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "2"}}'>体现失败</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "3"}}'>分销商佣金提现</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "5"}}'>商品订单</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "6"}}'>打赏</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "7"}}'>充值</view>
+              <view class='balance-amount'>+{{item.amount}}</view>
+            </view>
+            <view class='balance-time'>{{item.created_at}}</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y>
+      <view class='nodata' wx:if='{{reduce.length < 1}}'>
+        <view class='icon'>
+          <text class='iconfont icon-xiaolian'></text>
+        </view>
+        <view class='txt'>
+          <text>没有相关记录哟!</text>
+        </view>
+      </view>
+      <block wx:else>
+        <view class='balance-list'>
+          <view class='balance-item' wx:for='{{reduce}}' wx:key='id'>
+            <view class='balance-record'>
+              <view class='balance-name' wx:if='{{item.cash_flow_type === "0"}}'>买单</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "1"}}'>体现</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "2"}}'>体现失败</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "3"}}'>分销商佣金提现</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "5"}}'>商品订单</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "6"}}'>打赏</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "7"}}'>充值</view>
+              <view class='balance-amount'>-{{item.amount}}</view>
+            </view>
+            <view class='balance-time'>{{item.created_at}}</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<view class='recharge-btn' bindtap='credit' >立即充值</view>

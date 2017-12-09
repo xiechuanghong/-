@@ -6,6 +6,10 @@
     "pages/label/label",
     "pages/credit/credit",
     "pages/myCard/myCard",
+    "pages/myGrade/myGrade",
+    "pages/myPoints/myPoints",
+    "pages/memberDetail/memberDetail",
+    "pages/myBalance/myBalance",
     
     "pages/book/book",
     "pages/order/order",

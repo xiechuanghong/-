@@ -1,0 +1,47 @@
+<view class='member-title'>
+  <text>会员卡详情</text>
+</view>
+<view class='member-detail'>
+  <view class='member-list'>
+    <view class='member-item'>
+      <view class='member-name'>
+        <text>特权说明</text>
+      </view>
+      <view class='member-content'>
+        <text>{{prerogative}}</text>
+      </view>
+    </view>
+    <view class='member-item'>
+      <view class='member-name'>
+        <text>有效日期</text>
+      </view>
+      <view class='member-content'>
+        <text>永久有效</text>
+      </view>
+    </view>
+    <view class='member-item'>
+      <view class='member-name'>
+        <text>电话</text>
+      </view>
+      <view class='member-content'>
+        <text>{{service_phone}}</text>
+      </view>
+    </view>
+    <view class='member-item'>
+      <view class='member-name'>
+        <text>商户服务</text>
+      </view>
+      <view class='member-content'>
+        <text>{{business_service[0]}} {{business_service[1]}}</text>
+      </view>
+    </view>
+    <view class='member-item'>
+      <view class='member-name'>
+        <text>使用须知</text>
+      </view>
+      <view class='member-content'>
+        <text>每人限领{{note.desc}} {{note.limit}}</text>
+      </view>
+    </view>
+  </view>
+</view>

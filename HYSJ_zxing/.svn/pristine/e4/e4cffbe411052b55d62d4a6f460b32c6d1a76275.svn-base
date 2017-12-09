@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/stand_page_bg"
+              android:orientation="vertical">
+
+    <include layout="@layout/view_titlebar_white"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/login_icon_user2"
+            android:text="手机号"
+            android:textColor="#333333"
+            android:textSize="@dimen/btn_text"/>
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:textCursorDrawable="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:maxLength="11"
+            android:hint="请输入账号的手机号码"
+            android:inputType="number"
+            android:textColor="@color/stand_normal_2"
+            android:textColorHint="@color/stand_desc"
+            android:textSize="@dimen/details_tab"/>
+    </LinearLayout>
+
+
+    <include layout="@layout/view_line"/>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:src="@mipmap/login_icon_verification"
+            android:text="验证码"
+            android:textColor="#333333"
+            android:textSize="@dimen/btn_text"/>
+
+        <EditText
+            android:id="@+id/et_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@null"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:maxLength="10"
+            android:background="@null"
+            android:hint="请输入短信发送的验证码"
+            android:inputType="number"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:textColor="@color/stand_normal_2"
+            android:textColorHint="@color/stand_desc"
+            android:textSize="@dimen/details_tab"/>
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/shape_btn_pwd"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/tv_send_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发送验证码"
+                android:textColor="@color/stand_title_bg"
+                android:textSize="@dimen/details_desc"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/view_line"/>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_btn"
+        android:text="下一步"
+        android:textColor="@color/colorWhite"/>
+
+</LinearLayout>

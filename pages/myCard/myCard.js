@@ -27,8 +27,8 @@ Page({
   onLoad: function (options) {
     var _this = this;
     
-    // _this.checkUserHasCard();
-    // _this.getMyCardInfo();
+    _this.checkUserHasCard();
+    _this.getMyCardInfo();
     
   },
 
@@ -189,6 +189,7 @@ Page({
     })
   },
   myBalance:function(){
+    console.log(999999999)
     wx.navigateTo({
       url: '../myBalance/myBalance',
     })

@@ -6,6 +6,8 @@ page{
   font-family:'苹方';
 }
 .hide{display:none;}
+.left{float:left;}
+.right{float:right;}
 @font-face {
   font-family: 'iconfont';  /* project id 495205 */
   src: url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.eot');

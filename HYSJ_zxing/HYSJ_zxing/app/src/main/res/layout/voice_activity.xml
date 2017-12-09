@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@color/stand_frame_line"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <include layout="@layout/view_titlebar_white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/stand_desc"
+        android:textSize="@dimen/size_content_3"
+        android:text="新消息提示"/>
+
+    <include layout="@layout/view_line"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="店铺状态"
+                android:textColor="@color/stand_text_2"
+                android:textSize="@dimen/btn_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/cb_box1"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:button="@drawable/sliding_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <include layout="@layout/view_line"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="店铺状态"
+                android:textColor="@color/stand_text_2"
+                android:textSize="@dimen/btn_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/cb_box2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:button="@drawable/sliding_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/stand_desc"
+        android:textSize="@dimen/size_content_3"
+        android:text="新消息提示"/>
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:padding="15dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:text="语音提示"
+            android:textColor="@color/stand_text_2"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_change1"
+            android:layout_width="wrap_content"
+            android:text="播放3次"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:src="@mipmap/icon_gengduo"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <include layout="@layout/view_line"/>
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:padding="15dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:text="新消息震动"
+            android:textColor="@color/stand_text_2"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_change2"
+            android:layout_width="wrap_content"
+            android:text="播放3次"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:src="@mipmap/icon_gengduo"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <include layout="@layout/view_line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_3"
+        android:padding="15dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:text="催单"
+            android:textColor="@color/stand_text_2"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_change3"
+            android:layout_width="wrap_content"
+            android:text="播放3次"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:src="@mipmap/icon_gengduo"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <include layout="@layout/view_line"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/stand_desc"
+        android:textSize="@dimen/size_content_3"
+        android:text="新消息提示"/>
+
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rb_music"
+            android:text="音乐"
+            android:textColor="@color/stand_text_2"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_oder_content"
+            android:text="订单内容"
+            android:textColor="@color/stand_text_2"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"/>
+
+    </RadioGroup>
+
+
+</LinearLayout>
