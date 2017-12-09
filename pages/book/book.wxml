@@ -23,7 +23,7 @@
         <view class="manRow titles">{{item.title}}</view>
         <view class="manRow or">已被约：{{item.sum}}</view>
       </view>
-      <button class="btn" data-user_id='{{item.user_id}}' bindtap='toBookInof'>马上预约</button>
+      <button class="btn" data-user_id='{{item.id}}' bindtap='toBookInof'>马上预约</button>
     </view>
   </view>
 </view>

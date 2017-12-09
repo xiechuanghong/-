@@ -7,7 +7,8 @@ Page({
    */
   data: {
     order: [],
-    status:'123'
+    status:'123',
+    isPay:false
   },
 
   /**
@@ -76,9 +77,9 @@ Page({
       url: '../orderDetail/orderDetail?id='+order_id,
     })
   },
-  toEvaluate: function() {
+  toEvaluate: function(ev) {
     wx.navigateTo({
-      url: '../evaluate/evaluate',
+      url: '../evaluate/evaluate?id='+ev.target.dataset.id,
     })
   },
   orderList:function(){
@@ -286,6 +287,44 @@ Page({
         id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../evaluate/evaluate?id=' + id,
+    })
+  },
+  openModal:function(ev){
+
+    this.setData({
+      isPay: !this.data.isPay,
+      orderID: ev.target.dataset.id
+    })
+  },
+  closeModal:function(){
+    this.setData({
+      isPay:false
+    })
+  },
+  cancelOrder:function(ev){
+    var that = this;
+    wx.request({
+      url: app.globalData.url +'Order/cancelNoPayOrder',
+      method:'POST',
+      dataType:'JSON',
+      data:{
+        pro_id:config.pro_id,
+        store:config.store,
+        key:app.globalData.key,
+        order_id:ev.target.dataset.id
+      },
+      success:(res)=>{
+        var str = JSON.parse(res.data);
+        if(str.success==1){
+          wx.showModal({
+            title: '提示',
+            content: '取消订单成功',
+            success:()=>{
+              that.orderList();
+            }
+          })
+        }
+      }
     })
   }
 

@@ -76,7 +76,7 @@ Page({
   toBookInof: function (e) {
     var user_id = e.currentTarget.dataset.user_id;
     wx.navigateTo({
-      url: '../bookInfo/bookInfo?user_id=' + user_id,
+      url: '../bookInfo/bookInfo?id=' + user_id,
     })
   },
   bespeakExpert: function() {
