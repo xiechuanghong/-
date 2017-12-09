@@ -125,7 +125,7 @@
     </view>
   </view>
   <view class='text-between'>
-    <view>总计￥{{totalPrice}}<text class='discount-num'>会员折扣{{mcardDeduct * 10}}折</text></view>
+    <view>总计￥{{totalPrice}}<text class='discount-num' wx:if="{{mcardDeduct * 10 !== 10}}">会员折扣{{mcardDeduct * 10}}折</text></view>
     <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>
@@ -140,13 +140,13 @@
       <view class='iconfont icon-close' bindtap='closeModal'></view>
     </view>
     <view class='modal-body'>
-      <view class='pay-item' bindtap='payWeixin'>
+      <view class='pay-item {{isWeiXin ? "active" : ""}}' bindtap='payWeixin'>
         <text class='iconfont icon-selected-{{selectPayType === "1" ? "true" : "false"}}'></text>
         <text>微信支付</text>
       </view>
-      <view class='pay-item' bindtap='payYue'>
+      <view class='pay-item {{isWallet ? "" : "cannot"}} {{isYue ? "active" : ""}}' bindtap='payYue'>
         <text class='iconfont icon-selected-{{selectPayType === "2" ? "true" : "false"}}'></text>
-        <text>余额支付</text>
+        <text>余额支付 <text wx:if='{{!isWallet}}'>(余额不足)</text></text>
       </view>
     </view>
   </view>
