@@ -45,7 +45,7 @@
   </view>
   <view class='card-body'>
     <view class='btn-group'>
-      <view class='btn {{selectGoods[item.goods_id] ? "active" : ""}}' wx:for='{{goods}}' wx:key='goods_id' data-goods_price='{{item.goods_price}}' data-goods_id='{{item.goods_id}}' bindtap='selectGoods'>
+      <view class='btn {{selectGoods[item.goods_id] ? "active" : ""}}' wx:for='{{goods}}' wx:key='goods_id' data-goods_price='{{item.goods_price}}' data-goods_id='{{item.goods_id}}' data-is_discount="{{item.is_discount}}" bindtap='selectGoods'>
         <text>{{item.goods_name}}</text>
       </view>
     </view>
@@ -125,7 +125,8 @@
     </view>
   </view>
   <view class='text-between'>
-    <view>总计￥{{totalPrice}}<text class='discount-num' wx:if="{{mcardDeduct * 10 !== 10}}">会员折扣{{mcardDeduct * 10}}折</text></view>
+    <view>总计￥{{totalPrice}}</view>
+    <!-- <text class='discount-num' wx:if="{{mcardDeduct * 10 !== 10}}">会员折扣{{mcardDeduct * 10}}折</text> -->
     <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>

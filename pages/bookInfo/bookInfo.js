@@ -202,11 +202,12 @@ Page({
         selectGoods = _this.data.selectGoods,
         goods_id    = e.currentTarget.dataset.goods_id,
         goods_price = e.currentTarget.dataset.goods_price,
+        is_discount = e.currentTarget.dataset.is_discount,
         goodsPrice  = _this.data.goodsPrice,
         totalPrice  = _this.data.totalPrice,
         selectNums  = _this.data.selectNums;
 
-    goodsPrice = selectGoods[goods_id] ? count.reduce(goodsPrice, goods_price) : count.add(goodsPrice, goods_price);
+    goodsPrice = selectGoods[goods_id] ? count.reduce(goodsPrice, goods_price * mcardDeduct) : count.add(goodsPrice, goods_price);
     selectGoods[goods_id] = selectGoods[goods_id] ? false : true;
     totalPrice = count.multiply(selectNums, goodsPrice);
 
@@ -304,10 +305,10 @@ Page({
   //计算会员折扣
   member: function() {
     var _this       = this,
-        payPrice    = _this.data.payPrice,
-        mcardDeduct = _this.data.mcardDeduct;
+        payPrice    = _this.data.payPrice;
+
     if (!(mcardDeduct === 0)) {
-      payPrice = (payPrice * mcardDeduct).toFixed(2);
+      payPrice = (payPrice).toFixed(2);
     }
     _this.setData({
       payPrice: payPrice,
