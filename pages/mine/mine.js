@@ -193,5 +193,9 @@ Page({
     wx.navigateTo({
       url: '../myCard/myCard',
     })
+  },
+  clearBuff:function(){
+    var that = this;
+    
   }
 })
