@@ -46,7 +46,8 @@ Page({
     activityID: '',
     wallet: '0.00',
     isWallet: false,
-    select_id: -1
+    select_id: -1,
+    allGoods: [],
   },
 
   /**
@@ -174,7 +175,8 @@ Page({
             sum      : res.data.responseData.sum,
             title    : res.data.responseData.title,
             goods    : res.data.responseData.goods,
-            select_id: res.data.responseData.id
+            select_id: res.data.responseData.id,
+            allGoods : res.data.responseData.goods
           });
         } else {
           wx.showModal({

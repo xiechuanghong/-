@@ -163,11 +163,6 @@ Page({
       }
     })
   },
-  //余额支付
-  payYue: function() {
-    var _this = this;
-
-  },
   //微信支付
   payWeixin: function() {
     var _this = this,
