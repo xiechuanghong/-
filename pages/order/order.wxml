@@ -25,15 +25,9 @@
       </view>
     </view>
     <view class='list-footer text-right'>
-<<<<<<< HEAD
-      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" bindtap='cancelOrder'>取消</text>
-      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
-      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}">确认消费</text>
-=======
-      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" >取消</text>
+      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}"  bindtap='cancelOrder'>取消</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}">支付</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
->>>>>>> b69e2d761bd9410b52d95e254f1b68ab18b4a4a8
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}">评价</text>
     </view>
   </view>
