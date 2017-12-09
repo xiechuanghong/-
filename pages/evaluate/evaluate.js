@@ -22,7 +22,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      order_id: options.id
+    })
   },
 
   /**
@@ -188,7 +190,7 @@ Page({
     }
     var _this     = this,
         url       = app.globalData.url,
-        order_id  = order_id;  //
+        shop_id   = app.globalData.shop_id
       // anonymous = this.data.anonymous?'1':'0',
     wx.request({
       url: url + 'Store/commentStore',
@@ -196,13 +198,12 @@ Page({
         pro_id: config.pro_id,
         store: config.store,
         key: app.globalData.key,
-        order_id: order_id,//
+        order_id: _this.data.order_id,//
         content: _this.data.textArea,
         star: _this.data.grade,
         anonymous: _this.data.anonymous ? '1' : '0',
         images: arrImg.join(','),
-        shop_id: shop_id, // 
-        goods_id: goods_id // 
+        shop_id: shop_id, 
       },
       method: 'POST',
       success: function (res) {

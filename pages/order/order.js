@@ -82,7 +82,7 @@ Page({
   },
   toEvaluate: function() {
     wx.navigateTo({
-      url: '../evaluate/evaluate',
+      url: '../evaluate/evaluate?id='+order_id,
     })
   },
   orderList:function(){
@@ -307,9 +307,9 @@ Page({
   },
   toEvaluate: function(e) {
     var _this = this,
-        orderID = e.currentTarget.dataset.id;
+        id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../evaluate/evaluate?orderID=' + id,
+      url: '../evaluate/evaluate?id=' + id,
     })
   }
 })

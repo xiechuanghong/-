@@ -61,7 +61,7 @@
         <text>已被约：{{item.sum}}</text>
       </view>
     </view>
-    <view class='list-btn' data-user_id='{{item.id}}' bindtap='toBookInof'>
+    <view class='list-btn' data-id='{{item.id}}' bindtap='toBookInof'>
       <text>预约TA</text>
     </view>
   </view>
