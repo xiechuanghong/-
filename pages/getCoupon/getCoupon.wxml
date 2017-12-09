@@ -6,7 +6,7 @@
   <view class='list-item' wx:for='{{coupon}}' wx:key='id'>
     <view class='coupon-content'>
       <view class='coupon-amount'>￥<text>{{item.amount}}</text></view>
-      <view class='coupon-condition'>满{{item.condition_amount}}元可用</view>
+      <view class='coupon-condition'>{{item.desc}}</view>
     </view>
     <view class='coupon-info'>
       <view class='coupon-name'>{{item.name}}</view>

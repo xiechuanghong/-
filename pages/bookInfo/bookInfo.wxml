@@ -132,6 +132,9 @@
 <button formType="submit" class='confirm'>确定预约</button>
 </form>
 <view class='mask {{isPay ? "in" : ""}}' bindtap='closeModal'></view>
+<!-- <view class=''>
+  
+</view> -->
 <view class='modal-content modal {{isPay ? "in" : ""}}'>
     <view class='modal-header'>请选择支付方式
       <view class='iconfont icon-close' bindtap='closeModal'></view>

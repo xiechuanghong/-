@@ -1,4 +1,4 @@
-<view class='body {{isPay ? "in" : ""}}'>
+<view>
 <view class='no-order' wx:if="{{order.length < 1}}">
   <view class='iconfont icon-no-data'></view>
   <view class='txt'>您暂时没有订单喔</view>
@@ -25,14 +25,14 @@
       </view>
     </view>
     <view class='list-footer text-right'>
-      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}"  bindtap='cancelOrder'>取消</text>
+      <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" >取消</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
       <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
-      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
+      <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}">评价</text>
     </view>
   </view>
 </view>
-<view class='mask {{isPay ? "in" : ""}}' bindtap='closeModal'></view>
+  <view class='mask {{isPay ? "in" : ""}}' bindtap='closeModal'></view>
   <view class='modal-content modal {{isPay ? "in" : ""}}'>
     <view class='modal-header'>请选择支付方式
       <view class='iconfont icon-close' bindtap='closeModal'></view>
