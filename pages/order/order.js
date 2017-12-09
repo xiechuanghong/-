@@ -127,6 +127,7 @@ Page({
       }
     })
   },
+<<<<<<< HEAD
   openModal: function(e) {
     var _this   = this,
         orderID = e.currentTarget.dataset.id;
@@ -137,6 +138,29 @@ Page({
   },
   closeModal: function() {
     var _this = this;
+=======
+  confirmConsume:function(ev){
+    var that = this;
+    wx.request({
+      url: app.globalData.url + 'Cosmetology/consumeOk',
+      method:'GET',
+      dataType:'POST',
+      data:{
+        pro_id:config.pro_id,
+        store:config.store,
+        key:app.globalData.key,
+        order_id:ev.target.dataset.id
+      },
+      success:(res)=>{
+        var str = JSON.parse(res.data);
+        console.log(str);
+        if(str.success == 1){
+          that.orderList();
+        }
+      }
+    })
+  }
+>>>>>>> b69e2d761bd9410b52d95e254f1b68ab18b4a4a8
 
     _this.setData({
       isPay: false

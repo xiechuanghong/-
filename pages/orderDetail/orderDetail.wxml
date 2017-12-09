@@ -24,11 +24,19 @@
     </view>
     <view class='text-between'>
       <view>优惠券</view>
-      <view>￥0.00</view>
+      <view>-￥{{list.ticket}}</view>
+    </view>
+    <view class='text-between'>
+      <view>积分</view>
+      <view>-￥{{list.jf_amount}}</view>
     </view>
     <view class='text-between'>
       <view>商品优惠</view>
-      <view>￥0.00</view>
+      <view>-￥{{list.mcard_amount}}</view>
+    </view>
+    <view class='text-between'>
+      <view>满减活动</view>
+      <view>-￥{{list.fm_act_id}}</view>
     </view>
   </view>
   <view class='order-footer text-between'>

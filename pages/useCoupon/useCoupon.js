@@ -78,7 +78,11 @@ Page({
   getList:function(){
     var that = this;
     wx.request({
+<<<<<<< HEAD
       url: app.globalData.url + 'Users/getUserCouponsBy',
+=======
+      url: app.globalData.url + 'Users/getUserShopCoupon',
+>>>>>>> b69e2d761bd9410b52d95e254f1b68ab18b4a4a8
       method:'GET',
       dataType:'JSON',
       data:{
