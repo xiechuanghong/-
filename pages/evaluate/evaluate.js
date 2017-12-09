@@ -1,4 +1,5 @@
 var app = getApp();
+var config = require('../../utils/config.js');
 var qiniuUploader = require('../../utils/qiniuUploader.js');
 // pages/evaluate/evaluate.js
 Page({
@@ -7,14 +8,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    images: [
+      { src: '../img/comment_icon_add.png', cancel: false},
+      { src: '../img/comment_icon_add.png', cancel: false},
+      { src: '../img/comment_icon_add.png', cancel: false},
+    ],
+    stars: [true, false, false, false, false],
+    grade:'1',
+    anonymous:true
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      order_id: options.id
+    })
   },
 
   /**
@@ -94,22 +104,23 @@ Page({
     var index = index;
     qiniuUploader.upload(filePath, (res) => {
       var src = 'https://' + res.imageURL;
-
+      console.log(res.imageURL)
       images[index].src = src;
       images[index].cancel = true;
-      if (index < 2) {
-        images[index + 1].show = true;
-      }
+      // if (index < 2) {
+      //   images[index + 1].show = true;
+      // }
 
       that.setData({
         images: images
       });
       wx.hideToast();
+      
     }, (error) => {
       console.log('error: ' + error);
     }, {
-        uploadURL: 'https://upload-z2.qiniup.com ',
-        domain: 'mpstatic.hanyu020.com ',
+        uploadURL: 'https://upload-z2.qiniup.com',
+        domain: 'mpstatic.hanyu020.com',
         uptokenURL: app.globalData.domain + '/Hotel/Qiniu/getUploadToken',
         region: 'SCN',
         prefix: prefix
@@ -124,6 +135,80 @@ Page({
     d = d < 10 ? "0" + d : d
     return y + "-" + m + "-" + d
   },
-
-
+  // 删除评价图片
+  delImg:function(e) {
+    var _this = this,
+      index   = e.currentTarget.dataset.index,
+      images  = _this.data.images;
+    wx.showModal({
+      title: '提示',
+      content: '是否删除图片',
+      success: function(res){
+        if(res.confirm) {
+          images[index].cancel = false
+          images[index].src = '../img/comment_icon_add.png'
+          _this.setData({
+            images: images
+          })
+        }
+      }
+    })
+  },
+  // 评价星星
+  rating: function (e) {
+    var starRating = e.currentTarget.dataset.id
+    var arrStars = this.data.stars;
+    for (var j = 0; j < arrStars.length; j++) {
+      arrStars[j] = false
+    }
+    for (var i = 0; i < starRating; i++) {
+      arrStars[i] = true
+    }
+    this.setData({
+      stars: arrStars,
+      grade: starRating
+    })
+  },
+  // 获取textarea文本
+  bindTextAreaBlur:function(e) {
+    let textArea = e.detail.value
+    this.setData({
+      textArea: textArea
+    })
+  },
+  // 是否匿名评价
+  isAnonymous:function(){
+    this.setData({
+      anonymous: !this.data.anonymous,
+    })
+  },
+  // 提交到服务器
+  formSubmit: function () {
+    let arrImg = []
+    for (var i = 0; i < this.data.images.length ; i++){
+      arrImg.push(this.data.images[i].src)
+    }
+    var _this     = this,
+        url       = app.globalData.url,
+        shop_id   = app.globalData.shop_id
+      // anonymous = this.data.anonymous?'1':'0',
+    wx.request({
+      url: url + 'Store/commentStore',
+      data: {
+        pro_id: config.pro_id,
+        store: config.store,
+        key: app.globalData.key,
+        order_id: _this.data.order_id,//
+        content: _this.data.textArea,
+        star: _this.data.grade,
+        anonymous: _this.data.anonymous ? '1' : '0',
+        images: arrImg.join(','),
+        shop_id: shop_id, 
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  },
 })

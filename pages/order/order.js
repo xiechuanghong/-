@@ -78,7 +78,7 @@ Page({
   },
   toEvaluate: function() {
     wx.navigateTo({
-      url: '../evaluate/evaluate',
+      url: '../evaluate/evaluate?id='+order_id,
     })
   },
   orderList:function(){
