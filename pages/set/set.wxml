@@ -1,7 +1,7 @@
 <view class='grids'>
-  <view class='grids-item' wx:for='{{expert}}' wx:key='id' data-id='{{item.goods_id}}'  bindtap='toSetDetail'>
+  <view class='grids-item' wx:for='{{expert}}' wx:key='id' data-id='{{item.goods_id}}' >
     <view class='grids-pic'>
-      <image src='{{item.goods_img}}'></image>
+      <image src='{{item.goods_img}}' data-id='{{item.goods_id}}' bindtap='toSetDetail'></image>
     </view>
     <view class='grids-content'>
       <view class='grids-info'>

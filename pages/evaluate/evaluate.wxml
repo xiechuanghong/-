@@ -19,7 +19,7 @@
   <text class='iconfont icon-selected-true'></text> 匿名评价
 </view>
 <view class='evaluate-img'>
-  <view class='img-item'>
+  <view class='img-item' bindtap='bindChoicePice'>
     <image class='img-content' src='../img/comment_icon_add.png'></image>
     <image class='img-close' src='../img/comment_icon_close.png'></image>
   </view>

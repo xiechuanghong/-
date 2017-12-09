@@ -1,19 +1,21 @@
+<view class='body {{isPay ? "in" : ""}}'>
 <view class='person-box'>
   <view class='person-header'>
-    <image src='../img/02.png'></image>
+    <image src='{{avatar}}'></image>
   </view>
   <view class='person-info'>
     <view class='person-name'>
-      <text>小可爱</text>
+      <text>{{name}}</text>
     </view>
     <view class='person-role'>
-      <text>金牌美导师</text>
+      <text>{{title}}</text>
     </view>
     <view class='person-record'>
-      <text>已被约：5</text>
+      <text>已被约：{{sum}}</text>
     </view>
   </view>
 </view>
+<form bindsubmit="formSubmit" report-submit='true'>
 <view class='card'>
   <view class='card-header'>
     <text>请完善您的个人信息</text>
@@ -24,7 +26,7 @@
         <text>姓名</text>
       </view>
       <view class='form-control'>
-        <input type='text' placeholder='请输入您的姓名' placeholder-style='color:#CCC;'></input>
+        <input type='text' class='{{isPay ? "in" : ""}}' placeholder='请输入您的姓名' value='{{userName}}' bindchange='changeUserName' placeholder-style='color:#CCC;'></input>
       </view>
     </view>
     <view class='form-group'>
@@ -32,7 +34,7 @@
         <text>手机号</text>
       </view>
       <view class='form-control'>
-        <input type='text' placeholder='请输入您的手机号码' placeholder-style='color:#CCC;'></input>
+        <input type='text' class='{{isPay ? "in" : ""}}' placeholder='请输入您的手机号码' value='{{userPhone}}' bindchange='changeUserPhone' placeholder-style='color:#CCC;'></input>
       </view>
     </view>
   </view>
@@ -43,23 +45,8 @@
   </view>
   <view class='card-body'>
     <view class='btn-group'>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
-      </view>
-      <view class='btn'>
-        <text>洗剪吹</text>
+      <view class='btn {{selectGoods[item.goods_id] ? "active" : ""}}' wx:for='{{goods}}' wx:key='goods_id' data-goods_price='{{item.goods_price}}' data-goods_id='{{item.goods_id}}' bindtap='selectGoods'>
+        <text>{{item.goods_name}}</text>
       </view>
     </view>
   </view>
@@ -70,22 +57,22 @@
   </view>
   <view class='card-body'>
     <view class='btn-group'>
-      <view class='btn'>
+      <view class='btn {{selectNums === "1" ? "active" : ""}}' data-nums='1' bindtap='selectNums'>
         <text>1人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "2" ? "active" : ""}}' data-nums='2' bindtap='selectNums'>
         <text>2人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "3" ? "active" : ""}}' data-nums='3' bindtap='selectNums'>
         <text>3人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "4" ? "active" : ""}}' data-nums='4' bindtap='selectNums'>
         <text>4人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "5" ? "active" : ""}}' data-nums='5' bindtap='selectNums'>
         <text>5人</text>
       </view>
-      <view class='btn'>
+      <view class='btn {{selectNums === "6" ? "active" : ""}}' data-nums='6' bindtap='selectNums'>
         <text>6人</text>
       </view>
     </view>
@@ -99,28 +86,68 @@
     <view class='picker-group'>
       <view class='picker-box'>
         <view class='picker-title'>选择预约日期</view>
-        <picker mode='date'>
-          <view class="picker">2011</view>
+        <picker mode='date' value="{{date}}" start="{{dateStart}}" end="" bindchange="bindDateChange">
+          <view class="picker">{{date}}</view>
         </picker>
       </view>
       <view class='picker-line'></view>
       <view class='picker-box'>
         <view class='picker-title'>选择预约时间</view>
-        <picker mode='time'>
-          <view class="picker">2011</view>
+        <picker mode='time' value="{{time}}" start="{{timeStart}}" end="" bindchange="bindTimeChange">
+          <view class="picker">{{time}}</view>
         </picker>
       </view>
     </view>
   </view>
 </view>
-<view class='discount'>
+<view class='card {{couponID === ""  ? "hasfun" : ""}}'>
+  <view class='card-body integral-box text-between'>
+    <view class='integral-content'>
+      <view class='integral-name'>积分兑换1000分</view>
+      <view class='integral-explain'>你当前有{{integration}}积分，{{deduct}}积分=1元</view>
+    </view>
+    <view class='integral-switch'>
+      <switch color='#FF6589;' checked='{{isChecked}}' disabled='{{isIntegral ? true : false}}' bindchange='switchChange'/>
+    </view>
+  </view>
+  
+</view>
+<view class='discount {{couponID === "" ? "hasfun" : ""}}'>
+  <view class='text-between activity'>
+    <view>活动满减</view>
+    <view class='discount-num'>-￥{{activityPrice}}</view>
+  </view>
   <view class='text-between'>
     <view>优惠券</view>
-    <view class='discount-select' bindtap='toUseCoupon'>未选择</view>
+    <view class='discount-select' bindtap='toUseCoupon'>
+      <text wx:if='{{couponID === ""}}'>请选择</text>
+      <text wx:else>-￥{{couponAmout}}</text>
+    </view>
   </view>
   <view class='text-between'>
-    <view>总计￥399.00 <text class='discount-num'>-￥0.00</text></view>
-    <view class='discount-result'>实付￥399.00</view>
+    <view>总计￥{{totalPrice}}<text class='discount-num'>会员折扣{{mcardDeduct * 10}}折</text></view>
+    <view class='discount-result'>实付￥{{payPrice}}</view>
   </view>
 </view>
-<view class='confirm' bindtap='bespeakAdd'>确定预约</view>
+<button formType="submit" class='confirm'>确定预约</button>
+</form>
+<view class='mask {{isPay ? "in" : ""}}' bindtap='closeModal'></view>
+<!-- <view class=''>
+  
+</view> -->
+<view class='modal-content modal {{isPay ? "in" : ""}}'>
+    <view class='modal-header'>请选择支付方式
+      <view class='iconfont icon-close' bindtap='closeModal'></view>
+    </view>
+    <view class='modal-body'>
+      <view class='pay-item' bindtap='payWeixin'>
+        <text class='iconfont icon-selected-{{selectPayType === "1" ? "true" : "false"}}'></text>
+        <text>微信支付</text>
+      </view>
+      <view class='pay-item' bindtap='payYue'>
+        <text class='iconfont icon-selected-{{selectPayType === "2" ? "true" : "false"}}'></text>
+        <text>余额支付</text>
+      </view>
+    </view>
+  </view>
+</view>

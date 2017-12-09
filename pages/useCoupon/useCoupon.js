@@ -1,6 +1,8 @@
 // pages/useCoupon/useCoupon.js
 var app = getApp();
 var config = require('../../utils/config.js');
+var Count = require('../../utils/count.js');
+const count = new Count();
 Page({
 
   /**
@@ -22,7 +24,7 @@ Page({
     this.setData({
       couponID: options.couponID,
       totalPrice: parseFloat(options.totalPrice)
-    })
+    });
   },
 
   /**
@@ -87,7 +89,6 @@ Page({
       },
       success:(res)=>{
         var str = JSON.parse(res.data);
-        console.log(str)
         if(str.success == 1){
           var lis = str.responseData;
           lis = JSON.stringify(lis) == '{}'?[]:lis;
@@ -124,22 +125,21 @@ Page({
             payPrice: payPrice,
             couponID: ''
           })
-          wx.navigateBack({
-            data: -1
-          })
+          wx.navigateBack();
         }
     try{   
       lis.forEach(function(v){
-        if (v.id == couponID){
+        if (v.activity_id == couponID){
           if (that.data.totalPrice >= v.condition_amount){
             var current = getCurrentPages(),
-              payPrice = parseFloat(that.data.totalPrice) - parseFloat(v.amount) ;
+                payPrice = count.reduce(that.data.totalPrice, v.amount);
             var prePage = current[current.length - 2];
             prePage.setData({
               couponAmout: v.amount,
               payPrice: payPrice,
-              couponID: v.id
-            })
+              couponID: v.activity_id
+            });
+            // prePage.member();
             throw true
           }else{
             wx.showModal({
@@ -153,9 +153,7 @@ Page({
     }catch(e){
       console.log(e)
       if(e){
-        wx.navigateBack({
-          data: -1
-        })
+        wx.navigateBack();
       }
     } 
   }

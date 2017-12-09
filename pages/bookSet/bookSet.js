@@ -5,14 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    //--------------
+    couponID: '',
+    totalPrice: '0.00',
+    couponAmout: '0.00',
+    payPrice: '0.00',
+    //--------------
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options)
+    var list = decodeURIComponent(options.list);
+    list = JSON.parse(list);
+    this.setData({
+      list:list,
+      totalPrice: list.goods_price,
+      payPrice: list.goods_price
+    })
   },
 
   /**

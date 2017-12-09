@@ -69,9 +69,10 @@ Page({
   onShareAppMessage: function () {
   
   },
-  toSetDetail: function() {
+  toSetDetail: function(ev) {
+    if(!ev.target.dataset.id){return;}
     wx.navigateTo({
-      url: '../setDetail/setDetail',
+      url: '../setDetail/setDetail?goods_id='+ev.target.dataset.id,
     })
   },
   bespeakGoods: function() {

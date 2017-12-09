@@ -123,14 +123,15 @@ Page({
       url: '../bookSet/bookSet',
     })
   },
-  toSetDetail: function() {
+  toSetDetail: function(ev) {
     wx.navigateTo({
-      url: '../setDetail/setDetail',
+      url: '../setDetail/setDetail?goods_id=' + ev.target.dataset.goods_id,
     })
   },
   toAbout:function() {
     wx.navigateTo({
       url: '../about/about',
-    })
-  }
+    });
+  },
+  
 })
