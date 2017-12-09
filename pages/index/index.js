@@ -114,9 +114,9 @@ Page({
     })
   },
   toBookInof: function(e) {
-    var user_id = e.currentTarget.dataset.user_id;
+    var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../bookInfo/bookInfo?user_id=' + user_id,
+      url: '../bookInfo/bookInfo?id=' + id,
     })
   },
   toPay: function() {
