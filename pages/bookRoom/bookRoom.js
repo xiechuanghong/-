@@ -471,7 +471,9 @@ Page({
       method: 'POST',
       success: (res) => {
         if (res.success === 1) {
-
+          wx.redirectTo({
+            url: '../orderDetail/orderDetail?id=' + res.data.responseData.order_id.order_id,
+          })
         } else {
           wx.showModal({
             title: '',
@@ -514,7 +516,7 @@ Page({
       selectPayType: '2'
     })
     wx.request({
-      url: url + 'Reserve/bespeakAdd',
+      url: url + 'Payment/bespeakBalancePaid',
       data: data,
       dataType: 'json',
       method: 'POST',

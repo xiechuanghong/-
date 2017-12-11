@@ -9,11 +9,12 @@ Page({
   data: {
     list:{},
     goods:[],
-    payType:''
+    payType:'',
+    shopPhone: ''
   },
   orderDetail:function(){
     var _this    = this,
-        order_id = this.data.order_id,
+        order_id = 3589,
         pro_id   = config.pro_id,
         store    = config.store,
         key      = app.globalData.key,
@@ -75,8 +76,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData);
     this.setData({
-      order_id:options.id
+      order_id:options.id,
+      shopPhone: app.globalData.shop.phone
     })
     this.orderDetail()
   },

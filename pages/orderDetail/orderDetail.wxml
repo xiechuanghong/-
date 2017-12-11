@@ -56,6 +56,6 @@
 </view>
 <view class='list'>
   <view class='list-item text-between'>
-    <view class='item-name'>客服联系电话：123555555</view>
+    <view class='item-name'>客服联系电话：{{shopPhone}}</view>
   </view>
 </view>
