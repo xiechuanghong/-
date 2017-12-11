@@ -175,4 +175,18 @@ Page({
     }
 
   },
+  getCode:function(){
+    var that = this;
+    wx.scanCode({
+      success: (res) => {
+        console.log(res)
+        var url = res.path;
+            url = url.substring(6);
+            console.log(url)
+        wx.navigateTo({
+          url:'../'+url,
+        })
+      }
+    })
+  }
 })

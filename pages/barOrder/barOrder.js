@@ -22,6 +22,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    this.table_id = options.table_id;
     this.getList();
   },
   PAY: function (ev) {
@@ -215,7 +217,7 @@ Page({
         pay_amount: that.data.total,
         pay_type: 1,
         cart: JSON.stringify(that.data.cart),
-        table_id:194
+        table_id: that.table_id
       },
       success:(res)=>{
         var str = JSON.parse(res.data);
@@ -257,7 +259,7 @@ Page({
         pay_amount: that.data.total,
         pay_type: 3,
         cart: JSON.stringify(that.data.cart),
-        table_id: 194
+        table_id: that.table_id
       },
       success: (res) => {
         var str = JSON.parse(res.data);

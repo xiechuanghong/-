@@ -107,3 +107,4 @@
 .selPay .selBox .psatus{width:100%; display:flex; align-items:center;}
 .selPay .selBox view{ height:120rpx; line-height:120rpx;}
 .selPay .selBox .choice{width:50rpx; height:50rpx; float:left; margin:0 44rpx 0 64rpx;}
+.item-content{flex:1;}

@@ -14,7 +14,7 @@ Page({
   },
   orderDetail:function(){
     var _this    = this,
-        order_id = 3589,
+      order_id = _this.data.order_id,
         pro_id   = config.pro_id,
         store    = config.store,
         key      = app.globalData.key,

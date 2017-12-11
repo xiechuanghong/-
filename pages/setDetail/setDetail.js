@@ -91,6 +91,10 @@ Page({
         var str = JSON.parse(res.data);
         console.log(str)
         if(str.success == 1){
+          var imgs = str.responseData.comment;
+          for(var i=0; i<imgs.length; i++){
+            imgs[i].img_urls = imgs[i].img_urls.split(',');
+          }
           that.setData({
             list:str.responseData
           })
