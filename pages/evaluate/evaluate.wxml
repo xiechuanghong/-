@@ -8,7 +8,7 @@
   </view>
 </view>
 <view class='evaluate-content'>
-  <textarea bindblur='bindTextAreaBlur' placeholder='我们的服务满足你的需求吗？发表你的想法喔...' placeholder-style='color:#999;'></textarea>
+  <textarea bindinput='bindTextAreaBlur' placeholder='我们的服务满足你的需求吗？发表你的想法喔...' placeholder-style='color:#999;'></textarea>
   <view>200字</view>
 </view>
 <view class='evaluate-anonymous'>

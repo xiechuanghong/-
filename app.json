@@ -11,6 +11,8 @@
     "pages/myPoints/myPoints",
     "pages/memberDetail/memberDetail",
     "pages/myBalance/myBalance",
+    "pages/drawimg/drawimg",
+    
     "pages/book/book",
     "pages/order/order",
     "pages/mine/mine",

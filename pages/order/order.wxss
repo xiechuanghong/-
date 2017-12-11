@@ -61,3 +61,73 @@
 .list-footer{
   padding: 25rpx 30rpx;
 }
+
+.mask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+  display: none;
+}
+.mask.in{
+  display: block;
+}
+.modal{
+  position: relative;
+  display: none;
+}
+.modal.in{
+  display: block;
+}
+.modal-content{
+  height: 360rpx;
+  width: 690rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #FFF;
+  border-radius: 14rpx;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  display: none;
+}
+.modal-content.in {
+  display: block;
+}
+.modal-header{
+  font-size: 34rpx;
+  color: #333;
+  position: relative;
+  text-align: center;
+}
+.modal-header .icon-close{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal-body{
+  padding: 0 37rpx;
+  margin-top: 10rpx;
+}
+.pay-item{
+  line-height: 133rpx;
+  font-size: 36rpx;
+  border-bottom: 1px solid #eee;
+}
+.pay-item:last-child{
+  border-bottom: 0;
+}
+.pay-item .iconfont{
+  margin-right: 44rpx;
+}
+.pay-item .icon-selected-true{
+  color: #FF6589;
+}
+.pay-item .icon-selected-false{
+  color: #999;
+}

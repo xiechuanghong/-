@@ -184,9 +184,12 @@ Page({
   },
   // 提交到服务器
   formSubmit: function () {
-    let arrImg = []
+    let arrImg = [];
+    var imgs = this.data.images;
     for (var i = 0; i < this.data.images.length ; i++){
-      arrImg.push(this.data.images[i].src)
+      if (imgs[i].src != '../img/comment_icon_add.png'){
+        arrImg.push(this.data.images[i].src)
+      }
     }
     var _this     = this,
         url       = app.globalData.url,
@@ -208,6 +211,22 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log(res)
+        if(res.data.success == 1){
+          wx.showModal({
+            title: '提示',
+            content: '评价成功',
+            success:()=>{
+              wx.switchTab({
+                url: '../order/order',
+              })
+            }
+          })
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '评价失败',
+          })
+        }
       }
     })
   },
