@@ -7,9 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    is_member: 0,
-    is_salesman: 0,
-    is_verifier: 0,
+    userData: {},
     avatarUrl: '',
     nickName: ''
   },
@@ -99,10 +97,9 @@ Page({
       success: function(res) {
         if (res.data.success === 1) {
           app.globalData.mineData = res.data.responseData;
+          console.log(res.data.responseData)
           _this.setData({
-            is_salesman: res.data.responseData.is_salesman,
-            is_verifier: res.data.responseData.is_salesman,
-            is_member  : res.data.responseData.is_member
+            userData: res.data.responseData,
           });
         }
       }
@@ -121,7 +118,7 @@ Page({
   },
   toExtend: function() {
     var _this = this, 
-        is_salesman = _this.data.is_salesman;
+        is_salesman = _this.data.userData.is_salesman;
     if (is_salesman === 0) {
       wx.navigateTo({
         url: '../generalize/generalize?salesman=' + is_salesman,

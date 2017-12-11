@@ -1,0 +1,19 @@
+/* pages/ordered/ordered.wxss */
+.box{box-sizing:border-box;}
+.clear::after{content:' '; display:block; clear:both;}
+.topInfo{display:flex; align-items:center; width:100%; height:249rpx; font-size:28rpx; color:#666;
+  background:#fff; padding:0 30rpx;}
+.topInfo>.shopImg{width:180rpx; height:180rpx; border-radius:10rpx;}
+.topInfo>.shopInfo{height:180rpx;text-indent:20rpx;}
+.topInfo> .shopInfo view{height:60rpx; display:flex; align-items:center;}
+.topIcon{float:left; width:44rpx; height:44rpx; margin:0 20rpx; vertical-align:top;}
+
+.list{width:100%; background:#fff; margin-top:20rpx;}
+.manInfo{width:100%; height:240rpx; display:flex; align-items:center; padding:0 30rpx; border-bottom:1rpx solid #eee;}
+.manImg{width:180rpx; height:180rpx; border-radius:10rpx;}
+.manDetail{text-indent:20rpx; line-height:60rpx;  letter-spacing:3rpx;}
+.manRow{width:323rpx; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.btn{width:166rpx; height:64rpx; background:#FF86A5; font-size:28rpx; color:#fff; padding:0; letter-spacing:2rpx;}
+.name{font-size:32rpx; color:#000; font-weight:bold;}
+.titles{font-size:28rpx; color:#666;}
+.or{font-size:26rpx; color:#999;}

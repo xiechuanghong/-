@@ -69,7 +69,7 @@
   /* height: 157rpx; */
   box-sizing: border-box;
   margin-top: 20rpx;
-  margin-bottom:100rpx;
+  padding-bottom:100rpx;
 }
 .discount-select{
   color: #FF4B4B;

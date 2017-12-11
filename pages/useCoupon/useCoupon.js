@@ -137,7 +137,8 @@ Page({
             prePage.setData({
               couponAmout: v.amount,
               payPrice: payPrice,
-              couponID: v.id
+              couponID: v.id,
+              activityPrice: v.amount
             });
             // prePage.member();
             throw true

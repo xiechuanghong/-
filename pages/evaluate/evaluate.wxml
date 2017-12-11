@@ -14,11 +14,13 @@
 <view class='evaluate-anonymous'>
   <text class="iconfont {{anonymous?'icon-selected-true':'icon-selected-false'}}" bindtap='isAnonymous'></text> 匿名评价
 </view>
-<view class='evaluate-img'>
-  <view class='img-item' wx:for="{{images}}" wx:key="index" >
-    <image class='img-content' src='{{images[index].src}}' bindtap='bindChoicePice' data-index='{{index}}'></image>
-    <image class='img-close' bindtap='delImg' wx:if="{{item.cancel}}" src='../img/comment_icon_close.png' data-index='{{index}}'></image>
+<view style='overflow: hidden;'>
+  <view class='evaluate-img'>
+    <view class='img-item' wx:for="{{images}}" wx:key="index" >
+      <image class='img-content' src='{{images[index].src}}' bindtap='bindChoicePice' data-index='{{index}}'></image>
+      <image class='img-close' bindtap='delImg' wx:if="{{item.cancel}}" src='../img/comment_icon_close.png' data-index='{{index}}'></image>
+    </view>
+    
   </view>
-  
 </view>
 <view class='confirm' bindtap='formSubmit'>提交</view>
