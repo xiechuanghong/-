@@ -6,16 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
     orderReal: [],
     orderMake: [],
     status:'123',
     isPay:false,
     currentTab: "0",
-=======
-    order: [],
-    status:'123'
->>>>>>> 7c5bdf133d5bec821d32d037358b634ff84bd760
   },
 
   /**
@@ -262,7 +257,6 @@ Page({
     wx.navigateTo({
       url: '../evaluate/evaluate?id=' + id,
     })
-<<<<<<< HEAD
   },
   openModal:function(ev){
 
@@ -343,15 +337,7 @@ Page({
                 orderMake: res.data.responseData,
               })
             }
-=======
-  }
->>>>>>> 7c5bdf133d5bec821d32d037358b634ff84bd760
-
           }
-          _this.setData({
-            order: arr,
-          })
-
         } else {
           wx.showModal({
             title: '',
