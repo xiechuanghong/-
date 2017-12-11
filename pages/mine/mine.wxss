@@ -29,15 +29,15 @@
 }
 .header{
   background-color: #FFEBF0;
-  height: 200rpx;
-  line-height: 200rpx;
-  padding: 0 40rpx;
+  padding: 30rpx 40rpx;
 }
 .header image{
   display: inline-block;
   width: 140rpx;
   height: 140rpx;
   vertical-align: middle;
+  border-radius: 50%;
+  float: left;
 }
 .header .name{
   display: inline-block;
@@ -47,6 +47,33 @@
   margin-left: 20rpx;
   color: #333;
   font-size: 34rpx;
+}
+.member{
+  display: block;
+  margin-left: 158rpx;
+  color: #333;
+  font-size: 34rpx;
+  height: 140rpx;
+  line-height: 70rpx;
+}
+.member-info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.member-level{
+  height: 34rpx;
+  padding: 0 9rpx;
+  text-align: center;
+  line-height: 34rpx;
+  border: 1rpx solid #333;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  margin-left: 15rpx;
+  display: inline-block;
+}
+.member-detail{
+  font-size: 28rpx;
 }
 .hide{
   display: none;

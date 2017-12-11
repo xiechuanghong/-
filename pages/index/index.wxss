@@ -30,7 +30,7 @@ swiper-item image{
 }
 .navbar{
   background-color: #FFF;
-  padding: 50rpx 0;
+  padding: 50rpx 0 30rpx 0;
 }
 .navbar::after{
   display: block;
@@ -41,6 +41,7 @@ swiper-item image{
   width: 25%;
   float: left;
   text-align: center;
+  margin-bottom: 20rpx;
 }
 .navbar-icon{
   width: 100rpx;

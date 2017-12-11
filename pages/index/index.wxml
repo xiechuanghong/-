@@ -9,20 +9,20 @@
   </swiper-item>
 </swiper>
 <view class='navbar' >
-  <view class='navbar-item' bindtap="toAbout">
-    <view class='navbar-icon'>
-      <image src='../img/index_icon_introduce.png'></image>
-    </view>
-    <view class='navbar-txt'>
-      <text>店铺简介</text>
-    </view>
-  </view>
-  <view class='navbar-item' bindtap='toSet'>
+  <view class='navbar-item' bindtap="toRoom">
     <view class='navbar-icon'>
       <image src='../img/index_icon_book.png'></image>
     </view>
     <view class='navbar-txt'>
-      <text>套餐预约</text>
+      <text>包厢预约</text>
+    </view>
+  </view>
+  <view class='navbar-item' bindtap='toGetCoupon'>
+    <view class='navbar-icon'>
+      <image src='../img/index_icon_code.png'></image>
+    </view>
+    <view class='navbar-txt'>
+      <text>扫码点单</text>
     </view>
   </view>
   <view class='navbar-item' bindtap='toGetCoupon'>
@@ -31,6 +31,38 @@
     </view>
     <view class='navbar-txt'>
       <text>领取优惠</text>
+    </view>
+  </view>
+  <view class='navbar-item' bindtap="toAbout">
+    <view class='navbar-icon'>
+      <image src='../img/index_icon_introduce.png'></image>
+    </view>
+    <view class='navbar-txt'>
+      <text>店铺简介</text>
+    </view>
+  </view>
+  <view class='navbar-item' bindtap='toEmployee'>
+    <view class='navbar-icon'>
+      <image src='../img/index_icon_book2.png'></image>
+    </view>
+    <view class='navbar-txt'>
+      <text>技师预约</text>
+    </view>
+  </view>
+  <view class='navbar-item' bindtap='toSet'>
+    <view class='navbar-icon'>
+      <image src='../img/index_icon_package.png'></image>
+    </view>
+    <view class='navbar-txt'>
+      <text>套餐预约</text>
+    </view>
+  </view>
+  <view class='navbar-item' bindtap='toExtend'>
+    <view class='navbar-icon'>
+      <image src='../img/index_icon_extension.png'></image>
+    </view>
+    <view class='navbar-txt'>
+      <text>推广赚钱</text>
     </view>
   </view>
   <view class='navbar-item' bindtap='toPay'>
