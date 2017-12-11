@@ -80,7 +80,8 @@ Page({
         start:'0'
       },
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
+        console.log(res)
         if(res.data.success == 1){
           _this.setData({
             record: res.data.responseData

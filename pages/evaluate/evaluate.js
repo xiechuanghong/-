@@ -100,11 +100,9 @@ Page({
   uploadToQiniu: function (filePath, prefix, index) {
     var that = this;
     var images = that.data.images;
-    console.log(images)
     var index = index;
     qiniuUploader.upload(filePath, (res) => {
       var src = 'https://' + res.imageURL;
-      console.log(res.imageURL)
       images[index].src = src;
       images[index].cancel = true;
       // if (index < 2) {
@@ -145,6 +143,9 @@ Page({
       content: '是否删除图片',
       success: function(res){
         if(res.confirm) {
+          wx.showToast({
+            title: '删除成功',
+          })
           images[index].cancel = false
           images[index].src = '../img/comment_icon_add.png'
           _this.setData({
@@ -198,19 +199,18 @@ Page({
     wx.request({
       url: url + 'Store/commentStore',
       data: {
-        pro_id: config.pro_id,
-        store: config.store,
-        key: app.globalData.key,
-        order_id: _this.data.order_id,//
-        content: _this.data.textArea,
-        star: _this.data.grade,
-        anonymous: _this.data.anonymous ? '1' : '0',
-        images: arrImg.join(','),
-        shop_id: shop_id, 
-      },
+        pro_id     : config.pro_id,
+        store      : config.store,
+        key        : app.globalData.key,
+        order_id   : _this.data.order_id,//
+        content    : _this.data.textArea,
+        star       : _this.data.grade,
+        anonymous  : _this.data.anonymous ? '1' : '0',
+        images     : arrImg.join(','),
+        shop_id    : shop_id, 
+      }, 
       method: 'POST',
       success: function (res) {
-        console.log(res)
         if(res.data.success == 1){
           wx.showModal({
             title: '提示',

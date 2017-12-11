@@ -9,6 +9,32 @@
   
   margin-bottom: 28rpx;
 }
+.swiper-tab{
+    background-color: #fff;
+    height: 100rpx;
+    width: 100%;  
+    line-height: 100rpx;
+}  
+.swiper-tab-list{
+    margin-left: 124rpx;
+    height: 100rpx;
+    color: #999;
+    text-align: center;
+    display: inline-block;  
+    width: 130rpx;
+}
+.swiper-tab-list:last-child {
+  margin-left: 246rpx;
+}
+.on{
+    color: #000;
+    border-bottom: 5rpx solid #da7c0c;
+}  
+  
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  
+.swiper-box view{  
+    text-align: center;  
+} 
 .list-item{
   background-color: #FFF;
   margin-top: 20rpx;

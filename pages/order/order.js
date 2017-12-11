@@ -6,15 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    order: [],
-    status:'123'
+    orderReal: [],
+    orderMake: [],
+    status:'123',
+    isPay:false,
+    currentTab: "0",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.orderRequest('P');
+    this.orderRequest('G');
   },
 
   /**
@@ -67,7 +71,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMeRealage: function () {
   
   },
   toOrderDetail: function(e) {
@@ -82,46 +86,13 @@ Page({
     })
   },
   orderList:function(){
-    
-    var _this = this,
-      pro_id  = config.pro_id,
-      store   = config.store,
-      key     = app.globalData.key,
-      url     = app.globalData.url;
-      console.log('key:'+key)
+    var _this = this;
     if (!app.globalData.key) {
       setTimeout(function () {
         _this.orderList();
       },200)
       return;
     }
-    wx.request({
-      url: url + 'Cosmetology/bespeakPay',
-      data: {
-        pro_id: pro_id,
-        store: store,
-        key: key
-      },
-      method:'GET',
-      success:function(res){
-        console.log(res)
-        let arr = []
-        if(res.data.success == 1) {
-          if (!(res.data.responseData.length === undefined)) {
-            arr = res.data.responseData;
-          }
-          _this.setData({
-            order: arr,
-          })
-
-        }else {
-          wx.showModal({
-            title: '',
-            content: '当前没有订单',
-          })
-        }
-      }
-    })
   },
   confirmConsume:function(ev){
     var that = this;
@@ -137,7 +108,6 @@ Page({
       },
       success:(res)=>{
         var str = JSON.parse(res.data);
-        console.log(str);
         if(str.success == 1){
           that.orderList();
         }
@@ -287,6 +257,94 @@ Page({
     wx.navigateTo({
       url: '../evaluate/evaluate?id=' + id,
     })
-  }
+  },
+  openModal:function(ev){
 
+    this.setData({
+      isPay: !this.data.isPay,
+      orderID: ev.target.dataset.id
+    })
+  },
+  closeModal:function(){
+    this.setData({
+      isPay:false
+    })
+  },
+  cancelOrder:function(ev){
+    var that = this;
+    wx.request({
+      url: app.globalData.url +'Order/cancelNoPayOrder',
+      method:'POST',
+      dataType:'JSON',
+      data:{
+        pro_id:config.pro_id,
+        store:config.store,
+        key:app.globalData.key,
+        order_id:ev.target.dataset.id
+      },
+      success:(res)=>{
+        var str = JSON.parse(res.data);
+        if(str.success==1){
+          wx.showModal({
+            title: '提示',
+            content: '取消订单成功',
+            success:()=>{
+              that.orderList();
+            }
+          })
+        }
+      }
+    })
+  },
+  // 点击tab时切换
+  swichNav: function (e) {
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
+  orderRequest:function(type) {
+    var _this = this,
+      pro_id = config.pro_id,
+      store = config.store,
+      key = app.globalData.key,
+      url = app.globalData.url;
+    console.log('key:' + key)
+    wx.request({
+      url: url + 'Cosmetology/bespeakPay',
+      data: {
+        pro_id: pro_id,
+        store: store,
+        key: key,
+        order_type: type
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res)
+        let arr = []
+        if (res.data.success == 1) {
+          if (!(res.data.responseData.length === undefined)) {
+            if (type == 'G') {
+              _this.setData({
+                orderReal: res.data.responseData,
+              })
+            } else {
+              _this.setData({
+                orderMake: res.data.responseData,
+              })
+            }
+          }
+        } else {
+          wx.showModal({
+            title: '',
+            content: '当前没有订单',
+          })
+        }
+      }
+    })
+  }
 })
