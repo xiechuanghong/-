@@ -332,7 +332,7 @@ Page({
     if (isMember == 1){
       payPrice = totalPrice - integral - actReduce;
       if (that.data.list.is_discount == 1){
-        payPrice = payPrice * mcard_deduct;
+        payPrice = payPrice - (totalPrice * (1 - mcard_deduct));
       }
     }else{
       payPrice = totalPrice - actReduce;

@@ -1,0 +1,54 @@
+/* pages/goodsList/goodsList.wxss */
+.body{ width:100vw; height:100vh; box-sizing:border-box;}
+.left{float:left;}
+.right{float:right;}
+.clear::after{content:''; display:block; clear:both;}
+.leftList{width:210rpx; height:100vh; box-sizing:border-box; background:#fff; border-right:1rpx solid #ccc;
+  float:left; padding-bottom:102rpx;}
+.leftList .cRow{width:100%; height:110rpx; box-sizing:border-box; background:#eee;
+  border-bottom:1rpx solid #ccc; line-height:110rpx; text-align:center; font-size:28rpx;}
+
+.rigthList{width:540rpx; height:100vh; box-sizing:border-box; background:#fff; float:left; padding-bottom:102rpx;}
+.rRow{width:100%; height:281rpx; border-bottom:1rpx solid #eee; display:flex; align-items:center;}
+.rRow .rGoodsImg{width:200rpx; height:200rpx; margin-left:30rpx;}
+.rRow .rGoddsInfo{width:309rpx; height:200rpx;  box-sizing:border-box;
+  padding:0 30rpx 0 20rpx;}
+.rName{width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:30rpx;}
+.rNum{width:100%; font-size:24rpx; color:#ccc; margin:10rpx 0 20rpx 0;}
+.rPrice{width:100%; font-size:30rpx; color:#FD641E;}
+.rAdd{width:50rpx; height:50rpx; float:right; background:#DCC187; color:#fff; text-align:center;
+  border-radius:50%; }
+
+  .cart{width:100%; height:102rpx; border-top:1rpx solid #eee; position:fixed; bottom:0; background:#fff;
+    display:flex; align-items:center; justify-content:space-between;}
+  .cartIcon{width:81rpx; height:81rpx; box-sizing:border-box;  border-radius:50%; margin-left:30rpx;
+    position:relative;}
+  .cartIcon image{width:100%; height:100%;}
+  .cartIcon .cartNum{width:45rpx; height:45rpx; border-radius:50%; background:#fff;
+    position:absolute; right:-25rpx; top:0; border:1rpx solid #ccc; font-size:24rpx; color:#FF6589;
+    text-align:center; line-height:45rpx;}
+  .cartPrice{width:400rpx; height:100%; line-height:102rpx; text-indent:40rpx; font-size:28rpx;}
+  .pay{width:200rpx; height:102rpx; line-height:102rpx; text-align:center; background:#333;
+    color:#fff;}
+
+  .cartBg{width:100vw; height:100vh; background:rgba(0,0,0,0.3); position:fixed; bottom:104rpx; }
+  .cartInfo{width:100%; max-height:1000rpx; background:#fff; position:absolute; bottom:0;}
+  .cartTop{width:100%; height:80rpx; line-height:80rpx; padding:0 30rpx; text-align:80rpx; box-sizing:border-box;}
+  .bor{width:5rpx; height:30rpx; background:#DCC187; margin:25rpx 10rpx 0 0;}
+  .clearCart{color:#999;}
+  .cartRow{width:100%; height:100rpx; display:flex; align-items:center; justify-content:space-between; 
+    box-sizing:border-box;  padding:0 30rpx; border-top:1rpx solid #eee;}
+  .cartGoodsName{width:40%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .cartGoodsPrice{color:#FD641E;}
+  .cartGoodsNum{width:170rpx; display:flex; justify-content:space-between; align-items:center;}
+  .reduceNum,.addNum{width:50rpx; height:50rpx; border:4rpx solid #ccc; color:#ccc; border-radius:50rpx; 
+    box-sizing:border-box; display:flex; align-items:center; justify-content:space-around; font-weight:bold;}
+  .addNum{background:#DCC187;  border:4rpx solid #DCC187; color:#fff;}
+
+.selPay{width:100%; height:100vh; background:rgba(0,0,0,0.2); position:fixed; z-index:1000; top:0;} 
+.selPay .selBox{width:690rpx; height:360rpx; margin:50vh auto 0; transform:translateY(-50%); border-radius:10rpx;
+   background:#fff; font-size:34rpx;}
+.selPay .selBox .payTitle text{position:absolute; right:30rpx;color:#a7a7a7;font-weight:normal;}   
+.selPay .selBox .psatus{width:100%; display:flex; align-items:center;}
+.selPay .selBox view{ height:120rpx; line-height:120rpx;}
+.selPay .selBox .choice{width:50rpx; height:50rpx; float:left; margin:0 44rpx 0 64rpx;}

@@ -1,0 +1,79 @@
+<!--pages/goodsList/goodsList.wxml-->
+<view class="body clear">
+  <view class="list">
+    <scroll-view scroll-y class="leftList">
+    <view bindtap='cRowClick'>
+      <block  wx:for="{{list}}" wx:key="id" wx:for-item="item">
+        <view class="cRow" style="{{index == cRowClickIndex?cRowClick:''}}" data-index="{{index}}" id="{{item.id}}">{{item.name}}</view>
+      </block>
+    </view>
+    </scroll-view>
+
+    <scroll-view scroll-y class="rigthList">
+      <block  wx:for="{{list}}" wx:key="id" wx:for-item="item">
+      <view data-id="{{item.id}}">
+        <view class="rRow" wx:for="{{item.goods}}" wx:key="id" wx:for-item="goods">
+          <image class="rGoodsImg" src="{{goods.goods_img}}"></image>
+          <view class="rGoddsInfo">
+            <view class="rName">{{goods.goods_name}}</view>
+            <view class="rNum">已售{{goods.sell_num}}份</view>
+            <view class="rPrice">￥{{goods.goods_price}}</view>
+            <view class="rAdd" data-id="{{goods.goods_id}}" bindtap='addCart'>+</view>
+          </view>
+        </view>
+      </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="cart">
+    <view class="cartIcon" bindtap='showCart'>
+      <image src="../img/order_icon_shoppingcart.png"></image>
+      <view class="cartNum" wx:if="{{cartLenth>0}}" >{{cartLenth}}</view>
+    </view>
+    <view class="cartPrice">
+      <text wx:if="{{cartLenth==0}}">你还没有选好商品哦!</text>
+      <text wx:else style="font-size:46rpx;color:#000;">￥{{total}}</text>
+    </view>
+    <view class="pay" style="{{cartLenth>0?'':'background:#fff'}}" bindtap="PAY" >立即支付</view>
+  </view>
+
+  <view class="cartBg" wx:if="{{showCart}}" data-id='hide' bindtap='hideCart'>
+    <scroll-view scroll-y class="cartInfo">
+      <view class="cartTop clear">
+        <view class="bor left"></view>
+        <text style="color:#000">购物车</text>
+        <view class="clearCart right" bindtap='clearCart' >清空</view>
+      </view>
+
+      <view class="cartRow" wx:for="{{cart}}" wx:key="id" wx:for-item="item">
+        <view class="cartGoodsName">{{item.goods_name}}</view>
+        <view class="cartGoodsPrice">￥{{item.goods_price}}</view>
+        <view class="cartGoodsNum">
+          <view class="reduceNum" data-id="{{item.goods_id}}" bindtap='reduceCart'>—</view>
+          <text class="currentNum">{{item.sales}}</text>
+          <view class="addNum" data-id="{{item.goods_id}}" bindtap='addCart'>＋</view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <view class="selPay" style="{{selPay}}" bindtap='selPay' >
+    <view class="selBox">
+      <view class="payTitle" style="position:relative; text-align:center; color:#000">请选择支付方式 
+        <text class="iconfont icon-wrong-empty" style=""></text>
+      </view>
+      <view id="3" class="psatus" style="" data-paytype="3">
+        <image class="choice" src="{{selId == 3?choice:nochoice}}"></image>
+        微信支付
+      </view>
+      <view style="width:560rpx;height:2rpx;margin:0 auto; background:#eee;"></view>
+      <view id="1" class="psatus" style="" data-paytype="1">
+        <image class="choice" src="{{selId == 1?choice:nochoice}}"></image>
+        余额支付
+      </view>
+    </view>
+  </view>
+
+</view>
