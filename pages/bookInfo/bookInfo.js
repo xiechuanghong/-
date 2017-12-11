@@ -415,11 +415,6 @@ Page({
         title: '',
         content: '请输入正确手机号',
       })
-    } else if (JSON.stringify(selectGoods) === '{}'){
-      wx.showModal({
-        title: '',
-        content: '请选择服务项目',
-      })
     } else {
       _this.setData({
         formId: e.detail.formId,
