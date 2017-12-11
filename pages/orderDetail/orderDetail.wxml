@@ -2,7 +2,7 @@
   <view class='order-guest'>{{list.name}}<text>{{list.phone}}</text></view>
   <view>服务人数： {{list.people_numbers}}人</view>
   <view>服务时间： {{list.reserve_time}}</view>
-  <view>技师： {{list.collect_id}}</view>
+  <view wx:if='{{list.collect_id}}'>技师： {{list.collect_id}}</view>
 </view>
 <view class='order-info'>
   <view class='order-header'>服务项目</view>

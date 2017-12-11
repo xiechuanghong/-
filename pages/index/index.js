@@ -17,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+
     _this.index();
   },
 
@@ -144,5 +145,34 @@ Page({
       url: '../about/about',
     });
   },
-  
+  toEmployee:function() {
+    wx.navigateTo({
+      url: '../employee/employee',
+    });
+  },
+  //包厢
+  toRoom:function() {
+    wx.navigateTo({
+      url: '../room/room',
+    });
+  },
+  //推广
+  toExtend: function () {
+    var _this = this,
+      is_salesman = app.globalData.gradeInfo.is_salesman;
+    if (is_salesman === 0) {
+      wx.navigateTo({
+        url: '../generalize/generalize?salesman=' + is_salesman,
+      });
+    } else if (is_salesman === 1) {
+      wx.navigateTo({
+        url: '../generalize/generalize?salesman=' + is_salesman,
+      });
+    } else {
+      wx.navigateTo({
+        url: '../center/center',
+      });
+    }
+
+  },
 })

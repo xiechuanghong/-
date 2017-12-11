@@ -1,0 +1,12 @@
+<view class='list'>
+  <view class='list-item' wx:for='{{tableList}}' wx:key='id'>
+    <view class='room-pic'>
+      <image src='{{item.logo}}'></image>
+    </view>
+    <view class='room-info'>
+      <view class='room-name'>{{item.name}}</view>
+      <view class='room-nums'>建议人数：{{item.number}}人</view>
+      <view class='room-btn' data-id='{{item.id}}' bindtap='toBookRoom'>预约</view>
+    </view>
+  </view>
+</view>

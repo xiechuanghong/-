@@ -1,8 +1,15 @@
 <view class='header'>
   <image src='{{avatarUrl}}'></image>
-  <view class='name'>
-    <text>{{nickName}}</text>
+  <view class='member' wx:if='{{userData.is_member === 1}}'>
+    <view class='member-info'>
+      <view>{{nickName}}</view>
+      <view class='member-level'>{{userData.grade_name}}</view>
+    </view>
+    <view class='member-detail'>我的积分{{userData.integration}} | 余额：￥{{userData.wallet}}</view>
   </view>
+  <view class='name' wx:else>
+    <text>{{nickName}}</text>
+  </view>  
 </view>
 <view class='list'>
   <view class='list-item' bindtap='synchronizationInfo'>
@@ -11,7 +18,7 @@
     </view>
     <view class='list-content text-between'>
       <view class='list-title'>
-        <text>同步会员信息</text>
+        <text>同步微信信息</text>
       </view>
       <view class='list-right'>
         <text class='iconfont icon-right'></text>
@@ -20,7 +27,7 @@
   </view>
 </view>
 <view class='list'>
-  <view  wx:if="{{is_member == 0}}" class='list-item'>
+  <view  wx:if="{{userData.is_member == 0}}" class='list-item'>
     <view class='list-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
@@ -33,7 +40,7 @@
       </view>
     </view>
   </view>
-  <view  wx:if="{{is_member == 1}}" class='list-item }}' bindtap='myCard' >
+  <view  wx:if="{{userData.is_member == 1}}" class='list-item }}' bindtap='myCard' >
     <view class='list-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
@@ -46,7 +53,7 @@
       </view>
     </view>
   </view>
-  <view  wx:if="{{is_member == 1}}" class='list-item }}' bindtap='credit'>
+  <view  wx:if="{{userData.is_member == 1}}" class='list-item }}' bindtap='credit'>
     <view class='list-icon'>
       <text class='iconfont icon-recharge'></text>
     </view>

@@ -1,3 +1,6 @@
+page{
+  overflow: hidden;
+}
 .evaluate-box{
   background-color: #FFF;
   padding: 20rpx 30rpx;
@@ -61,6 +64,7 @@
   margin-top: 20rpx;
   padding: 30rpx 0 30rpx 35rpx;
   margin-right: -70rpx;
+  overflow: hidden;
 }
 .evaluate-img::after{
   display: block;

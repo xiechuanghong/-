@@ -12,7 +12,6 @@
     "pages/memberDetail/memberDetail",
     "pages/myBalance/myBalance",
     "pages/drawimg/drawimg",
-    
     "pages/book/book",
     "pages/order/order",
     "pages/mine/mine",
@@ -34,7 +33,10 @@
     "pages/cashDetail/cashDetail",
     "pages/extendOrder/extendOrder",
     "pages/generalize/generalize",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/employee/employee",
+    "pages/room/room",
+    "pages/bookRoom/bookRoom"
   ],
   "window": {
     "backgroundTextStyle": "light",
