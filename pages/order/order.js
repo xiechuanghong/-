@@ -86,6 +86,7 @@ Page({
     })
   },
   orderList:function(){
+    console.log(222222222)
     var _this = this;
     if (!app.globalData.key) {
       setTimeout(function () {
@@ -93,6 +94,8 @@ Page({
       },200)
       return;
     }
+    this.orderRequest('P');
+    this.orderRequest('G');
   },
   confirmConsume:function(ev){
     var that = this;
@@ -109,6 +112,12 @@ Page({
       success:(res)=>{
         var str = JSON.parse(res.data);
         if(str.success == 1){
+          console.log(111111111)
+          wx.showToast({
+            title: '',
+            icon:'success',
+            duration:1000,
+          })
           that.orderList();
         }
       }

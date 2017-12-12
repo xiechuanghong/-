@@ -50,7 +50,8 @@
         </view>
         <view class='evaluate-content'>{{item.comment}}</view>
         <view class='evaluate-img'>
-          <image src='{{img}}' wx:for="{{item.img_urls}}" wx:key="id" wx:for-item="img"></image>
+          <image src='{{img}}'  wx:for="{{item.img_urls}}" wx:key="id" wx:for-item="img"></image>
+          {{img}}
         </view>
       </view>
     </view>

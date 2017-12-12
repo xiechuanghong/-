@@ -131,6 +131,7 @@ Page({
         if (v.img_urls[0] != undefined) { arr.push(v) }
       })
     }
+    console.log(arr)
     that.setData({
       aBtn:ev.target.dataset.id,
       appraise:arr

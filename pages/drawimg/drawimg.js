@@ -18,10 +18,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-<<<<<<< HEAD
     console.log(app.globalData.bg_cover);
     console.log(ctx)
-=======
     this.getShopInfo();
     this.can = wx.createCanvasContext('can');
     var that = this;
@@ -196,7 +194,6 @@ Page({
   },
   seCan:function(){
     this.drawcanvas(this.drawImg);
->>>>>>> 72b843e405e86cebc5f1e66b8ea835fe1b4ed38f
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
