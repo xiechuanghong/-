@@ -22,11 +22,11 @@
       </view>
     </view>
   </view>
-  <view  wx:if="{{userData.is_member == 0}}" class='grids-item'>
+  <view  wx:if="{{userData.is_member == 0}}" class='grids-item'  bindtap='register'>
     <view class='grids-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
-    <view class='grids-content' bindtap='register'>
+    <view class='grids-content'>
       <view class='grids-title'>
         <text>会员注册</text>
       </view>
