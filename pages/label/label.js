@@ -164,6 +164,7 @@ Page({
       success:(res)=>{
         var str = JSON.parse(res.data);
         if(str.success == 1){
+          app.globalData.register = true;
           if(app.globalData.labels){
             wx.navigateBack({
               data:1
