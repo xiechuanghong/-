@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText":"申请提现"
+  "navigationBarTitleText":"申请提现",
+  "enablePullDownRefresh": false
 }

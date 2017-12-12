@@ -9,7 +9,8 @@ Page({
   data: {
     ad              : [],
     expert          : [],
-    storeRecommended: []
+    storeRecommended: [],
+    shop: {}
   },
 
   /**
@@ -17,7 +18,9 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-
+    _this.setData({
+      shop: app.globalData.shop
+    })
     _this.index();
   },
 

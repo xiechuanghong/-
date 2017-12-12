@@ -1,3 +1,36 @@
+.pull-right{
+  position: absolute;
+  right: 30rpx;
+}
+.section-title .pull-right{
+  font-size: 26rpx;
+  color: #999;
+}
+.shop-info{
+  background-color: #FFF;
+  font-size: 24rpx;
+  color: #666;
+  padding: 20rpx 30rpx 0 30rpx;
+  line-height: 50rpx;
+  border: 1px solid #EEE;
+  border-radius: 10rpx;
+  width: 700rpx;
+  box-sizing: border-box;
+  margin: 30rpx auto;
+  box-shadow: 0 0 14rpx #CCC;
+}
+.shop-info-item{
+  position: relative;
+}
+.shop-info-item .icon-phone{
+  color: #FF6161;
+}
+.shop-info-item .icon-navigate{
+  color: #4278F2;
+}
+.shop-info-item:last-child{
+  padding-bottom: 20rpx;
+}
 .title{
   margin: 0 auto;
   text-align: center;

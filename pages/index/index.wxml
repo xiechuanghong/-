@@ -8,6 +8,16 @@
     <image src='{{item.logo}}' data-id='{{item.id}}'></image>
   </swiper-item>
 </swiper>
+ <!-- <view class='shop-info'>
+  <view class='shop-info-item'>
+    <text>营业时间：{{shop.business_s}}-{{shop.business_e}}</text>
+    <text class='pull-right iconfont icon-phone' data-phone='{{shop.phone}}'></text>
+  </view>
+  <view class='shop-info-item'>
+    <text>地址：{{shop.address}}</text>
+    <text class='pull-right iconfont icon-navigate'></text>
+  </view>
+</view>  -->
 <view class='navbar' >
   <view class='navbar-item' bindtap="toRoom">
     <view class='navbar-icon'>
@@ -76,6 +86,7 @@
 </view>
 <view class='section-title'>
   <text>推荐技师</text>
+  <text class='pull-right' bindtap='toEmployee'>更多></text>
 </view>
 <view class='list'>
   <view class='list-item' wx:for='{{expert}}' wx:key='id'>

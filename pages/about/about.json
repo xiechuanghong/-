@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "店铺简介"
+  "navigationBarTitleText": "店铺简介",
+  "enablePullDownRefresh": false
 }
