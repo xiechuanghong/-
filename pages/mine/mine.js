@@ -184,6 +184,7 @@ Page({
     })
   },
   register:function(){
+    console.log(22222222222222)
     wx.navigateTo({
       url: '../register/register',
     })

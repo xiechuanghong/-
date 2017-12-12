@@ -93,8 +93,8 @@ Page({
         })
 
         wx.previewImage({
-          current: res.tempFilePath, // 当前显示图片的http链接
-          urls: [res.tempFilePath], // 需要预览的图片http链接列表
+          current: res.tempFilePath, 
+          urls: [res.tempFilePath], 
           success:()=>{
             that.setData({
               img:'display:none'
@@ -113,8 +113,8 @@ Page({
   previewImg:function(){
     var that = this;
     wx.previewImage({
-      current: that.data.url, // 当前显示图片的http链接
-      urls: [that.data.url], // 需要预览的图片http链接列表
+      current: that.data.url, 
+      urls: [that.data.url], 
       success: () => {
         that.setData({
           img: 'display:none'
