@@ -64,6 +64,7 @@ Page({
       wx.downloadFile({
         url: qrcode,
         success: function (res) {
+          console.log(res)
           if (res.statusCode === 200) {
             console.log(res.tempFilePath);
             qrcode = res.tempFilePath;
@@ -72,9 +73,11 @@ Page({
       })
       
     var bgsrc = that.data.info.bg_cover,src;
+    console.log(bgsrc)
       wx.downloadFile({
         url: bgsrc, 
         success: function (res) {
+          console.log(res)
           if (res.statusCode === 200) {
             console.log(res.tempFilePath);
             src = res.tempFilePath;

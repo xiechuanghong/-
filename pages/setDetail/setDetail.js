@@ -94,9 +94,12 @@ Page({
           var imgs = str.responseData.comment;
           for(var i=0; i<imgs.length; i++){
             imgs[i].img_urls = imgs[i].img_urls.split(',');
+            imgs[i].stars = parseFloat(imgs[i].stars );
           }
+          that.appraise = imgs;
           that.setData({
-            list:str.responseData
+            list:str.responseData,
+            appraise:imgs
           })
           var article = str.responseData.goods_detail;
           WxParse.wxParse('article', 'html', article , that, 5);
@@ -105,9 +108,32 @@ Page({
     })
   },
   aBtn:function(ev){
-    if(!ev.target.dataset.id){return;}
-    this.setData({
-      aBtn:ev.target.dataset.id
+    if (!ev.target.dataset.id || ev.target.dataset.id == this.data.aBtn){return;}
+    var that = this;
+    var appr = that.appraise,
+        arr = [];
+    if (ev.target.dataset.id == 0){
+      arr = appr;
+    } else if(ev.target.dataset.id == 1){
+      appr.forEach(function(v){
+        if(v.stars > 3){ arr.push(v) }
+      })
+    } else if (ev.target.dataset.id == 2) {
+      appr.forEach(function (v) {
+        if (v.stars == 3) { arr.push(v) }
+      })
+    } else if (ev.target.dataset.id == 3) {
+      appr.forEach(function (v) {
+        if (v.stars < 3) { arr.push(v) }
+      })
+    } else if (ev.target.dataset.id == 4) {
+      appr.forEach(function (v) {
+        if (v.img_urls[0] != undefined) { arr.push(v) }
+      })
+    }
+    that.setData({
+      aBtn:ev.target.dataset.id,
+      appraise:arr
     })
   }
 })

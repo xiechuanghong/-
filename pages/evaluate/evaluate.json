@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "我要评价"
+  "navigationBarTitleText": "我要评价",
+  "enablePullDownRefresh": false
 }
