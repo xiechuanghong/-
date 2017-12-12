@@ -118,7 +118,7 @@ Page({
         key   : key
       },
       dataType: 'json',
-      method: 'POST',
+      method: 'GET',
       success: function(res) {
         if (res.data.success === 1) {
           callback(res.data.responseData, res.data.nextStart);

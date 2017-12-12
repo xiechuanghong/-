@@ -80,7 +80,7 @@ scroll-view{
 .coupon-name{
   font-size: 32rpx;
   color: #000;
-  margin-bottom: 25rpx;
+  margin-bottom:66rpx;
 }
 .coupon-time{
   color: #999;

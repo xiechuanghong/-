@@ -3,28 +3,36 @@
   justify-content: space-between;
   align-items: center;
 }
-.list{
+.grids{
   margin-top: 20rpx;
-}
-.list-item{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   background-color: #FFF;
 }
-.list-item:last-child .list-content{
-  border-bottom: 0;
+.grids::after{
+  display: block;
+  content: ' ';
+  clear: both;
+  
 }
-.list-icon{
-  width: 100rpx;
+.grids-item{
+  float: left;
+  width: 33.1%;
   text-align: center;
-}
-.list-content{
-  width: 650rpx;
+  padding: 60rpx 0 40rpx 0;
+  border-right: 1rpx solid #EEE;
   border-bottom: 1rpx solid #EEE;
-  padding: 36rpx 40rpx 36rpx 0;
 }
-.list-right{
+.grids-item:nth-child(3n + 3) {
+  border-right: 0;
+}
+.grids-icon{
+  text-align: center;
+  font-size: 50rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+}
+.grids-content{
+}
+.grids-right{
   font-size: 22rpx;
 }
 .header{

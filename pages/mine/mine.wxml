@@ -11,110 +11,84 @@
     <text>{{nickName}}</text>
   </view>  
 </view>
-<view class='list'>
-  <view class='list-item' bindtap='synchronizationInfo'>
-    <view class='list-icon'>
+<view class='grids'>
+  <view class='grids-item' bindtap='synchronizationInfo'>
+    <view class='grids-icon'>
       <text class='iconfont icon-sync'></text>
     </view>
-    <view class='list-content text-between'>
-      <view class='list-title'>
+    <view class='grids-content'>
+      <view class='grids-title'>
         <text>同步微信信息</text>
       </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
-      </view>
     </view>
   </view>
-</view>
-<view class='list'>
-  <view  wx:if="{{userData.is_member == 0}}" class='list-item'>
-    <view class='list-icon'>
+  <view  wx:if="{{userData.is_member == 0}}" class='grids-item'>
+    <view class='grids-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
-    <view class='list-content text-between' bindtap='register'>
-      <view class='list-title'>
+    <view class='grids-content' bindtap='register'>
+      <view class='grids-title'>
         <text>会员注册</text>
       </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
-      </view>
     </view>
   </view>
-  <view  wx:if="{{userData.is_member == 1}}" class='list-item }}' bindtap='myCard' >
-    <view class='list-icon'>
+  <view  wx:if="{{userData.is_member == 1}}" class='grids-item }}' bindtap='myCard' >
+    <view class='grids-icon'>
       <text class='iconfont icon-vip'></text>
     </view>
-    <view class='list-content text-between'>
-      <view class='list-title'>
+    <view class='grids-content'>
+      <view class='grids-title'>
         <text>会员卡</text>
       </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
-      </view>
     </view>
   </view>
-  <view  wx:if="{{userData.is_member == 1}}" class='list-item }}' bindtap='credit'>
-    <view class='list-icon'>
+  <view  wx:if="{{userData.is_member == 1}}" class='grids-item }}' bindtap='credit'>
+    <view class='grids-icon'>
       <text class='iconfont icon-recharge'></text>
     </view>
-    <view class='list-content text-between'>
-      <view class='list-title'>
+    <view class='grids-content'>
+      <view class='grids-title'>
         <text>会员卡充值</text>
       </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
-      </view>
     </view>
   </view>
-  <view class='list-item' bindtap='toMyCoupon'>
-    <view class='list-icon'>
+  <view class='grids-item' bindtap='toMyCoupon'>
+    <view class='grids-icon'>
       <text class='iconfont icon-lucky'></text>
     </view>
-    <view class='list-content text-between'>
-      <view class='list-title'>
+    <view class='grids-content'>
+      <view class='grids-title'>
         <text>我的优惠券</text>
       </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
-      </view>
     </view>
   </view>
-  <view class='list-item' bindtap='toRecord'>
-    <view class='list-icon'>
+  <view class='grids-item' bindtap='toRecord'>
+    <view class='grids-icon'>
       <text class='iconfont icon-record'></text>
     </view>
-    <view class='list-content text-between'>
-      <view class='list-title'>
+    <view class='grids-content'>
+      <view class='grids-title'>
         <text>买单记录</text>
       </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
-      </view>
     </view>
   </view>
-  <view class='list-item' bindtap='toExtend'>
-    <view class='list-icon'>
+  <view class='grids-item' bindtap='toExtend'>
+    <view class='grids-icon'>
       <text class='iconfont icon-extend-o'></text>
     </view>
-    <view class='list-content text-between'>
-      <view class='list-title'>
+    <view class='grids-content'>
+      <view class='grids-title'>
         <text>推广</text>
-      </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
       </view>
     </view>
   </view>
-  <view class='list-item' bindtap='clear'>
-    <view class='list-icon'>
+  <view class='grids-item' bindtap='clear'>
+    <view class='grids-icon'>
       <text class='iconfont icon-clean'></text>
     </view>
-    <view class='list-content text-between'>
-      <view class='list-title'>
+    <view class='grids-content'>
+      <view class='grids-title'>
         <text>清除缓存</text>
-      </view>
-      <view class='list-right'>
-        <text class='iconfont icon-right'></text>
       </view>
     </view>
   </view>
