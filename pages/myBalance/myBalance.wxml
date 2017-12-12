@@ -29,13 +29,15 @@
         <view class='balance-list'>
           <view class='balance-item' wx:for='{{add}}' wx:key='id'>
             <view class='balance-record'>
-              <view class='balance-name' wx:if='{{item.cash_flow_type === "0"}}'>买单</view>
-              <view class='balance-name' wx:elif='{{item.cash_flow_type === "1"}}'>体现</view>
-              <view class='balance-name' wx:elif='{{item.cash_flow_type === "2"}}'>体现失败</view>
+              <view class='balance-name' wx:if='{{item.cash_flow_type === "8"}}'>买单</view>
+               <view class='balance-name' wx:elif='{{item.cash_flow_type === "1"}}'>提现</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "2"}}'>提现失败</view>
               <view class='balance-name' wx:elif='{{item.cash_flow_type === "3"}}'>分销商佣金提现</view>
               <view class='balance-name' wx:elif='{{item.cash_flow_type === "5"}}'>商品订单</view>
               <view class='balance-name' wx:elif='{{item.cash_flow_type === "6"}}'>打赏</view>
               <view class='balance-name' wx:elif='{{item.cash_flow_type === "7"}}'>充值</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "8"}}'>预定</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "9"}}'>预定失败退款</view> 
               <view class='balance-amount'>+{{item.amount}}</view>
             </view>
             <view class='balance-time'>{{item.created_at}}</view>
@@ -65,6 +67,8 @@
               <view class='balance-name' wx:elif='{{item.cash_flow_type === "5"}}'>商品订单</view>
               <view class='balance-name' wx:elif='{{item.cash_flow_type === "6"}}'>打赏</view>
               <view class='balance-name' wx:elif='{{item.cash_flow_type === "7"}}'>充值</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "8"}}'>预定</view>
+              <view class='balance-name' wx:elif='{{item.cash_flow_type === "9"}}'>预定失败退款</view> 
               <view class='balance-amount'>-{{item.amount}}</view>
             </view>
             <view class='balance-time'>{{item.created_at}}</view>
