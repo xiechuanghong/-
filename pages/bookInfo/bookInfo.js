@@ -365,10 +365,14 @@ Page({
         payPrice = '0.00';
       }
       _this.setData({
-        payPrice: payPrice
+        payPrice: payPrice,
+        isChecked: checked
       })
     } else {
       _this.payPrice();
+      _this.setData({
+        isChecked: checked
+      })
     }
   },
   //填写姓名
@@ -454,7 +458,7 @@ Page({
           ticket: _this.data.couponID,
           activity_id: _this.data.activityID,
           formId: _this.data.formId,
-          is_used_jf: _this.isChecked ? '1' : '0'
+          is_used_jf: _this.data.isChecked ? '1' : '0'
         };
     for (var key in _this.data.allGoods) {
       if (_this.data.allGoods[key].isSelect) {
@@ -536,7 +540,7 @@ Page({
         ticket: _this.data.couponID,
         activity_id: _this.data.activityID,
         formId: _this.data.formId,
-        is_used_jf: _this.isChecked ? '1' : '0'
+        is_used_jf: _this.data.isChecked ? '1' : '0'
       };
     for (var key in _this.data.allGoods) {
       if (_this.data.allGoods[key].isSelect) {
