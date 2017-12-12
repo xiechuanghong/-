@@ -23,7 +23,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      order_id: options.id
+      order_id: options.id,
+      img: app.globalData.shop.logo
     })
   },
 
@@ -52,7 +53,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    
   },
 
   /**
@@ -216,6 +217,7 @@ Page({
             title: '提示',
             content: '评价成功',
             success:()=>{
+              app.globalData.evaluate = true;
               wx.switchTab({
                 url: '../order/order',
               })

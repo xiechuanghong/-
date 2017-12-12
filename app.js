@@ -133,6 +133,7 @@ App({
       success: function (res) {
         if (res.data.success === 1) {
           _this.globalData.gradeInfo = res.data.responseData;
+          console.log(res);
           wx.downloadFile({
             url: res.data.responseData.bg_cover, //仅为示例，并非真实的资源
             success: function (res) {

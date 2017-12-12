@@ -128,6 +128,7 @@ Page({
         var str = JSON.parse(res.data);
         console.log(str);
         if(str.success == 1){
+          app.globalData.evaluate = true;
           var dat = str.responseData.pay_data,
               order_id = str.responseData.order_id.order_id;
           wx.requestPayment({
@@ -163,6 +164,7 @@ Page({
         var str = JSON.parse(res.data);
         console.log(str);
         if(str.success == 1){
+          app.globalData.evaluate = true;
           wx.showModal({
             title: '提示',
             content: '支付成功',

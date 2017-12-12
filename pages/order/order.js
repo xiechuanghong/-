@@ -38,6 +38,10 @@ Page({
     wx.setNavigationBarTitle({
       title: app.globalData.shop.shop_name,
     })
+    if (app.globalData.evaluate) {
+      this.orderList();
+      app.globalData.evaluate = false;
+    }
   },
 
   /**

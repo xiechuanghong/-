@@ -1,6 +1,6 @@
 <view class='evaluate-box'>
   <view class='evaluate-pic'>
-    <image src='../img/01.png'></image>
+    <image src='{{img}}'></image>
   </view>
   <view class='evaluate-star'>
     <text class="iconfont icon-star {{item?'active':''}}" wx:for="{{stars}}" data-id='{{index+1}}' wx:key="index" bindtap='rating'></text>
