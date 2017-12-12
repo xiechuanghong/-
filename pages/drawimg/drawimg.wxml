@@ -1,10 +1,10 @@
 <!--pages/drawimg/drawimg.wxml-->
 <view class='page'>
 
-  <canvas canvas-id='can'></canvas>
+  <canvas style="{{img}}" canvas-id='can'></canvas>
 
-  <button open-type='share' class="btn" bindtap='' >马上分享</button>  
+  <!-- <button open-type='share' class="btn" bindtap='' >马上分享</button>   -->
 
-  <image wx:if="{{url}}" src="{{url}}"></image>
+  <!-- <image wx:if="{{url}}" src="{{url}}"></image> -->
   
 </view>
