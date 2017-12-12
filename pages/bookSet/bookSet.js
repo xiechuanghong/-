@@ -203,10 +203,15 @@ Page({
     
     var list = decodeURIComponent(options.list);
     list = JSON.parse(list);
+    var now = new Date(),
+        date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + (now.getDate() < 10 ? '0' + now.getDate() : now.getDate()),
+        time = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours()) + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
     this.setData({
       list:list,
       totalPrice: list.goods_price,
-      payPrice: list.goods_price
+      payPrice: list.goods_price,
+      dateVal: date,
+      timeVal: time
     })
 
     this.manArry();

@@ -34,7 +34,7 @@
         <text>手机号</text>
       </view>
       <view class='form-control'>
-        <input type='text' class='{{isPay ? "in" : ""}}' placeholder='请输入您的手机号码' value='{{userPhone}}' bindchange='changeUserPhone' placeholder-style='color:#CCC;'></input>
+        <input type='number' class='{{isPay ? "in" : ""}}' placeholder='请输入您的手机号码' value='{{userPhone}}' bindchange='changeUserPhone' placeholder-style='color:#CCC;'></input>
       </view>
     </view>
   </view>

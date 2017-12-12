@@ -35,10 +35,10 @@
   </view>
   <view class='list-item text-between'>
     <view class='item-name'>美容时间</view>
-    <picker mode="date" start="{{start}}" bindchange="dateValue">
+    <picker mode="date" start="{{dateVal}}" value='{{dateVal}}' bindchange="dateValue">
       <view class="item-content">{{dateVal == ''?'请选择美容日期':dateVal}}</view>
     </picker>
-    <picker mode="time" start="{{startTime}}"  bindchange='timeValue'>
+    <picker mode="time" start="{{timeVal}}" value='{{timeVal}}' bindchange='timeValue'>
       <view class='item-content'>
         {{timeVal == ''?'请选择美容时间':timeVal}}
         <!-- <input type='text' placeholder='请选择服务时间' placeholder-style='color:#999;'></input> -->
