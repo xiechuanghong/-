@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText":"申请成为推广员"
+  "navigationBarTitleText":"申请成为推广员",
+  "enablePullDownRefresh": false
 }

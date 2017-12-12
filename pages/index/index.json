@@ -1,3 +1,8 @@
 {
-  "navigationBarTitleText": "娃哈哈美容"
+<<<<<<< HEAD
+  "navigationBarTitleText": "娃哈哈美容",
+  "enablePullDownRefresh": false
+=======
+  "navigationBarTitleText": ""
+>>>>>>> 871105481f3d6cf598ecbc208ede2ae57f903bd0
 }

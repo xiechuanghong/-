@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "马上预约"
+  "navigationBarTitleText": "马上预约",
+  "enablePullDownRefresh": false
 }

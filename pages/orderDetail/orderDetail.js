@@ -77,6 +77,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(app.globalData);
+    this.data.order_id = options.id;
     this.setData({
       order_id:options.id,
       shopPhone: app.globalData.shop.phone

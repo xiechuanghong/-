@@ -31,10 +31,10 @@
 </view>
 <view class='list'>
   
-  <view class="noData" wx:if="{{list.comment.length<1}}" >暂时没有评价哦！</view>
+  <view class="noData" wx:if="{{appraise.length<1}}" >暂时没有评价哦！</view>
 
   
-  <view class='list-item' wx:for="{{list.comment}}" wx:key="id" wx:for-item="item">
+  <view class='list-item' wx:for="{{appraise}}" wx:key="id" wx:for-item="item">
     <view class='evaluate-box'>
       <view class='evaluate-header'>
         <image src='{{item.avatar}}'></image>
@@ -46,50 +46,14 @@
         </view>
         <view class='evaluate-star'>
           <text class='iconfont icon-star {{index<item.stars?"active":""}} ' wx:for="{{5}}" wx:key="id" wx:for-item="st"></text>
-          <!-- <text class='iconfont icon-star active'></text>
-          <text class='iconfont icon-star active'></text>
-          <text class='iconfont icon-star active'></text>
-          <text class='iconfont icon-star'></text> -->
           <text>{{item.stars}}分</text>
         </view>
         <view class='evaluate-content'>{{item.comment}}</view>
         <view class='evaluate-img'>
           <image src='{{img}}' wx:for="{{item.img_urls}}" wx:key="id" wx:for-item="img"></image>
-          <!-- <image src='../img/01.png'></image>
-          <image src='../img/01.png'></image>
-          <image src='../img/01.png'></image>
-          <image src='../img/01.png'></image>
-          <image src='../img/01.png'></image> -->
         </view>
-        <!-- <view class='evaluate-type'>店内点餐</view> -->
       </view>
     </view>
   </view>
-
-  <!--
-  <view class='list-item'>
-    <view class='evaluate-box'>
-      <view class='evaluate-header'>
-        <image src='../img/02.png'></image>
-      </view>
-      <view class='evaluate-info'>
-        <view class='text-between'>
-          <view class='evaluate-name'>小可爱</view> 
-          <view class='evaluate-time'>2017.09.12</view> 
-        </view>
-        <view class='evaluate-star'>
-          <text class='iconfont icon-star active'></text>
-          <text class='iconfont icon-star active'></text>
-          <text class='iconfont icon-star active'></text>
-          <text class='iconfont icon-star active'></text>
-          <text class='iconfont icon-star'></text>
-          <text>4.0分</text>
-        </view>
-        <view class='evaluate-content'>店铺的牛排很新鲜，朋友都说味道特别好，并且牛排的分量非常足，一块牛排加上配菜，对于饭量不大的我来说，一个人吃得饱饱的。</view>
-        <view class='evaluate-type'>店内点餐</view>
-      </view>
-    </view>
-  </view>
-  -->
 </view>
 <view class='confirm' bindtap='toBookSet'>立即预约</view>

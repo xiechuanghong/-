@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText":"推广中心"
+  "navigationBarTitleText":"推广中心",
+  "enablePullDownRefresh": false
 }

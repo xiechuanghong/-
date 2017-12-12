@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "领取优惠"
+  "navigationBarTitleText": "领取优惠",
+  "enablePullDownRefresh": false
 }
