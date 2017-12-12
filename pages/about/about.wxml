@@ -22,7 +22,7 @@
   </view>
   
     <!-- 列表 -->
-  <view class='list-a'>
+  <view class='list-a' bindtap='gLocation'>
     <view class="left">
       <image src='../img/book_icon_position.png'></image>
     </view>
@@ -37,7 +37,7 @@
     <view class="left">
       <image src='../img/book_icon_shop.png'></image>
     </view>
-    <view class="right">
+    <view class="right" bindtap='callPhone'>
       <text>电话：{{shop.phone}}</text>
     </view>
     <text class='pull-right iconfont icon-phone'></text>
