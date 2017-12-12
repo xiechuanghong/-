@@ -9,9 +9,9 @@
     </view>
     </scroll-view>
 
-    <scroll-view scroll-y class="rigthList">
+    <scroll-view scroll-y class="rigthList" scroll-into-view="{{scollId}}">
       <block  wx:for="{{list}}" wx:key="id" wx:for-item="item">
-      <view data-id="{{item.id}}">
+      <view data-id="{{item.id}}" id="g{{item.id}}">
         <view class="rRow" wx:for="{{item.goods}}" wx:key="id" wx:for-item="goods">
           <image class="rGoodsImg" src="{{goods.goods_img}}"></image>
           <view class="rGoddsInfo">

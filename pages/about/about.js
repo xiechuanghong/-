@@ -26,6 +26,7 @@ Page({
     this.setData({
       shop: app.globalData.shop,
     })
+    this.settingScope();
   },
 
   /**
@@ -75,5 +76,83 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  settingScope:function(){
+    var that = this;
+    wx.getSetting({
+      success:(res)=>{
+        if (!res.authSetting['scope.userLocation']){
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success:()=>{
+              that.location();
+            },
+            fail:(re)=>{
+              wx.openSetting({
+                
+              })
+            }
+          })
+          // wx.openSetting({
+
+          // })
+        }
+        that.location();
+      }
+    })
+  },
+  location:function(){
+    var that = this;
+    wx.getLocation({
+      type:'gcj02',
+      altitude:false,
+      success: function(res) {
+        console.log(res)
+        if (res.errMsg == "getLocation:ok"){
+          var la = res.latitude,
+              lo = res.longitude;
+          that.la = la;
+          that.lo = lo;
+          // that.openMap(la,lo)
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '获取位置信息失败',
+            success:(res)=>{
+
+            }
+          })
+        }
+      },
+    })
+  },
+  openMap:function(la,lo){
+    var that = this;
+    wx.openLocation({
+      latitude: la,
+      longitude: lo,
+      scale:18,
+      success:(res)=>{
+        console.log(res)
+      }
+    })
+  },
+  gLocation:function(){
+    // this.openMap(this.la, this.lo);
+    var locations = this.data.shop.gps, la , lo;
+    locations = locations.split(',');
+    la = parseFloat(locations[0]);
+    lo = parseFloat(locations[1]);
+    // console.log(locations)
+    // console.log(la)
+    // console.log(lo)
+    this.openMap(lo, la);
+  },
+  callPhone:function(){
+    var that = this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.shop.phone
+    })
   }
+
 })

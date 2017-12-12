@@ -8,7 +8,7 @@ Page({
   data: {
     orderReal: [],
     orderMake: [],
-    status:'123',
+    status:'',
     isPay:false,
     currentTab: "0",
   },
@@ -17,8 +17,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.orderRequest('P');
-    this.orderRequest('G');
+    // this.orderRequest('G');
+    // this.orderRequest('P');
   },
 
   /**
@@ -86,6 +86,7 @@ Page({
     })
   },
   orderList:function(){
+    console.log(222222222)
     var _this = this;
     if (!app.globalData.key) {
       setTimeout(function () {
@@ -93,6 +94,8 @@ Page({
       },200)
       return;
     }
+    this.orderRequest('P');
+    this.orderRequest('G');
   },
   confirmConsume:function(ev){
     var that = this;
@@ -109,6 +112,12 @@ Page({
       success:(res)=>{
         var str = JSON.parse(res.data);
         if(str.success == 1){
+          console.log(111111111)
+          wx.showToast({
+            title: '',
+            icon:'success',
+            duration:1000,
+          })
           that.orderList();
         }
       }
@@ -307,6 +316,7 @@ Page({
       })
     }
   },
+  // 发送请求获取数据
   orderRequest:function(type) {
     var _this = this,
       pro_id = config.pro_id,
