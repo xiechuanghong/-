@@ -14,7 +14,7 @@
     height: 100rpx;
     width: 100%;  
     line-height: 100rpx;
-}  
+}
 .swiper-tab-list{
     margin-left: 124rpx;
     height: 100rpx;
@@ -22,6 +22,7 @@
     text-align: center;
     display: inline-block;  
     width: 130rpx;
+    box-sizing: border-box;
 }
 .swiper-tab-list:last-child {
   margin-left: 246rpx;
