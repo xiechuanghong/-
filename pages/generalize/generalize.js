@@ -53,14 +53,13 @@ Page({
       });
     }
 
-    console.log(app.globalData.txt)
-    var txt=app.globalData.txt;
-    // var article = txt.protocol_title;
-    // var content = txt.protocol_content;
-    //   WxParse.wxParse('article', 'html', content, _this, 10);
-    //   _this.setData({
-    //     isLoading: false
-    //   });
+    console.log(app.globalData.gradeInfo);
+    var article = app.globalData.gradeInfo.protocol_title;
+    var content = app.globalData.gradeInfo.protocol_content;
+      WxParse.wxParse('article', 'html', content, _this, 10);
+      _this.setData({
+        isLoading: false
+      });
 
   },
   Parse:function(ev){

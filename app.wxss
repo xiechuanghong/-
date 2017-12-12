@@ -10,11 +10,11 @@ page{
 .right{float:right;}
 @font-face {
   font-family: 'iconfont';  /* project id 495205 */
-  src: url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.eot');
-  src: url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_495205_vqmbxwt2ae6u5wmi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_495205_qndhf1tgah22csor.eot');
+  src: url('//at.alicdn.com/t/font_495205_qndhf1tgah22csor.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_495205_qndhf1tgah22csor.woff') format('woff'),
+  url('//at.alicdn.com/t/font_495205_qndhf1tgah22csor.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_495205_qndhf1tgah22csor.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -88,4 +88,10 @@ page{
 }
 .icon-extend::before{ /*推广*/
   content: '\e601';
+}
+.icon-phone::before{ /*手机*/
+  content: '\e6be';
+}
+.icon-navigate::before{ /*导航*/
+  content: '\e84f';
 }

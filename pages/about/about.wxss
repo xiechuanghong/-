@@ -88,3 +88,13 @@
   color: #666;
   font-size: 28rpx;
 }
+.pull-right{
+  position: absolute;
+  right: 30rpx;
+}
+.pull-right.icon-phone{
+  color: #FF6161;
+}
+.pull-right.icon-navigate{
+  color: #4278F2;
+}

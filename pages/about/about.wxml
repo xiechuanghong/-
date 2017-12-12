@@ -29,6 +29,7 @@
     <view class="right">
       <text>{{ shop.address }}</text>
     </view>
+    <text class='pull-right iconfont icon-navigate'></text>
   </view>
 
     <!-- 列表 -->
@@ -39,6 +40,7 @@
     <view class="right">
       <text>电话：{{shop.phone}}</text>
     </view>
+    <text class='pull-right iconfont icon-phone'></text>
   </view>
 
     <!-- 列表 -->
