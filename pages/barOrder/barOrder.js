@@ -15,7 +15,8 @@ Page({
     total:0,
     selPay: 'display:none',
     choice: '../img/myaddress_icon_selected.png',
-    nochoice: '../img/choice_icon_notselected.png'
+    nochoice: '../img/choice_icon_notselected.png',
+
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
     this.getList();
   },
   PAY: function (ev) {
-    this.payId = ev;
+    if (this.data.cartLenth == 0){return}
     this.setData({
       selPay: ''
     })
@@ -106,7 +107,8 @@ Page({
   cRowClick:function(ev){
     if(!ev.target.id) return;
     this.setData({
-      cRowClickIndex:ev.target.dataset.index
+      cRowClickIndex:ev.target.dataset.index,
+      scollId: 'g' + ev.target.id
     })
   },
   showCart:function(ev){
@@ -146,40 +148,45 @@ Page({
   addCart:function(ev){
     var that = this;
     var cart = that.data.cart,
-        len = that.data.cartLenth,
-        total = parseFloat(that.data.total);
+        len = 0,
+        total = 0;
     if(ev.target.dataset.id){
       for(var i = 0; i < that.data.list.length; i++){
         that.data.list[i].goods.forEach(function(v){
           if(v.goods_id == ev.target.dataset.id){
-            len = len + 1;
-            total = total + parseFloat(v.goods_price);
+            // len = len + 1;
+            // total = total + parseFloat(v.goods_price);
             if (cart[ev.target.dataset.id]){
               cart[ev.target.dataset.id].sales+=1
             }else{
               cart[ev.target.dataset.id] = v;
-              cart[ev.target.dataset.id].sales += 1
+              cart[ev.target.dataset.id].sales = 1
             }
-            that.setData({
-              cart:cart,
-              cartLenth: len,
-              total: total.toFixed(2)
-            })
           }
         })
       }
+      for (var h in cart) {
+        total += parseFloat(cart[h].goods_price) * cart[h].sales;
+        len += parseFloat(cart[h].sales);
+      }
+      that.setData({
+        cart: cart,
+        cartLenth: len,
+        total: total.toFixed(2)
+      })
+
     }
   },
   reduceCart:function(ev){
     var that = this;
     var cart = that.data.cart,
-      len = that.data.cartLenth,
+      len = 0,
       total = 0;
+      console.log(cart)
     if (ev.target.dataset.id) {
       for(var k in cart){
         if (ev.target.dataset.id == cart[k].goods_id){
           cart[k].sales --;
-          len -- ;
           if (cart[k].sales == 0){
             delete cart[k]
           }
@@ -187,7 +194,8 @@ Page({
       }
     }
     for (var h in cart) {
-      total += parseFloat(cart[h].goods_price)
+      total += parseFloat(cart[h].goods_price) * cart[h].sales;
+      len += parseFloat(cart[h].sales);
     }
     that.setData({
       cart: cart,

@@ -138,12 +138,20 @@ Page({
     })
   },
   gLocation:function(){
-    this.openMap(this.la, this.lo);
+    // this.openMap(this.la, this.lo);
+    var locations = this.data.shop.gps, la , lo;
+    locations = locations.split(',');
+    la = parseFloat(locations[0]);
+    lo = parseFloat(locations[1]);
+    // console.log(locations)
+    // console.log(la)
+    // console.log(lo)
+    this.openMap(lo, la);
   },
   callPhone:function(){
     var that = this;
     wx.makePhoneCall({
-      phoneNumber: that.shop.phone
+      phoneNumber: that.data.shop.phone
     })
   }
 
