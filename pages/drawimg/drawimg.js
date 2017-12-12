@@ -110,6 +110,18 @@ Page({
       }
     });
   },
+  previewImg:function(){
+    var that = this;
+    wx.previewImage({
+      current: that.data.url, // 当前显示图片的http链接
+      urls: [that.data.url], // 需要预览的图片http链接列表
+      success: () => {
+        that.setData({
+          img: 'display:none'
+        })
+      }
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
