@@ -11,7 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    dprHeight: 1,
+    dprWidth: 1
   },
 
   /**
@@ -21,23 +22,28 @@ Page({
     console.log(app.globalData);
     console.log(app.globalData.bg_cover);
     console.log(app.globalData.qrcode);
-    console.log(ctx)
-    this.getShopInfo();
-    this.can = wx.createCanvasContext('can');
-    var that = this;
+    console.log(ctx);
+    var _this = this;
     wx.getSystemInfo({
       success: function(res) {
+        _this.setData({
+          dprHeight: res.windowHeight / 603,
+          dprWidth: res.windowWidth / 375
+        })
         ctx.drawImage(app.globalData.bg_cover, 0, 0, res.windowWidth, res.windowHeight);
+        ctx.drawImage(app.globalData.qrcode, (res.windowWidth - 92 * _this.data.dprWidth) / 2, 160 , 92 * _this.data.dprWidth, 92 * _this.data.dprWidth);
       },
     });
-    ctx.setFontSize(24);
+    ctx.setFontSize(24 * _this.data.dprWidth);
     ctx.setFillStyle('#FFFFFF');   
-    ctx.fillText(app.globalData.nickName, 140, 50);
-    ctx.setFontSize(14);
-    ctx.fillText('我为' + app.globalData.shop.shop_name + '小程序代言', 140, 80);
+    ctx.fillText(app.globalData.nickName, 140 * _this.data.dprWidth, 50 * _this.data.dprHeight);
+    ctx.setFontSize(14 * _this.data.dprWidth);
+    ctx.fillText('我为' + app.globalData.shop.shop_name + '小程序代言', 140 * _this.data.dprWidth, 80 * _this.data.dprHeight);
     ctx.arc(90, 55, 30, 0, 2 * Math.PI)
     ctx.clip()
-    ctx.drawImage(app.globalData.avatarUrl, 60, 25, 60, 60);
+    ctx.drawImage(app.globalData.avatarImg, 60, 25, 60, 60);
+    ctx.restore();
+    
     ctx.draw();
   },
   /**
@@ -87,5 +93,6 @@ Page({
    */
   onShareAppMessage: function () {
     
-  }
+  },
+  
 });
