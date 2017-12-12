@@ -470,10 +470,41 @@ Page({
       dataType: 'json',
       method: 'POST',
       success: (res) => {
-        if (res.success === 1) {
-          wx.redirectTo({
-            url: '../orderDetail/orderDetail?id=' + res.data.responseData.order_id.order_id,
-          })
+        if (res.data.success === 1) {
+          _this.setData({
+            isPay: false
+          });
+          var _order_id = res.data.responseData.order_id.order_id;
+          wx.requestPayment({
+            timeStamp: res.data.responseData.pay_data.time,
+            nonceStr: res.data.responseData.pay_data.nonce_str,
+            package: res.data.responseData.pay_data.package,
+            signType: 'MD5',
+            paySign: res.data.responseData.pay_data.paySign,
+            success: (res) => {
+              wx.showToast({
+                title: '支付成功',
+                icon: 'success',
+                duration: 2000,
+                complete: () => {
+                  wx.redirectTo({
+                    url: '../orderDetail/orderDetail?id=' + _order_id,
+                  })
+                }
+              });
+            },
+            fail: (res) => {
+              wx.showModal({
+                title: '',
+                content: '支付失败',
+                success: (res) => {
+                  wx.redirectTo({
+                    url: '../orderDetail/orderDetail?id=' + _order_id,
+                  })
+                }
+              })
+            },
+          });
         } else {
           wx.showModal({
             title: '',

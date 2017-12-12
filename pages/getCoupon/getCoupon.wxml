@@ -11,7 +11,7 @@
     <view class='coupon-info'>
       <view class='coupon-name'>{{item.name}}</view>
       <view class='coupon-time'>截至时间：{{item.exp_time}}</view>
-      <text class='coupon-btn invalid' wx:if="{{item.is_received === 1}}" data-id='{{item.id}}' bindtap='receiveCoupon'>已经领取</text>
+      <text class='coupon-btn invalid' wx:if="{{item.is_received === 1}}" data-id='{{item.id}}'>已经领取</text>
       <text class='coupon-btn' wx:else data-id='{{item.id}}' bindtap='receiveCoupon'>立即领取</text>
     </view>
   </view>
