@@ -1,0 +1,36 @@
+/* pages/loading/loading.wxss */
+.body{
+  position: relative;
+}
+.body image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.loading{
+  z-index: 1500;
+  color: #FFF;
+  text-align: center;
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  font-size: 90rpx;
+  transition: all linear;
+  line-height: 100rpx;
+  animation: loading 2s infinite ease-in-out; 
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

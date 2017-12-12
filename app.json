@@ -37,7 +37,9 @@
     "pages/about/about",
     "pages/employee/employee",
     "pages/room/room",
-    "pages/bookRoom/bookRoom"
+    "pages/bookRoom/bookRoom",
+    "pages/laoding/laoding",
+    "pages/qcode/qcode"
   ],
   "window": {
     "backgroundTextStyle": "light",

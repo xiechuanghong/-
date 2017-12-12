@@ -1,5 +1,5 @@
 /* pages/myCard/myCard.wxss */
-.body{padding-top:40rpx;}
+.body{padding-top:40rpx;overflow: hidden;}
 .card{width:690rpx; height:340rpx; margin:0 auto 40rpx; position:relative; box-shadow:-5rpx 5rpx 10rpx #ccc; 
   border-radius:10rpx;}
 .card .cbg{position:absolute; width:690rpx; height:340rpx; z-index:0; }

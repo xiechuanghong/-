@@ -1,0 +1,6 @@
+<view class='body'>
+  <image src='../img/loading_bg.png'></image>
+  <view class='loading'>
+    <text class='iconfont icon-loading'></text>
+  </view>
+</view>
