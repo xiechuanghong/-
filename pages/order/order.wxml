@@ -1,147 +1,81 @@
 <view>
 
-
-  <!-- <view class='list-item' wx:for="{{order}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="item">
-    <view class='list-header text-between' bindtap='toOrderDetail' data-id="{{item.order_id}}">
-      <text class='name'>哇哈哈美容</text>
-      <text class='state'>{{item.status=='0'?'待消费':item.status=='1'?'未付款':item.status=='2'?'待评价':item.status=='3'?'已完成':item.status=='4'?'已退款':''}}</text> -->
-
   <view class="swiper-tab">
-    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">实时订单</view>
-    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">预约订单</view>
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">预约订单</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">实时订单</view>
   </view>
+
   <view>
-
-<!--实时  -->
-    <view style='{{currentTab === "1" ? "display: block;" : "display: none;"}}'>
-      <view wx:if='{{orderReal.length < 1}}'>
-
-        <view class='no-order'>
-          <view class='iconfont icon-no-data'></view>
-          <view class='txt'>您暂时没有订单喔</view>
-        </view>
-
-      </view>
-      <view wx:else>
-      <view class='list'>
-    <view class='list-item' wx:for="{{orderReal}}" wx:key="{{index}}" wx:for-item="item">
-      <view class='list-header text-between' data-id="{{item.order_id}}" bindtap='toOrderDetail'>
-        <text class='name' data-id="{{item.order_id}}">{{shop_name}}</text>
-        <text class='state' data-id="{{item.order_id}}">
-        {{item.status == 0?'待支付':item.status == 1?'已支付':'已完成'}}
-      </text>
-      </view>
-      <view class='list-body'>
-        <view class='text-between' wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{index}}">
-          <text class='name'>{{goods.goods_anme}}</text>
-          <text class='price'>￥{{goods.goods_price}}</text>
-        </view>
-        <view class='text-right'>
-          <text>共{{item.goods_num}}件服务项目，实付<text class='actual'>￥{{item.pay_amount}}</text></text>
-        </view>
-      </view>
-      <view class='list-footer text-right'>
-        <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" bindtap="cancelOrder">取消</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
-      </view>
-    </view>
-  </view>
-      </view>
-    </view>
-
-<!--预约  -->
-    <view style='{{currentTab === "0" ? "display: block;" : "display: none;"}}'>
+    <!--预约订单  -->
+    <view wx:if="{{currentTab === '0'}}">
       <view wx:if='{{orderMake.length < 1}}'>
-
         <view class='no-order'>
           <view class='iconfont icon-no-data'></view>
           <view class='txt'>您暂时没有订单喔</view>
         </view>
-
       </view>
+      <!-- 预约订单内容 -->
       <view wx:else>
-      <view class='list'>
-    <view class='list-item' wx:for="{{orderMake}}" wx:key="{{index}}" wx:for-item="item">
-      <view class='list-header text-between' data-id="{{item.order_id}}" bindtap='toOrderDetail'>
-        <text class='name' data-id="{{item.order_id}}">{{shop_name}}</text>
-        <text class='state' data-id="{{item.order_id}}">
-        {{item.status == 0?'待支付':item.status == 1?'已支付':'已完成'}}
-      </text>
-      </view>
-      <view class='list-body'>
-        <view class='text-between' wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{index}}">
-          <text class='name'>{{goods.goods_anme}}</text>
-          <text class='price'>￥{{goods.goods_price}}</text>
+        <view class='list'>
+          <view class='list-item' wx:for="{{orderMake}}" wx:key="{{index}}" wx:for-item="item">
+            <view class='list-header text-between' data-id="{{item.order_id}}" bindtap='toOrderDetail'>
+              <text class='name' data-id="{{item.order_id}}">{{shop_name}}</text>
+              <text class='state' data-id="{{item.order_id}}">{{item.status == 0?'待支付':item.status == 1?'已支付':'已完成'}}</text>
+            </view>
+            <view class='list-body'>
+              <view class='text-between' wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{index}}">
+                <text class='name'>{{goods.goods_anme}}</text>
+                <text class='price'>￥{{goods.goods_price}}</text>
+              </view>
+              <view class='text-right'>
+                <text>共{{item.goods_num}}件服务项目，实付<text class='actual'>￥{{item.pay_amount}}</text></text>
+              </view>
+            </view>
+            <view class='list-footer text-right'>
+              <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" bindtap="cancelOrder">取消</text>
+              <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
+              <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
+              <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
+            </view>
+          </view>
         </view>
-        <view class='text-right'>
-          <text>共{{item.goods_num}}件服务项目，实付<text class='actual'>￥{{item.pay_amount}}</text></text>
-        </view>
-      </view>
-      <view class='list-footer text-right'>
-        <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" bindtap="cancelOrder">取消</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
       </view>
     </view>
-  </view>
+    <!--实时订单  -->
+    <view wx:if="{{currentTab === '1'}}">
+      <view wx:if='{{orderReal.length < 1}}'>
+        <view class='no-order'>
+          <view class='iconfont icon-no-data'></view>
+          <view class='txt'>您暂时没有订单喔</view>
+        </view>
+      </view>
+      <!-- 实时订单内容 -->
+      <view wx:else>
+        <view class='list'>
+          <view class='list-item' wx:for="{{orderReal}}" wx:key="{{index}}" wx:for-item="item">
+            <view class='list-header text-between' data-id="{{item.order_id}}" bindtap='toOrderDetail'>
+              <text class='name' data-id="{{item.order_id}}">{{shop_name}}</text>
+              <text class='state' data-id="{{item.order_id}}">{{item.status == 0?'待支付':item.status == 1?'已支付':'已完成'}}</text>
+            </view>
+            <view class='list-body'>
+              <view class='text-between' wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{index}}">
+                <text class='name'>{{goods.goods_anme}}</text>
+                <text class='price'>￥{{goods.goods_price}}</text>
+              </view>
+              <view class='text-right'>
+                <text>共{{item.goods_num}}件服务项目，实付<text class='actual'>￥{{item.pay_amount}}</text></text>
+              </view>
+            </view>
+            <view class='list-footer text-right'>
+              <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" bindtap="cancelOrder">取消</text>
+              <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
+              <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
+              <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
-
-<view class='list'>
-    <view class='list-item' wx:for="{{orderReal}}" wx:key="{{index}}" wx:for-item="item">
-      <view class='list-header text-between' data-id="{{item.order_id}}" bindtap='toOrderDetail'>
-        <text class='name' data-id="{{item.order_id}}">{{shop_name}}</text>
-        <text class='state' data-id="{{item.order_id}}">
-        {{item.status == 0?'待支付':item.status == 1?'已支付':'已完成'}}
-      </text>
-      </view>
-      <view class='list-body'>
-        <view class='text-between' wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{index}}">
-          <text class='name'>{{goods.goods_anme}}</text>
-          <text class='price'>￥{{goods.goods_price}}</text>
-        </view>
-        <view class='text-right'>
-          <text>共{{item.goods_num}}件服务项目，实付<text class='actual'>￥{{item.pay_amount}}</text></text>
-        </view>
-      </view>
-      <view class='list-footer text-right'>
-        <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" bindtap="cancelOrder">取消</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
-      </view>
-    </view>
-  </view>
-
-    <!-- <view class='list' wx:if="{{currentTab == '1'}}">
-    <view class='list-item' wx:for="{{orderMake}}" wx:key="{{index}}" wx:for-item="item">
-      <view class='list-header text-between' data-id="{{item.order_id}}" bindtap='toOrderDetail'>
-        <text class='name' data-id="{{item.order_id}}">{{shop_name}}</text>
-        <text class='state' data-id="{{item.order_id}}">
-        {{item.status == 0?'待支付':item.status == 1?'已支付':'已完成'}}
-      </text>
-      </view>
-      <view class='list-body'>
-        <view class='text-between' wx:for="{{item.goods}}" wx:for-item="goods" wx:key="{{index}}">
-          <text class='name'>{{goods.goods_anme}}</text>
-          <text class='price'>￥{{goods.goods_price}}</text>
-        </view>
-        <view class='text-right'>
-          <text>共{{item.goods_num}}件服务项目，实付<text class='actual'>￥{{item.pay_amount}}</text></text>
-        </view>
-      </view>
-      <view class='list-footer text-right'>
-        <text class='btn btn-cancel' wx:if="{{item.status == 0}}" data-id="{{item.order_id}}" bindtap="cancelOrder">取消</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 0}}" bindtap='openModal'>支付</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 1}}" bindtap='confirmConsume'>确认消费</text>
-        <text class='btn' data-id="{{item.order_id}}" wx:if="{{item.status == 3&& item.is_comment ==0}}" bindtap='toEvaluate'>评价</text>
-      </view>
-    </view>
-  </view> -->
-
   </view>
 
   <view class='mask {{isPay ? "in" : ""}}' bindtap='closeModal'></view>

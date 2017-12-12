@@ -8,7 +8,7 @@ Page({
   data: {
     orderReal: [],
     orderMake: [],
-    status:'123',
+    status:'',
     isPay:false,
     currentTab: "0",
   },
@@ -17,8 +17,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.orderRequest('P');
     this.orderRequest('G');
+    this.orderRequest('P');
   },
 
   /**
@@ -316,6 +316,7 @@ Page({
       })
     }
   },
+  // 发送请求获取数据
   orderRequest:function(type) {
     var _this = this,
       pro_id = config.pro_id,
