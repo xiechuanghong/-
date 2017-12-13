@@ -486,16 +486,19 @@ Page({
             signType: 'MD5',
             paySign: res.data.responseData.pay_data.paySign,
             success: (res) => {
-              wx.showToast({
-                title: '支付成功',
-                icon: 'success',
-                duration: 2000,
-                complete: () => {
-                  wx.redirectTo({
-                    url: '../orderDetail/orderDetail?id=' + _order_id,
-                  })
-                }
-              });
+              if(res.success == 1){
+                wx.showToast({
+                  title: '支付成功',
+                  icon: 'success',
+                  duration: 2000,
+                  complete: () => {
+                    wx.redirectTo({
+                      url: '../orderDetail/orderDetail?id=' + _order_id,
+                    })
+                  }
+                });
+                app.globalData.evaluate = true;
+              }
             },
             fail: (res) => {
               wx.showModal({

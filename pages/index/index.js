@@ -192,5 +192,33 @@ Page({
         })
       }
     })
-  }
+  },
+  gLocation: function () {
+    // this.openMap(this.la, this.lo);
+    var locations = this.data.shop.gps, la, lo;
+    locations = locations.split(',');
+    la = parseFloat(locations[0]);
+    lo = parseFloat(locations[1]);
+    // console.log(locations)
+    // console.log(la)
+    // console.log(lo)
+    this.openMap(lo, la);
+  },
+  callPhone: function () {
+    var that = this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.shop.phone
+    })
+  },
+  openMap: function (la, lo) {
+    var that = this;
+    wx.openLocation({
+      latitude: la,
+      longitude: lo,
+      scale: 18,
+      success: (res) => {
+        console.log(res)
+      }
+    })
+  },
 })

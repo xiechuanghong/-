@@ -204,7 +204,7 @@ Page({
         store      : config.store,
         key        : app.globalData.key,
         order_id   : _this.data.order_id,//
-        content    : _this.data.textArea,
+        content    : _this.data.textArea || ' ',
         star       : _this.data.grade,
         anonymous  : _this.data.anonymous ? '1' : '0',
         images     : arrImg.join(','),

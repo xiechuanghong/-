@@ -497,6 +497,7 @@ Page({
                   })
                 }
               });
+              app.globalData.evaluate = true;
             },
             fail: (res) => {
               wx.showModal({
