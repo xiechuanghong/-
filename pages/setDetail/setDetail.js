@@ -101,6 +101,9 @@ Page({
             list:str.responseData,
             appraise:imgs
           })
+          wx.setNavigationBarTitle({
+            title: str.responseData.goods_name,
+          })
           var article = str.responseData.goods_detail;
           WxParse.wxParse('article', 'html', article , that, 5);
         }
