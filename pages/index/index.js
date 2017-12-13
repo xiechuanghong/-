@@ -18,10 +18,11 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-    _this.setData({
-      shop: app.globalData.shop
-    })
+    // _this.setData({
+    //   shop: app.globalData.shop
+    // })
     _this.index();
+    _this.shopName();
   },
 
   /**
@@ -47,6 +48,18 @@ Page({
     }
     wx.setNavigationBarTitle({
       title: app.globalData.shop.shop_name,
+    })
+  },
+  shopName:function(){
+    var that = this;
+    if (!app.globalData.shop){
+      setTimeout(function(){
+        that.shopName();
+      },100)
+      return;
+    }
+    that.setData({
+      shop: app.globalData.shop
     })
   },
   /**

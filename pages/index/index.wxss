@@ -10,14 +10,14 @@
   background-color: #FFF;
   font-size: 24rpx;
   color: #666;
-  padding: 20rpx 30rpx 0 30rpx;
+  padding: 10rpx 30rpx;
   line-height: 50rpx;
   border: 1px solid #EEE;
   border-radius: 10rpx;
   width: 710rpx;
   box-sizing: border-box;
-  margin: 30rpx auto;
-  box-shadow: 0 0 14rpx #CCC;
+  margin: 15rpx auto;
+  box-shadow: 0 0 14rpx #eee;
 }
 .shop-info-item{
   position: relative;
@@ -29,7 +29,7 @@
   color: #4278F2;
 }
 .shop-info-item:last-child{
-  padding-bottom: 20rpx;
+  /* padding-bottom: 20rpx; */
 }
 .title{
   margin: 0 auto;
@@ -195,3 +195,4 @@ swiper-item image{
 .grids-content{
   padding: 20rpx 0;
 }
+.bor{width:4rpx; height:40rpx; position:absolute; background:#eee; top:4rpx; right:110rpx;}
