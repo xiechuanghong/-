@@ -31,7 +31,7 @@
   font-size: 32rpx;
 }
 .grids-info{
-  border-left: 3px solid #FF6589;
+  border-left: 2px solid #FF6589;
   padding-left: 20rpx;
 }
 .grids-content{

@@ -3,7 +3,7 @@
   <text class='txt'>让自己自信起来</text>
   <text class='line'></text>
 </view> -->
-<swiper autoplay='true' circular='true'>
+<swiper autoplay='true' circular='true' indicator-dots='true' indicator-active-color='#FF6589'>
   <swiper-item wx:for='{{ad}}' wx:key='id'>
     <image src='{{item.logo}}' data-id='{{item.id}}'></image>
   </swiper-item>

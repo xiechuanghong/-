@@ -132,5 +132,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  backIndex: function() {
+    wx.switchTab({
+      url: '../index/index',
+    })
   }
 })

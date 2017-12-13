@@ -23,7 +23,9 @@ Page({
     });
     _this.index();
     _this.UserInfo();
-   
+    wx.setNavigationBarTitle({
+      title: app.globalData.shop.shop_name,
+    });
   },
 
   /**
@@ -38,9 +40,7 @@ Page({
    */
   onShow: function () {
 
-    wx.setNavigationBarTitle({
-      title: '梦之曦',
-    });
+    
 
     if (app.globalData.register) { this.index()}
 

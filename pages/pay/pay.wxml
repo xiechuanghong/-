@@ -5,7 +5,7 @@
 <view class='price-bar text-between'>
   <view class='item-name'>消费总额（元）</view>
   <view class='item-content'>
-    <input type='digit' style="color:#333" value="{{totalPrice == '0.00'?'':totalPrice}}" placeholder='询问服务员后输入' bindblur='inputVal' ></input>
+    <input type='digit' style="color:#333" value="{{totalPrice == '0.00'?'':totalPrice}}" placeholder='询问服务员后输入' bindblur='inputVal'></input>
   </view>
 </view>
 <view class='list'>

@@ -20,7 +20,10 @@
    background:#fff; color:#999; }
 .audit .a_icon{font-size:100rpx; margin-bottom:40rpx;}
 .audit .a_txt{width:357rpx;text-align:center; margin:0 auto;}
-.a_btn{width:310rpx; height:84rpx; border:1rpx solid #ffa838; border-radius:42rpx; color:#ffa838; margin-top:100rpx;}
+.a_btn{width:310rpx; line-height:84rpx; border:2rpx solid #ffa838; border-radius:42rpx; color:#ffa838; margin-top:100rpx; outline: none;}
+.a_btn::after{
+  border: none;
+}
 .icon-xuanzhong.active{
   color:#ff8383;
 }

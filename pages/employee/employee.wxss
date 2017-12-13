@@ -14,6 +14,6 @@
 .manDetail{text-indent:20rpx; line-height:60rpx;  letter-spacing:3rpx;}
 .manRow{width:323rpx; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 .btn{width:166rpx; height:64rpx; background:#FF86A5; font-size:28rpx; color:#fff; padding:0; letter-spacing:2rpx;}
-.name{font-size:32rpx; color:#000; font-weight:bold;}
+.name{font-size:32rpx; color:#000;}
 .titles{font-size:28rpx; color:#666;}
 .or{font-size:26rpx; color:#999;}

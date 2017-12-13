@@ -1,3 +1,6 @@
+page{
+  padding-bottom: 120rpx;
+}
 .text-between{
   display: flex;
   justify-content: space-between;
@@ -83,4 +86,15 @@
 }
 .item-content{
   color: #999;
+}
+.back-index{
+  line-height: 100rpx;
+  background-color: #333;
+  color: #FFF;
+  font-size: 36rpx;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

@@ -14,7 +14,6 @@
 }
 .hairdressing {
   font-size: 36rpx;
-  font-weight: bold;
   letter-spacing:2rpx;
   font-family:PingFang-SC-Bold;
 }
@@ -77,7 +76,6 @@
 }
 .about .title {
   font-size: 30rpx;
-  font-weight: bold;
   margin-bottom: 29rpx;
   font-family: PingFang-SC-Medium;
 }
@@ -91,7 +89,9 @@
 }
 .pull-right.icon-phone{
   color: #FF6161;
+  font-size: 38rpx;
 }
 .pull-right.icon-navigate{
   color: #4278F2;
+  font-size: 42rpx;
 }

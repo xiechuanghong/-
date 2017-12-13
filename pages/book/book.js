@@ -22,7 +22,10 @@ Page({
 
     _this.setData({
       shop: app.globalData.shop
-    })
+    });
+    wx.setNavigationBarTitle({
+      title: app.globalData.shop.shop_name,
+    });
   },
 
   /**

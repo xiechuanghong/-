@@ -18,7 +18,7 @@
             <view class="rName">{{goods.goods_name}}</view>
             <view class="rNum">已售{{goods.sell_num}}份</view>
             <view class="rPrice">￥{{goods.goods_price}}</view>
-            <view class="rAdd" data-id="{{goods.goods_id}}" bindtap='addCart'>+</view>
+            <image src='../img/add.png' class="rAdd" data-id="{{goods.goods_id}}" bindtap='addCart'></image>
           </view>
         </view>
       </view>
