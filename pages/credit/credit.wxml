@@ -9,7 +9,7 @@
     <view class="title">充值金额</view>
     <view class="input">
       <text class="left">￥</text>
-      <input class="left" type="number" value="{{inputVal}}" bindblur='money'  ></input>
+      <input class="left" type="digit" value="{{inputVal}}" bindblur='money'  ></input>
     </view>
     <view class="balance">会员卡余额￥{{wallet}}</view>
     <button class="btn" bindtap='refill'>确定</button>
