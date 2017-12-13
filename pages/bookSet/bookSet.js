@@ -164,7 +164,6 @@ Page({
         var str = JSON.parse(res.data);
         console.log(str);
         if(str.success == 1){
-          app.globalData.evaluate = true;
           wx.showModal({
             title: '提示',
             content: '支付成功',
@@ -177,6 +176,7 @@ Page({
               })
             }
           })
+          app.globalData.evaluate = true;
         }else{
           wx.showModal({
             title: '提示',
