@@ -3,7 +3,7 @@
   <view class='txt'>暂时没有优惠券</view>
 </view>
 <view class='list' wx:else>
-  <view class='list-item' wx:for='{{coupon}}' wx:key='id'>
+  <view class='list-item {{item.is_received === 1 ? "invalid" : ""}}' wx:for='{{coupon}}' wx:key='id'>
     <view class='coupon-content'>
       <view class='coupon-amount'>￥<text>{{item.amount}}</text></view>
       <view class='coupon-condition'>{{item.desc}}</view>
@@ -11,8 +11,11 @@
     <view class='coupon-info'>
       <view class='coupon-name'>{{item.name}}</view>
       <view class='coupon-time'>截至时间：{{item.exp_time}}</view>
-      <text class='coupon-btn invalid' wx:if="{{item.is_received === 1}}" data-id='{{item.id}}'>已经领取</text>
+      <text class='coupon-btn' wx:if="{{item.is_received === 1}}" data-id='{{item.id}}'>已经领取</text>
       <text class='coupon-btn' wx:else data-id='{{item.id}}' bindtap='receiveCoupon'>立即领取</text>
+    </view>
+    <view wx:if='{{item.is_received === 1}}' class='coupon-state'>
+      <image src='../img/img_coupon1.png'></image>
     </view>
   </view>
 </view>

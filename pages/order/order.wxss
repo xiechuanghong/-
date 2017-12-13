@@ -29,7 +29,7 @@
 }
 .on{
     color: #000;
-    border-bottom: 5rpx solid #da7c0c;
+    border-bottom: 5rpx solid #FF6589;
 }  
   
 .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  

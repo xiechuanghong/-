@@ -1,3 +1,4 @@
 {
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "我要买单"
 }

@@ -2,8 +2,8 @@ page{
   background-color: #F8F8F8;
 }
 .room-pic{
-  width: 320rpx;
-  height: 232rpx;
+  width: 280rpx;
+  height: 220rpx;
   float: left;
 }
 .room-pic image{
@@ -12,10 +12,11 @@ page{
   height: 100%;
 }
 .room-info{
-  margin-left: 350rpx;
-  height: 232rpx;
-  padding: 20rpx 0;
+  margin-left: 309rpx;
+  height: 220rpx;
+  padding: 65rpx 0 0 0;
   box-sizing: border-box;
+  position: relative;
 }
 .list-item{
   padding: 30rpx;
@@ -25,7 +26,7 @@ page{
 .room-name{
   font-size: 32rpx;
   color: #000;
-  margin-bottom: 20rpx;
+  margin-bottom: 28rpx;
 }
 .room-nums{
   font-size: 26rpx;
@@ -33,10 +34,13 @@ page{
   margin-bottom: 20rpx;
 }
 .room-btn{
-  padding: 19rpx 27rpx;
+  padding: 20rpx 35rpx;
   font-size: 28rpx;
   color: #FFF;
   background-color: #FF86A5;
   border-radius: 10rpx;
   display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 77rpx;
 }

@@ -59,3 +59,4 @@
     <view class='item-name'>客服联系电话：{{shopPhone}}</view>
   </view>
 </view>
+<view class='back-index' bindtap='backIndex'>返回首页</view>
