@@ -18,8 +18,8 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-    _this.bespeakExpert();
-
+    // console.log(options)
+    // _this.bespeakExpert();
     _this.setData({
       shop: app.globalData.shop
     })
@@ -36,7 +36,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      start:''
+    })
+    this.bespeakExpert();
   },
 
   /**
@@ -88,6 +91,7 @@ Page({
         store: config.store,
         start: _this.data.start
       }
+      console.log(999999999)
 
     wx.request({
       url: url + 'Cosmetology/bespeakExpert',

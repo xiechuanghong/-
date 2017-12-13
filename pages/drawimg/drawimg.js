@@ -122,6 +122,15 @@ Page({
       }
     })
   },
+  saveImg:function(){
+    var that = this;
+    wx.saveImageToPhotosAlbum({
+      filePath: that.data.url,
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

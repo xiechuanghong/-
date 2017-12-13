@@ -67,7 +67,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.index();
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -163,7 +164,7 @@ Page({
   toExtend: function () {
     var _this = this,
       is_salesman = app.globalData.gradeInfo.is_salesman;
-    if (is_salesman === 0) {
+    if (is_salesman === 0 || is_salesman === 3) {
       wx.navigateTo({
         url: '../generalize/generalize?salesman=' + is_salesman,
       });

@@ -23,9 +23,9 @@
     <view class='points-item' wx:for='{{integration}}' wx:key='id'>
       <view class='points-record'>
         <view class='points-name'>充值</view>
-        <view class='points-amount'>+1220.00</view>
+        <view class='points-amount'>{{item.integration}}</view>
       </view>
-      <view class='points-time'>2017-08-20</view>
+      <view class='points-time'>{{item.created_at}}</view>
     </view>
   </view>
 </block> 

@@ -11,5 +11,5 @@ canvas{
 image{
   width:750rpx; height:1215rpx;
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
