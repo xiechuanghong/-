@@ -33,11 +33,11 @@
   </view>
 
     <!-- 列表 -->
-  <view class='list-a'>
+  <view class='list-a'  bindtap='callPhone'>
     <view class="left">
       <image src='../img/book_icon_shop.png'></image>
     </view>
-    <view class="right" bindtap='callPhone'>  
+    <view class="right">  
       <text>电话：{{shop.phone}}</text>
     </view>
     <text class='pull-right iconfont icon-phone'></text>

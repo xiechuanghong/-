@@ -3,8 +3,8 @@
 
   <canvas style="{{img}}" canvas-id='can'></canvas>
 
-  <!-- <button open-type='share' class="btn" bindtap='' >马上分享</button>   -->
+   <button open-type='share' class="btn" bindtap='saveImg' >马上分享</button>   
 
-    <image bindtap='previewImg' wx:if="{{url}}" src="{{url}}"></image>  
+   <image bindtap='previewImg' wx:if="{{url}}" src="{{url}}"></image>  
   
 </view>
