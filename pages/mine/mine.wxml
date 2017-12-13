@@ -1,15 +1,23 @@
 <view class='header'>
   <image src='{{avatarUrl}}'></image>
-  <view class='member' wx:if='{{userData.is_member === 1}}'>
+  <view class='member'>
     <view class='member-info'>
-      <view>{{nickName}}</view>
-      <view class='member-level'>{{userData.grade_name}}</view>
+      <view>{{nickName}} <text class='member-level'>{{userData.grade_name}}</text></view>
     </view>
-    <view class='member-detail'>我的积分{{userData.integration}} | 余额：￥{{userData.wallet}}</view>
   </view>
-  <view class='name' wx:else>
-    <text>{{nickName}}</text>
-  </view>  
+  <view class='member-detail'>
+    <view class='info-box'>
+      <view class='info-item'>
+        <view class='info-title'>我的积分</view>
+        <view>{{userData.integration}}</view>
+      </view>
+      <view class='info-item'>
+        <view class='info-title'>余额</view>
+        <view>￥{{userData.wallet}}</view>
+      </view>
+      <view class='info-line'></view>
+    </view>
+  </view>
 </view>
 <view class='grids'>
   <view class='grids-item' bindtap='synchronizationInfo'>

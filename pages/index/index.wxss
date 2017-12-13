@@ -14,7 +14,7 @@
   line-height: 50rpx;
   border: 1px solid #EEE;
   border-radius: 10rpx;
-  width: 700rpx;
+  width: 710rpx;
   box-sizing: border-box;
   margin: 30rpx auto;
   box-shadow: 0 0 14rpx #CCC;
