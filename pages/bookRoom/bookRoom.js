@@ -497,7 +497,6 @@ Page({
                     })
                   }
                 });
-                app.globalData.evaluate = true;
               }
             },
             fail: (res) => {
@@ -511,6 +510,9 @@ Page({
                 }
               })
             },
+            complete:()=>{
+              app.globalData.evaluate = true;
+            }
           });
         } else {
           wx.showModal({
@@ -569,6 +571,9 @@ Page({
             content: res.data.message,
           })
         }
+      },
+      complete:()=>{
+        app.globalData.evaluate = true;
       }
     })
   }

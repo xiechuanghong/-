@@ -17,7 +17,7 @@
 </view>
 <view class='score-box'>
   <view class='score-total'>
-    <view class='score-num'><text>{{list.comment.length<1?'0.0':list.comment_avg}}</text>分</view>
+    <view class='score-num'><text>{{stars}}</text>分</view>
     <view>综合评分</view>
   </view>
   <view class='score-line'></view>
@@ -50,7 +50,7 @@
         </view>
         <view class='evaluate-content'>{{item.comment}}</view>
         <view class='evaluate-img'>
-          <image src='{{img}}'  wx:for="{{item.img_urls}}" wx:key="id" wx:for-item="img"></image>
+          <image src='{{img}}' wx:if="{{img != ''}}"  wx:for="{{item.img_urls}}" wx:key="id" wx:for-item="img"></image>
           {{img}}
         </view>
       </view>

@@ -62,6 +62,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading();
     this.orderList();
     wx.stopPullDownRefresh();
   },
@@ -342,6 +343,7 @@ Page({
         console.log(res)
         let arr = []
         if (res.data.success == 1) {
+          wx.hideNavigationBarLoading();
           if (!(res.data.responseData.length === undefined)) {
             if (type == 'G') {
               _this.setData({

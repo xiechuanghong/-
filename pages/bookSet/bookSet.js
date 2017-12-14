@@ -147,6 +147,9 @@ Page({
                   })
                 }
               })
+            },
+            complete:()=>{
+              app.globalData.evaluate = true;
             }
           })
         }
@@ -176,7 +179,6 @@ Page({
               })
             }
           })
-          app.globalData.evaluate = true;
         }else{
           wx.showModal({
             title: '提示',
@@ -188,6 +190,9 @@ Page({
             }
           })
         }
+      },
+      complete:()=>{
+        app.globalData.evaluate = true;
       }
     })
   },

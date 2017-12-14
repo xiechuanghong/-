@@ -497,7 +497,7 @@ Page({
                   })
                 }
               });
-              app.globalData.evaluate = true;
+              
             },
             fail: (res) => {
               wx.showModal({
@@ -510,6 +510,9 @@ Page({
                 }
               })
             },
+            complete:()=>{
+              app.globalData.evaluate = true;
+            }
           });
         } else {
           wx.showModal({
@@ -568,6 +571,9 @@ Page({
             content: res.data.message,
           })
         }
+      },
+      complete:()=>{
+        app.globalData.evaluate = true;
       }
     })
   }
