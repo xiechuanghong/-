@@ -143,7 +143,7 @@ Page({
         order_amount: that.data.totalPrice,
         pay_amount: that.data.payPrice,
         ticket: that.data.couponID,
-        formId: thst.formId
+        formId: that.formId
       },
       success:(res)=>{
         var str = JSON.parse(res.data);

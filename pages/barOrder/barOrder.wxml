@@ -35,7 +35,11 @@
       <text wx:if="{{cartLenth==0}}">你还没有选好商品哦!</text>
       <text wx:else style="font-size:46rpx;color:#000;">￥{{total}}</text>
     </view>
-    <view class="pay" style="{{cartLenth>0?'':'background:#fff'}}" bindtap="PAY" >立即支付</view>
+
+    <form bindsubmit='PAY' report-submit='true'>
+      <button form-type='submit' class="pay" style="{{cartLenth>0?'':'background:#fff'}}" >立即支付</button>
+    </form>
+
   </view>
 
   <view class="cartBg" wx:if="{{showCart}}" data-id='hide' bindtap='hideCart'>

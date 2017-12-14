@@ -29,7 +29,8 @@
     text-align:center; line-height:45rpx;}
   .cartPrice{width:400rpx; height:100%; line-height:102rpx; text-indent:40rpx; font-size:28rpx;}
   .pay{width:200rpx; height:102rpx; line-height:102rpx; text-align:center; background:#333;
-    color:#fff;}
+    color:#fff; border-radius:0;}
+  .pay::after{border:0;}
 
   .cartBg{width:100vw; height:100vh; background:rgba(0,0,0,0.3); position:fixed; bottom:104rpx; }
   .cartInfo{width:100%; max-height:1000rpx; background:#fff; position:absolute; bottom:0;}

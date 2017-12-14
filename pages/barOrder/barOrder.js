@@ -28,6 +28,7 @@ Page({
     this.getList();
   },
   PAY: function (ev) {
+    this.formId = ev.detail.formId;
     if (this.data.cartLenth == 0){return}
     this.setData({
       selPay: ''
@@ -225,7 +226,8 @@ Page({
         pay_amount: that.data.total,
         pay_type: 1,
         cart: JSON.stringify(that.data.cart),
-        table_id: that.table_id
+        table_id: that.table_id,
+        formId: that.formId
       },
       success:(res)=>{
         var str = JSON.parse(res.data);
@@ -267,7 +269,8 @@ Page({
         pay_amount: that.data.total,
         pay_type: 3,
         cart: JSON.stringify(that.data.cart),
-        table_id: that.table_id
+        table_id: that.table_id,
+        formId:that.formId
       },
       success: (res) => {
         var str = JSON.parse(res.data);
