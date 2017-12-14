@@ -195,4 +195,4 @@ swiper-item image{
 .grids-content{
   padding: 20rpx 0;
 }
-.bor{width:4rpx; height:40rpx; position:absolute; background:#eee; top:4rpx; right:110rpx;}
+.bor{width:4rpx; height:40rpx; position:absolute; background:#eee; top:5rpx; right:110rpx;}
