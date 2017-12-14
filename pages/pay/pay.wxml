@@ -35,4 +35,6 @@
     </view>
   </view>
 </view>
-<view class='pay-btn' bindtap='selPay' >立即买单</view>
+<form bindsubmit='selPay' report-submit='true' >
+  <button class='pay-btn' form-type='submit' >立即买单</button>
+</form>

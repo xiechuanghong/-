@@ -88,7 +88,8 @@ Page({
         key: app.globalData.key,
         order_amount: that.data.totalPrice,
         pay_amount: that.data.payPrice,
-        ticket: that.data.couponID
+        ticket: that.data.couponID,
+        formId: that.formId
       },
       success:(res)=>{
         var str = JSON.parse(res.data);
@@ -141,7 +142,8 @@ Page({
         key:app.globalData.key,
         order_amount: that.data.totalPrice,
         pay_amount: that.data.payPrice,
-        ticket: that.data.couponID
+        ticket: that.data.couponID,
+        formId: thst.formId
       },
       success:(res)=>{
         var str = JSON.parse(res.data);
@@ -222,7 +224,9 @@ Page({
       selId: 3
     })
   },
-  selPay:function(){
+  selPay:function(ev){
+    // console.log(ev)
+    this.formId = ev.detail.formId;
     if(this.data.selId == 1){
       this.balancePay();
     }else{
